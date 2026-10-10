@@ -22,7 +22,7 @@
   // ---------- reveal on scroll ----------
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var revealGroups = [
-    [".hero__title", ".hero__text", ".hero .btn"],
+    [".hero__title", ".hero__text", ".hero .btn", ".note"],
     [".projects .title", ".projects__hint"],
     [".card"],
     [".process .title", ".process__text", ".video"],
@@ -76,6 +76,52 @@
     window.addEventListener("resize", onScroll);
     window.addEventListener("a11ychange", onScroll);
     update();
+  }
+
+  // ---------- sticky header + skateboard progress ----------
+  var header = document.querySelector(".site-header");
+  var ride = document.querySelector(".ride");
+  var wheels = document.querySelectorAll(".ride__wheel");
+  var onScrollHeader = function () {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    if (header) header.classList.toggle("is-scrolled", window.scrollY > 10);
+    if (ride) ride.style.setProperty("--p", p.toFixed(4));
+    var spin = (-window.scrollY * 0.9).toFixed(1) + "deg"; // הגלגלים מסתובבים לפי כמות הגלילה
+    wheels.forEach(function (w) { w.style.setProperty("--spin", spin); });
+  };
+  window.addEventListener("scroll", onScrollHeader, { passive: true });
+  window.addEventListener("resize", onScrollHeader);
+  onScrollHeader();
+
+  // ---------- rolling band (moves by itself + faster while scrolling) ----------
+  var band = document.querySelector(".band");
+  if (band) {
+    var track = band.querySelector(".band__track");
+    var group = band.querySelector(".band__group");
+    var fill = function () {
+      while (track.scrollWidth < window.innerWidth * 1.15 + group.offsetWidth * 2) {
+        track.appendChild(group.cloneNode(true));
+      }
+    };
+    fill();
+    window.addEventListener("resize", fill);
+    var still = function () { return reduceMotion || document.documentElement.classList.contains("a11y-still"); };
+    var visible = false, x = 0, lastY = window.scrollY, lastT = 0;
+    var tick = function (t) {
+      if (!visible) return;
+      var dt = lastT ? Math.min(64, t - lastT) : 16; lastT = t;
+      var dy = Math.abs(window.scrollY - lastY); lastY = window.scrollY;
+      if (!still()) x = (x + dt * 0.045 + dy * 0.6) % group.offsetWidth;
+      track.style.setProperty("--bx", x.toFixed(1) + "px");
+      requestAnimationFrame(tick);
+    };
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) {
+        visible = es[0].isIntersecting;
+        if (visible) { lastT = 0; requestAnimationFrame(tick); }
+      }).observe(band);
+    }
   }
 
   // ---------- project links ----------
