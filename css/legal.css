@@ -2,22 +2,22 @@
   max-width: calc(var(--u) * 820);
   margin: 0 auto;
   padding: calc(var(--u) * 50) calc(var(--u) * 24) calc(var(--u) * 80);
-  font-size: calc(var(--u) * 17);
+  font-size: calc(var(--ft) * 17);
   line-height: 1.5;
 }
 .legal .title { margin: calc(var(--u) * 20) 0; text-align: right; }
-.legal h2 { font-size: calc(var(--u) * 22); margin: calc(var(--u) * 28) 0 calc(var(--u) * 8); }
+.legal h2 { font-size: calc(var(--ft) * 22); margin: calc(var(--u) * 28) 0 calc(var(--u) * 8); }
 .legal p, .legal li { margin-bottom: calc(var(--u) * 10); }
 .legal ul { list-style: disc; padding-right: calc(var(--u) * 22); }
 .legal a { color: var(--green); text-decoration: underline; }
 .legal__back { font-weight: 600; }
 
 @media (min-width: 768px) {
-  .legal { font-size: calc(var(--u) * 19); padding-top: calc(var(--u) * 70); }
-  .legal h2 { font-size: calc(var(--u) * 26); }
+  .legal { font-size: calc(var(--ft) * 19); padding-top: calc(var(--u) * 70); }
+  .legal h2 { font-size: calc(var(--ft) * 26); }
 }
 @media (min-width: 1200px) {
-  .legal { max-width: calc(var(--u) * 1100); font-size: calc(var(--u) * 24); padding: calc(var(--u) * 100) 0 calc(var(--u) * 140); }
-  .legal h2 { font-size: calc(var(--u) * 34); margin: calc(var(--u) * 40) 0 calc(var(--u) * 12); }
+  .legal { max-width: calc(var(--u) * 1100); font-size: calc(var(--ft) * 24); padding: calc(var(--u) * 100) 0 calc(var(--u) * 140); }
+  .legal h2 { font-size: calc(var(--ft) * 34); margin: calc(var(--u) * 40) 0 calc(var(--u) * 12); }
   .legal p, .legal li { margin-bottom: calc(var(--u) * 14); }
 }

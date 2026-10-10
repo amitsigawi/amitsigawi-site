@@ -19,6 +19,65 @@
     });
   }
 
+  // ---------- reveal on scroll ----------
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var revealGroups = [
+    [".hero__title", ".hero__text", ".hero .btn"],
+    [".projects .title", ".projects__hint"],
+    [".card"],
+    [".process .title", ".process__text", ".video"],
+    [".about__badge", ".about__text--a", ".about__text--b", ".about__photo"],
+    [".chat"],
+    [".contact__kicker", ".contact .title", ".contact__text", ".form-wrap"]
+  ];
+  revealGroups.forEach(function (group) {
+    var i = 0;
+    group.forEach(function (sel) {
+      document.querySelectorAll(sel).forEach(function (el) {
+        el.classList.add("reveal");
+        el.style.setProperty("--delay", (i++ % 6) * 0.12 + "s");
+      });
+    });
+  });
+  var revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+
+  // ---------- parallax for testimonials ----------
+  // כל המלצה זזה למעלה במהירות קצת שונה – עדין, ולא יוצא מהמסך
+  var chats = document.querySelectorAll(".chat");
+  var about = document.getElementById("about");
+  if (chats.length && about && !reduceMotion) {
+    var speeds = [0.10, 0.16, 0.22];
+    var ticking = false;
+    var update = function () {
+      ticking = false;
+      var r = about.getBoundingClientRect();
+      var vh = window.innerHeight;
+      // -1 כשהסקשן מתחת למסך, 0 במרכז, 1 כשעבר למעלה
+      var p = ((vh / 2) - (r.top + r.height / 2)) / vh;
+      p = Math.max(-1.2, Math.min(1.2, p));
+      if (document.documentElement.classList.contains("a11y-still")) p = 0; // "עצירת אנימציות" בתפריט הנגישות
+      if (window.innerWidth < 768) p *= 0.35; // במובייל ההמלצות אחת מתחת לשנייה – תזוזה קטנה יותר
+      chats.forEach(function (c, i) {
+        c.style.setProperty("--py", (-p * speeds[i % speeds.length] * vh).toFixed(1) + "px");
+      });
+    };
+    var onScroll = function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    window.addEventListener("a11ychange", onScroll);
+    update();
+  }
+
   // ---------- project links ----------
   var links = window.PROJECT_LINKS || {};
   document.querySelectorAll(".card__link").forEach(function (a) {
@@ -56,18 +115,26 @@
     var ok = true;
     var name = form.elements.name;
     var phone = form.elements.phone;
-    [name, phone].forEach(function (el) { el.classList.remove("is-invalid"); el.removeAttribute("aria-invalid"); });
+    var email = form.elements.email;
+    var consent = form.elements.consent;
+    var errors = [];
+    [name, phone, email, consent].forEach(function (el) { el.classList.remove("is-invalid"); el.removeAttribute("aria-invalid"); });
+    function bad(el, msg) { el.classList.add("is-invalid"); el.setAttribute("aria-invalid", "true"); errors.push(msg); ok = false; }
 
-    if (name.value.trim().length < 2) {
-      name.classList.add("is-invalid"); name.setAttribute("aria-invalid", "true"); ok = false;
-    }
+    if (name.value.trim().length < 2) bad(name, "שם מלא");
     var digits = phone.value.replace(/\D/g, "");
-    if (digits.length < 9 || digits.length > 13) {
-      phone.classList.add("is-invalid"); phone.setAttribute("aria-invalid", "true"); ok = false;
-    }
+    if (digits.length < 9 || digits.length > 13) bad(phone, "טלפון תקין");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) bad(email, "אימייל תקין");
+
     if (!ok) {
-      setStatus("נא למלא שם מלא ומספר טלפון תקין", true);
+      setStatus("נא למלא " + errors.join(", "), true);
       form.querySelector(".is-invalid").focus();
+      return false;
+    }
+    if (!consent.checked) {
+      bad(consent, "");
+      setStatus("כדי לשלוח צריך לסמן הסכמה למדיניות הפרטיות", true);
+      consent.focus();
     }
     return ok;
   }
@@ -85,6 +152,8 @@
     var data = new URLSearchParams();
     data.append("name", form.elements.name.value.trim());
     data.append("phone", form.elements.phone.value.trim());
+    data.append("email", form.elements.email.value.trim());
+    data.append("consent", form.elements.consent.checked ? "כן" : "לא");
     data.append("message", form.elements.message.value.trim());
     data.append("page", location.href);
 
