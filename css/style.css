@@ -492,7 +492,8 @@ section, header.hero, footer { position: relative; }
   .hero__star     { left: calc(var(--ox) + var(--u) * 1646.6); right: auto; top: calc(var(--u) * 521.8); bottom: auto; width: calc(var(--u) * 266.3); }
   .hero__photo    { left: calc(var(--ox) + var(--u) * 1110); top: calc(var(--u) * 200); width: calc(var(--u) * 770); }
   .brush--hero {
-    left: calc(var(--ox) + var(--u) * 3014.155); top: calc(var(--u) * 556.679); bottom: auto;
+    left: calc(var(--ox) + var(--u) * 3014.155); top: calc(var(--u) * 470); bottom: auto;
+    transform: matrix(-1, -0.035, 0, 1, 0, 0); /* כמעט אופקי – שלא יטפס למעלה בצד שמאל */
     width: calc(var(--u) * 3694.42); height: calc(var(--u) * 1116.63);
   }
   .hero__content { left: calc(var(--ox) + var(--u) * 198); top: calc(var(--u) * 275); width: calc(var(--u) * 882); padding: 0; text-align: right; }
@@ -849,3 +850,39 @@ html.a11y-still .footer__skate { translate: 70vw 0; }
 }
 /* מונע קו דק (תת-פיקסל) בין האינסטגרם ליצירת קשר */
 .insta { box-shadow: 0 calc(var(--u) * 4) 0 var(--yellow); }
+
+/* =========================================================
+   הדר כפס נייר קרוע + תיקונים
+   ========================================================= */
+.nav { background: transparent; isolation: isolate; }
+.nav::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: #fff;
+  -webkit-mask: url("../assets/torn-top.svg") top / 100% calc(var(--u) * 10) no-repeat,
+                linear-gradient(#000, #000) 0 calc(var(--u) * 9) / 100% calc(100% - var(--u) * 18) no-repeat,
+                url("../assets/torn-bottom.svg") bottom / 100% calc(var(--u) * 10) no-repeat;
+          mask: url("../assets/torn-top.svg") top / 100% calc(var(--u) * 10) no-repeat,
+                linear-gradient(#000, #000) 0 calc(var(--u) * 9) / 100% calc(100% - var(--u) * 18) no-repeat,
+                url("../assets/torn-bottom.svg") bottom / 100% calc(var(--u) * 10) no-repeat;
+}
+.site-header .nav { filter: drop-shadow(0 calc(var(--u) * 3) calc(var(--u) * 5) rgba(0,0,0,.08)); transition: filter .3s; }
+.site-header.is-scrolled .nav { box-shadow: none; filter: drop-shadow(0 calc(var(--u) * 6) calc(var(--u) * 10) rgba(0,0,0,.16)); }
+@media (max-width: 767px) {
+  .nav__menu {
+    box-shadow: none; padding-bottom: calc(var(--u) * 26); top: calc(100% - var(--u) * 6);
+    -webkit-mask: linear-gradient(#000, #000) 0 0 / 100% calc(100% - var(--u) * 12) no-repeat, url("../assets/torn-bottom.svg") bottom / 100% calc(var(--u) * 12) no-repeat;
+            mask: linear-gradient(#000, #000) 0 0 / 100% calc(100% - var(--u) * 12) no-repeat, url("../assets/torn-bottom.svg") bottom / 100% calc(var(--u) * 12) no-repeat;
+  }
+}
+
+/* רקע ההירו מתמזג ללבן בתחתית – בלי קו ישר */
+.hero__bg {
+  -webkit-mask-image: linear-gradient(#000 78%, transparent 100%);
+          mask-image: linear-gradient(#000 78%, transparent 100%);
+}
+
+/* פרויקטים במובייל: שני טורים, קומפקטי */
+@media (max-width: 767px) {
+  .grid { grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 16) calc(var(--u) * 12); }
+  .card__label { height: auto; min-height: calc(var(--u) * 44); padding: calc(var(--u) * 6) calc(var(--u) * 6); font-size: calc(var(--ft) * 13); line-height: 1.2; text-align: center; }
+}
