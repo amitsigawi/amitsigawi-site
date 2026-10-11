@@ -86,6 +86,42 @@
   window.addEventListener("scroll", onScrollHeader, { passive: true });
   onScrollHeader();
 
+  // ---------- instagram feed (Behold JSON) ----------
+  var insta = document.getElementById("instagram");
+  if (insta && window.INSTAGRAM_FEED_URL) {
+    fetch(window.INSTAGRAM_FEED_URL)
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (data) {
+        var posts = (data && data.posts) || (Array.isArray(data) ? data : []);
+        posts = posts.slice(0, 6);
+        if (!posts.length) return;
+        var grid = insta.querySelector(".insta__grid");
+        posts.forEach(function (post) {
+          var src = (post.sizes && post.sizes.medium && post.sizes.medium.mediaUrl) ||
+                    (post.mediaType === "VIDEO" ? post.thumbnailUrl : post.mediaUrl);
+          if (!src) return;
+          var li = document.createElement("li");
+          li.className = "insta__item";
+          var a = document.createElement("a");
+          a.href = post.permalink; a.target = "_blank"; a.rel = "noopener";
+          var img = document.createElement("img");
+          img.src = src; img.loading = "lazy"; img.width = 400; img.height = 400;
+          var text = (post.altText || post.prunedCaption || post.caption || "").trim();
+          img.alt = text ? "פוסט באינסטגרם: " + text.slice(0, 120) : "פוסט באינסטגרם";
+          a.appendChild(img);
+          if (post.mediaType === "VIDEO") {
+            var badge = document.createElement("span");
+            badge.className = "insta__play"; badge.setAttribute("aria-hidden", "true"); badge.textContent = "▶";
+            a.appendChild(badge);
+          }
+          li.appendChild(a);
+          grid.appendChild(li);
+        });
+        insta.hidden = false;
+      })
+      .catch(function () { /* אם הפיד לא זמין – פשוט לא מציגים את הסקשן */ });
+  }
+
   // ---------- project links ----------
   var links = window.PROJECT_LINKS || {};
   document.querySelectorAll(".card__link").forEach(function (a) {

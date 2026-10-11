@@ -16,5 +16,9 @@ window.PROJECT_LINKS = {
   "puah-oria": ""
 };
 
+// פיד האינסטגרם: כתובת ה-JSON Feed מ-Behold (נראית כך: https://feeds.behold.so/XXXXXXXX)
+// כל עוד ריק – הסקשן של האינסטגרם לא מוצג באתר
+window.INSTAGRAM_FEED_URL = "https://feeds.behold.so/iqJ9RFzw4AX5fNUizpN2";
+
 // קישור לעמוד הפייסבוק (ריק = הקישור לא יהיה לחיץ)
 window.FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100079308916934";
