@@ -164,7 +164,7 @@ section, header.hero, footer { position: relative; }
   font-size: calc(var(--ft) * 20);
   transition: background-color .2s, transform .2s;
 }
-.btn:hover { background: #ffc93d; transform: translateY(calc(var(--u) * -2)); }
+
 .btn__arrow { width: calc(var(--u) * 46); height: auto; transition: transform .2s; }
 .btn:hover .btn__arrow { transform: translateX(calc(var(--u) * -6)); }
 
@@ -289,7 +289,7 @@ section, header.hero, footer { position: relative; }
   width: calc(var(--u) * 96); height: calc(var(--u) * 30);
   translate: -50% 0; rotate: var(--tape, -5deg);
   background: rgba(238, 230, 205, .78);
-  box-shadow: 0 1px 3px rgba(0,0,0,.12);
+  box-shadow: 0 calc(var(--u) * 1) calc(var(--u) * 3) rgba(0,0,0,.12);
   clip-path: polygon(0 8%, 6% 0, 10% 12%, 15% 2%, 85% 0, 90% 10%, 94% 0, 100% 9%, 97% 50%, 100% 92%, 93% 100%, 88% 88%, 83% 100%, 15% 98%, 10% 88%, 5% 100%, 0 92%, 3% 50%);
 }
 .chat--1::before { --tape: -7deg; left: 40%; }
@@ -464,7 +464,7 @@ section, header.hero, footer { position: relative; }
 
   /* כל אזור בגובה קבוע כמו בפיגמה, התוכן ממוקם אבסולוטית */
   .hero     { display: block; height: calc(var(--u) * 964); padding: 0; }
-  .projects { min-height: calc(var(--u) * 1500); padding: calc(var(--u) * 190) 0 calc(var(--u) * 220); }
+  .projects { min-height: calc(var(--u) * 1500); padding: calc(var(--u) * 120) 0 calc(var(--u) * 330); }
   .process  { min-height: calc(var(--u) * 1130); padding: calc(var(--u) * 49) 0 calc(var(--u) * 300); }
   .about    { display: block; height: calc(var(--u) * 1180); padding: 0; }
   .contact  { min-height: calc(var(--u) * 1010); padding: calc(var(--u) * 32) 0 calc(var(--u) * 100); }
@@ -490,13 +490,13 @@ section, header.hero, footer { position: relative; }
   .hero__dots-l   { left: 0; right: auto; top: calc(var(--u) * 575); bottom: auto; width: calc(var(--u) * 392); }
   .hero__dots-r   { left: auto; right: 0; top: 0; width: calc(var(--u) * 354); }
   .hero__star     { left: calc(var(--ox) + var(--u) * 1646.6); right: auto; top: calc(var(--u) * 521.8); bottom: auto; width: calc(var(--u) * 266.3); }
-  .hero__photo    { left: calc(var(--ox) + var(--u) * 1060); top: calc(var(--u) * 140); width: calc(var(--u) * 850); }
+  .hero__photo    { left: calc(var(--ox) + var(--u) * 1110); top: calc(var(--u) * 200); width: calc(var(--u) * 770); }
   .brush--hero {
     left: calc(var(--ox) + var(--u) * 3014.155); top: calc(var(--u) * 556.679); bottom: auto;
     width: calc(var(--u) * 3694.42); height: calc(var(--u) * 1116.63);
   }
   .hero__content { left: calc(var(--ox) + var(--u) * 198); top: calc(var(--u) * 275); width: calc(var(--u) * 882); padding: 0; text-align: right; }
-  .hero__title { font-size: calc(var(--ft) * 84); line-height: 1; }
+  .hero__title { font-size: calc(var(--ft) * 92); line-height: 1; }
   .hero__text { width: calc(var(--u) * 680); margin: calc(var(--u) * 24) 0 0 auto; font-size: calc(var(--ft) * 32); line-height: 1.1; }
   .btn {
     display: flex; margin: calc(var(--u) * 32) 0 0 auto;
@@ -510,9 +510,9 @@ section, header.hero, footer { position: relative; }
   .projects__hint { margin-top: calc(var(--u) * 26); font-size: calc(var(--ft) * 24); }
   .grid {
     margin: calc(var(--u) * 32) auto 0;
-    width: calc(var(--u) * 1080);
-    grid-template-columns: repeat(3, calc(var(--u) * 346));
-    column-gap: calc(var(--u) * 21); row-gap: calc(var(--u) * 34);
+    width: calc(var(--u) * 1260);
+    grid-template-columns: repeat(3, calc(var(--u) * 388));
+    column-gap: calc(var(--u) * 48); row-gap: calc(var(--u) * 52);
   }
   .card__label { height: calc(var(--u) * 60); font-size: calc(var(--ft) * 20); }
   .projects .title { font-size: calc(var(--ft) * 68); }
@@ -615,11 +615,21 @@ section, header.hero, footer { position: relative; }
 .hero__scribble { animation: float 7s ease-in-out infinite; }
 
 /* כפתורים וכרטיסים – "מדבקה" עם צל קשיח */
-.btn { transition: transform .45s cubic-bezier(.3,1.5,.5,1), rotate .45s cubic-bezier(.3,1.5,.5,1), gap .45s cubic-bezier(.3,1.5,.5,1), padding .45s cubic-bezier(.3,1.5,.5,1), background-color .2s; }
+
 /* הכפתור מתרחב שמאלה, החץ נוסע איתו, והכול נוטה קצת */
-.btn { transition: transform .45s cubic-bezier(.3,1.5,.5,1), rotate .45s cubic-bezier(.3,1.5,.5,1), translate .45s cubic-bezier(.3,1.5,.5,1), gap .45s cubic-bezier(.3,1.5,.5,1), padding .45s cubic-bezier(.3,1.5,.5,1), background-color .2s; }
-.btn:hover { rotate: -4deg; translate: 0 calc(var(--u) * -6); gap: calc(var(--u) * 50); padding-left: calc(var(--u) * 44); background: var(--yellow); }
-@media (min-width: 1200px) { .btn:hover { gap: calc(var(--u) * 90); padding-left: calc(var(--u) * 64); } }
+
+/* ריחוף: "צבע" כהה נשפך פנימה מימין לשמאל והטקסט הופך לצהוב – בלי תזוזה והטיה */
+.btn { position: relative; overflow: hidden; isolation: isolate; }
+.btn::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: var(--ink);
+  transform: scaleX(0); transform-origin: right;
+  transition: transform .45s cubic-bezier(.6,0,.2,1);
+}
+.btn:hover::before, .btn:focus-visible::before { transform: scaleX(1); }
+.btn:hover, .btn:focus-visible { color: var(--yellow); background: var(--yellow); }
+.btn { transition: color .3s .1s; }
+
 .card__link { transition: transform .3s cubic-bezier(.2,.7,.2,1.2), box-shadow .3s; }
 .card:nth-child(odd) .card__link:hover  { transform: translateY(calc(var(--u) * -8)) rotate(-1deg); }
 .card:nth-child(even) .card__link:hover { transform: translateY(calc(var(--u) * -8)) rotate(1deg); }
@@ -722,7 +732,7 @@ section[id], main section { scroll-margin-top: calc(var(--u) * 90); }
 }
 
 @media (min-width: 1200px) {
-  .hero__star { left: calc(var(--ox) + var(--u) * 1600); top: calc(var(--u) * 280); width: calc(var(--u) * 330); }
+  .hero__star { left: calc(var(--ox) + var(--u) * 1600); top: calc(var(--u) * 320); width: calc(var(--u) * 310); }
   .footer__skate { top: calc(var(--u) * -34.1); width: calc(var(--u) * 110); }
 }
 
@@ -745,7 +755,7 @@ html.a11y-still .footer__skate { translate: 70vw 0; }
 .insta__item img { width: 100%; height: 100%; object-fit: cover; }
 .insta__item:nth-child(odd) a:hover  { transform: translateY(calc(var(--u) * -6)) rotate(-2deg); }
 .insta__item:nth-child(even) a:hover { transform: translateY(calc(var(--u) * -6)) rotate(2deg); }
-.insta__play { position: absolute; top: 6%; left: 6%; color: #fff; font-size: calc(var(--ft) * 16); text-shadow: 0 1px 4px rgba(0,0,0,.6); }
+.insta__play { position: absolute; top: 6%; left: 6%; color: #fff; font-size: calc(var(--ft) * 16); text-shadow: 0 calc(var(--u) * 1) calc(var(--u) * 4) rgba(0,0,0,.6); }
 /* כשהאינסטגרם מוצג – "קיצר.." לא צריך מרווח גדול מעליו */
 .insta:not([hidden]) + .contact { padding-top: calc(var(--u) * 50); }
 
