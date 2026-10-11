@@ -57,7 +57,7 @@
     });
     html += '</div><button type="button" class="a11y__reset">איפוס הגדרות</button>' +
       '<a class="a11y__link" href="accessibility.html">הצהרת נגישות</a>';
-    panel.innerHTML = html;
+    panel.innerHTML = '<div class="a11y__paper">' + html + "</div>";
 
     document.body.appendChild(btn);
     document.body.appendChild(panel);

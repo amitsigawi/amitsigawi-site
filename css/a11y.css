@@ -1,42 +1,74 @@
-/* ===== תפריט נגישות ===== */
+/* ===== תפריט נגישות – דף קרוע, גראנג'י ===== */
 .a11y__toggle {
   position: fixed; z-index: 1000; left: calc(var(--u) * 16); bottom: calc(var(--u) * 16);
   width: max(48px, calc(var(--u) * 56)); height: max(48px, calc(var(--u) * 56));
   border: 0; border-radius: 50%; cursor: pointer;
   background: var(--green-dark); color: var(--white);
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 14px rgba(0,0,0,.25);
-  transition: transform .2s;
+  box-shadow: 0 4px 14px rgba(0,0,0,.22);
+  transition: transform .35s cubic-bezier(.3,1.6,.5,1);
 }
-.a11y__toggle:hover { transform: scale(1.08); }
+.a11y__toggle:hover { transform: rotate(-12deg) scale(1.08); }
 .a11y__toggle svg { width: 62%; height: 62%; }
 
 .a11y__panel {
-  position: fixed; z-index: 1001; left: calc(var(--u) * 16); bottom: calc(max(48px, calc(var(--u) * 56)) + calc(var(--u) * 28));
+  position: fixed; z-index: 1001; left: calc(var(--u) * 16); bottom: calc(max(48px, calc(var(--u) * 56)) + calc(var(--u) * 24));
   width: min(92vw, max(300px, calc(var(--u) * 360)));
-  max-height: calc(100vh - 120px); overflow: auto;
-  background: var(--white); color: var(--ink);
-  border: 3px solid var(--ink); box-shadow: 8px 8px 0 var(--yellow);
-  padding: 16px; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.3;
-  direction: rtl; text-align: right;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,.22));
+  rotate: -1.2deg;
+  font-family: var(--f-body); font-size: 16px; line-height: 1.3;
+  direction: rtl; text-align: right; color: var(--ink);
 }
 .a11y__panel[hidden] { display: none; }
-.a11y__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-.a11y__title { font-weight: 700; font-size: 20px; }
-.a11y__panel button, .a11y__panel a { font: inherit; color: inherit; }
-.a11y__close { background: none; border: 0; font-size: 20px; cursor: pointer; padding: 4px 8px; }
-.a11y__row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-.a11y__stepper { display: flex; align-items: center; gap: 8px; }
-.a11y__stepper button { width: 40px; height: 40px; border: 2px solid var(--ink); background: var(--white); font-size: 22px; cursor: pointer; }
-.a11y__level { min-width: 48px; text-align: center; font-weight: 700; }
-.a11y__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.a11y__opt {
-  min-height: 48px; padding: 8px; border: 2px solid var(--ink); background: var(--white);
-  cursor: pointer; text-align: center;
+.a11y__paper {
+  max-height: calc(100vh - 140px); overflow: auto;
+  padding: 26px 18px 28px;
+  background-color: #f7f4ec;
+  background-image: url("../assets/grain-dark.svg"), url("../assets/texture-tile.jpg");
+  background-size: 300px auto, 600px auto;
+  background-blend-mode: multiply;
+  -webkit-mask: url("../assets/torn-top.svg") top / 100% 14px no-repeat,
+                linear-gradient(#000, #000) 0 13px / 100% calc(100% - 26px) no-repeat,
+                url("../assets/torn-bottom.svg") bottom / 100% 14px no-repeat;
+          mask: url("../assets/torn-top.svg") top / 100% 14px no-repeat,
+                linear-gradient(#000, #000) 0 13px / 100% calc(100% - 26px) no-repeat,
+                url("../assets/torn-bottom.svg") bottom / 100% 14px no-repeat;
 }
-.a11y__opt[aria-pressed="true"] { background: var(--ink); color: var(--white) !important; }
-.a11y__reset { margin-top: 12px; width: 100%; min-height: 44px; border: 0; background: var(--yellow); font-weight: 700 !important; cursor: pointer; }
-.a11y__link { display: block; margin-top: 10px; text-align: center; text-decoration: underline; }
+.a11y__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.a11y__title { font-family: var(--f-display); font-weight: 900; font-size: 30px; line-height: 1; color: var(--green); }
+.a11y__panel button, .a11y__panel a { font: inherit; color: inherit; }
+.a11y__close { background: none; border: 0; font-size: 20px; cursor: pointer; padding: 4px 8px; transition: transform .3s; }
+.a11y__close:hover { transform: rotate(90deg); }
+.a11y__row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-weight: 600; }
+.a11y__stepper { display: flex; align-items: center; gap: 8px; }
+.a11y__stepper button {
+  width: 40px; height: 40px; border: 0; border-radius: 50%; cursor: pointer;
+  background: var(--yellow); font-size: 22px; font-weight: 700;
+  transition: transform .3s cubic-bezier(.3,1.6,.5,1);
+}
+.a11y__stepper button:hover { transform: rotate(-10deg) scale(1.1); }
+.a11y__level { min-width: 48px; text-align: center; font-weight: 700; }
+.a11y__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 8px; }
+
+/* כל אפשרות = פיסת נייר קרועה קצת, מוטה לסירוגין */
+.a11y__opt {
+  min-height: 48px; padding: 10px 8px; border: 0; cursor: pointer; text-align: center;
+  background: rgba(50,50,50,.07);
+  clip-path: polygon(2% 6%, 18% 0, 41% 5%, 63% 1%, 86% 6%, 100% 2%, 98% 48%, 100% 94%, 79% 100%, 55% 95%, 31% 100%, 9% 95%, 0 100%, 2% 52%);
+  transition: transform .3s cubic-bezier(.3,1.6,.5,1), background-color .2s;
+}
+.a11y__opt:nth-child(odd)  { rotate: -1deg; }
+.a11y__opt:nth-child(even) { rotate: 1.2deg; }
+.a11y__opt:hover { transform: scale(1.04) rotate(-1.5deg); background: rgba(14,224,174,.22); }
+.a11y__opt[aria-pressed="true"] { background: var(--green-dark); color: var(--white) !important; }
+.a11y__reset {
+  margin-top: 14px; width: 100%; min-height: 44px; border: 0; cursor: pointer; font-weight: 700 !important;
+  background: var(--yellow);
+  clip-path: polygon(0 10%, 12% 0, 30% 8%, 52% 0, 74% 7%, 100% 0, 98% 50%, 100% 92%, 82% 100%, 60% 93%, 38% 100%, 15% 94%, 0 100%, 2% 50%);
+  transition: transform .3s cubic-bezier(.3,1.6,.5,1);
+}
+.a11y__reset:hover { transform: rotate(1deg) scale(1.02); }
+.a11y__link { display: block; margin-top: 12px; text-align: center; text-decoration: underline; }
 .a11y__panel :focus-visible, .a11y__toggle:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
 
 /* ===== מצבי נגישות ===== */
@@ -46,7 +78,7 @@ html.a11y-contrast.a11y-gray .page { filter: contrast(1.45) grayscale(1); }
 html.a11y-contrast .page::before, html.a11y-contrast .page::after { display: none; }
 
 html.a11y-links a { text-decoration: underline !important; text-underline-offset: .15em; }
-html.a11y-links .page a:not(.btn) { background: #ffff00 !important; color: #000 !important; outline: 2px solid #000; }
+html.a11y-links .page a:not(.btn) { background: #ffff00 !important; color: #000 !important; }
 
 html.a11y-font body, html.a11y-font .page * { font-family: Arial, Helvetica, sans-serif !important; letter-spacing: .02em; }
 
