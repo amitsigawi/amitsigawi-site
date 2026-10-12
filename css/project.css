@@ -33,7 +33,7 @@
   color: var(--green);
   padding: calc(var(--u) * 4) calc(var(--u) * 12);
   background: rgba(14, 224, 174, .18);
-  rotate: -2deg;
+  rotate: 2deg; /* בעברית קוראים מימין לשמאל – ההטיה עולה */
 }
 .pj-kicker--light { color: var(--mint); background: rgba(14, 224, 174, .12); }
 .pj-h2 {
@@ -477,7 +477,7 @@ html.a11y-still .pj-cover__media, html.a11y-still .pj-reveal__word .is-swing { a
 .pj-peek img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .pj-peek__logo { aspect-ratio: 1050 / 470; }
 .pj-peek__tag {
-  background: #183356; color: #F2603E;
+  background: var(--brand-bg, #183356); color: var(--brand-fg, #F2603E);
   padding: calc(var(--u) * 26) calc(var(--u) * 24);
   display: flex; flex-direction: column; justify-content: space-between; gap: calc(var(--u) * 20);
 }
@@ -504,3 +504,64 @@ html.a11y-still .pj-cover__media, html.a11y-still .pj-reveal__word .is-swing { a
 }
 @media (prefers-reduced-motion: reduce) { .pj-scroll svg { animation: none; } }
 html.a11y-still .pj-scroll svg { animation: none !important; }
+
+/* =========================================================
+   וריאציות לתבנית (נוספו עם רֹקמת) – שמישות לכל פרויקט
+   ========================================================= */
+/* לפני/אחרי בגודל שווה (כשבכל צד יש פריט אחד או זוג) */
+.pj-ba--equal .pj-ba__side--before { width: 100%; }
+.pj-ba--equal .pj-ba__side--after > .pj-tape { width: 80%; margin: 0 auto; rotate: 1.5deg; }
+
+/* רשימה בתוך טקסט */
+.pj-list { list-style: none; margin: calc(var(--u) * 12) 0; display: grid; gap: calc(var(--u) * 6); }
+.pj-list li { position: relative; padding-right: calc(var(--u) * 22); }
+.pj-list li::before {
+  content: ""; position: absolute; right: 0; top: .55em;
+  width: calc(var(--u) * 10); height: calc(var(--u) * 10); border-radius: 50%;
+  background: var(--mint);
+}
+
+/* תמונה על "נייר" (סקיצות, כתב יד) */
+.pj-figure--paper { rotate: -1deg; }
+.pj-figure--paper img { border: calc(var(--u) * 6) solid #fff; }
+.pj-figure figcaption { margin-top: calc(var(--u) * 10); text-align: center; font-weight: 600; font-size: calc(var(--ft) * 14); }
+
+/* שלבים עם תמונות אמיתיות */
+.pj-steps--imgs .pj-figure { margin: 0; }
+.pj-steps--imgs { align-items: center; }
+
+/* ה-Reveal עם מילה בעברית */
+.pj-reveal__word--soft .is-accent { color: var(--mint); }
+
+/* 3 פתקים */
+.pj-notes--3 { grid-template-columns: 1fr; }
+
+/* כשבמקום תמונת מגרשים יש תמונה אמיתית */
+.pj-palette__photo.pj-figure { margin: 0; min-height: 0; border: 0; }
+
+/* צילום מסך של הודעה */
+.pj-proof__frame--chat { rotate: 1.5deg; }
+.pj-proof__frame--chat img { border-radius: calc(var(--u) * 10); }
+
+@media (min-width: 768px) {
+  .pj-ba--equal { grid-template-columns: 1fr auto 1fr; }
+  .pj-figure figcaption { font-size: calc(var(--ft) * 16); }
+  .pj-steps--imgs { grid-template-columns: 1fr 2fr; }
+  .pj-notes--3 { grid-template-columns: repeat(3, 1fr); }
+  .pj-figure--paper img { border-width: calc(var(--u) * 10); }
+}
+@media (min-width: 1200px) {
+  .pj-list { margin: calc(var(--u) * 18) 0; gap: calc(var(--u) * 10); }
+  .pj-list li { padding-right: calc(var(--u) * 34); }
+  .pj-list li::before { width: calc(var(--u) * 14); height: calc(var(--u) * 14); }
+  .pj-figure figcaption { font-size: calc(var(--ft) * 22); margin-top: calc(var(--u) * 16); }
+  .pj-figure--paper img { border-width: calc(var(--u) * 14); }
+  .pj-proof__frame--chat img { border-radius: calc(var(--u) * 18); }
+}
+
+/* צבעי המותג לאריח ה'הצצה' – מוגדרים לכל פרויקט על <main> */
+.pj--rikmat { --brand-bg: #293A2F; --brand-fg: #E4B49C; }
+.pj-palette--solo { grid-template-columns: 1fr !important; }
+@media (min-width: 1200px) { .pj-palette--solo { margin-top: calc(var(--u) * 50); } }
+.pj-palette--solo .pj-swatches { max-width: calc(var(--u) * 900); margin: 0 auto; }
+@media (min-width: 1200px) { .pj-proof { padding-bottom: calc(var(--u) * 90); } }

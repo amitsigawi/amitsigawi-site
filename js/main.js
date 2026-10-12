@@ -1,6 +1,24 @@
 (function () {
   "use strict";
 
+  // ---------- בלי מילה בודדת בשורה האחרונה ----------
+  // מחבר את 2 המילים האחרונות של כל פסקה/כותרת ברווח לא-שביר, כך שתמיד יירדו יחד
+  document.querySelectorAll("p, li, dd, h1, h2, h3, figcaption").forEach(function (el) {
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    var last = null, node;
+    while ((node = walker.nextNode())) { if (node.nodeValue.trim()) last = node; }
+    if (!last) return;
+    var text = last.nodeValue.replace(/\s+$/, "");
+    var i = text.lastIndexOf(" ");
+    if (i > 0) {
+      last.nodeValue = text.slice(0, i) + " " + text.slice(i + 1) + last.nodeValue.slice(text.length);
+    } else if (last.parentNode !== el) {
+      // המילה האחרונה עטופה (למשל <strong>) – מחברים לרווח שלפניה
+      var prev = last.parentNode.previousSibling;
+      if (prev && prev.nodeType === 3 && / $/.test(prev.nodeValue)) prev.nodeValue = prev.nodeValue.replace(/ $/, " ");
+    }
+  });
+
   // ---------- mobile menu ----------
   var toggle = document.querySelector(".nav__toggle");
   var menu = document.getElementById("nav-menu");

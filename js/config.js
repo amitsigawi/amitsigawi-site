@@ -6,7 +6,7 @@ window.LEAD_ENDPOINT = "https://script.google.com/macros/s/AKfycbxAyfI7a9bDcyg_s
 // כרטיס בלי קישור לא יהיה לחיץ.
 window.PROJECT_LINKS = {
   "zman-yaar": "",
-  "rikmat": "",
+  "rikmat": "projects/rikmat.html",
   "maavar-lakavim": "",
   "maya-shiflaski": "",
   "tenniswing": "projects/tenniswing.html",
