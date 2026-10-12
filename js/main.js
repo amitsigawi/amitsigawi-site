@@ -40,6 +40,8 @@
       });
     });
   });
+  // עמודי פרויקט: כל אלמנט עם data-reveal נחשף בגלילה
+  document.querySelectorAll("[data-reveal]").forEach(function (el) { el.classList.add("reveal"); });
   var revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && !reduceMotion) {
     var io = new IntersectionObserver(function (entries) {
@@ -50,6 +52,19 @@
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+
+  // אנימציות שמופעלות פעם אחת כשנכנסים למסך (לוח השמות, ה-Reveal של השם)
+  var onceEls = document.querySelectorAll(".pj-names, .pj-reveal__word");
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    var io2 = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("is-on"); io2.unobserve(e.target); }
+      });
+    }, { threshold: 0.35 });
+    onceEls.forEach(function (el) { io2.observe(el); });
+  } else {
+    onceEls.forEach(function (el) { el.classList.add("is-on"); });
   }
 
   // ---------- parallax for testimonials ----------
@@ -182,8 +197,8 @@
     var url = links[a.dataset.project];
     if (url) {
       a.href = url;
-      a.target = "_blank";
-      a.rel = "noopener";
+      // עמוד פרויקט באתר נפתח באותה לשונית, קישור חיצוני בלשונית חדשה
+      if (/^https?:/.test(url)) { a.target = "_blank"; a.rel = "noopener"; }
     } else {
       a.removeAttribute("href");
     }

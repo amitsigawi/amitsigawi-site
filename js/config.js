@@ -9,7 +9,7 @@ window.PROJECT_LINKS = {
   "rikmat": "",
   "maavar-lakavim": "",
   "maya-shiflaski": "",
-  "tenniswing": "",
+  "tenniswing": "projects/tenniswing.html",
   "yaldei-hateva": "",
   "terra": "",
   "sapir-elmaliah": "",
