@@ -662,3 +662,26 @@ html.a11y-still .pj-scroll svg { animation: none !important; }
 }
 html.a11y-still .pj-fly-ball { translate: none !important; opacity: 1 !important; animation: none !important; }
 html.a11y-still .pj-map path { stroke-dashoffset: 0 !important; }
+/* ---------- סבב תיקונים: לוגו, סקיצות, מוקאפ כפול בסוף ---------- */
+.pj-peek__logo img { object-position: center center; }
+
+/* סקיצות: הדף האנכי בצד אחד לגובה כולו, שני האופקיים אחד מעל השני בצד השני */
+@media (min-width: 768px) {
+  .pj-steps--tw { grid-template-columns: 1fr 1fr; align-items: stretch; }
+  .pj-steps--tw > :first-child { grid-row: span 2; display: flex; flex-direction: column; }
+  .pj-steps--tw > :first-child img { flex: 1; min-height: 0; object-fit: cover; }
+  .pj-steps--tw .pj-figure img { width: 100%; }
+  .pj-steps--tw > :nth-child(2) { rotate: 1.5deg; }
+  .pj-steps--tw > :nth-child(3) { rotate: -1deg; }
+}
+
+/* מוקאפ מתחת למוקאפ – חפיפה והטיות לצדדים שונים */
+.pj-proof__stack { position: relative; padding-bottom: 18%; margin-top: calc(var(--u) * 34); }
+.pj-proof__stack .pj-proof__frame { margin: 0; }
+.pj-proof__stack .pj-proof__frame:first-child { width: 82%; rotate: -3deg; }
+.pj-proof__frame--cap {
+  position: absolute; left: 0; bottom: 0; width: 42%;
+  rotate: 4deg; z-index: 2;
+}
+.pj-proof__frame--cap img { box-shadow: 0 calc(var(--u) * 16) calc(var(--u) * 34) rgba(0,0,0,.28); }
+@media (min-width: 768px) { .pj-proof__stack { margin-top: 0; } }
