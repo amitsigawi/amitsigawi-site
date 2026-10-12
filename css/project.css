@@ -565,3 +565,100 @@ html.a11y-still .pj-scroll svg { animation: none !important; }
 @media (min-width: 1200px) { .pj-palette--solo { margin-top: calc(var(--u) * 50); } }
 .pj-palette--solo .pj-swatches { max-width: calc(var(--u) * 900); margin: 0 auto; }
 @media (min-width: 1200px) { .pj-proof { padding-bottom: calc(var(--u) * 90); } }
+
+/* =========================================================
+   TENNISWING – תוספות (מפת מיצוב, פתקים ממורכזים, כדור עף, מוקאפים)
+   ========================================================= */
+/* הבריף: לוגו + טאגליין באותו גובה, ושני מוקאפים חצי-חצי */
+.pj-peek__half { aspect-ratio: 4 / 3; }
+@media (min-width: 768px) {
+  .pj-peek { grid-template-columns: repeat(6, 1fr); }
+  .pj-peek__logo { grid-column: span 4; aspect-ratio: auto; height: 100%; }
+  .pj-peek__tag { grid-column: span 2; }
+  .pj-peek__half { grid-column: span 3; }
+}
+
+/* מפת מיצוב – שרבוט עיפרון על דף מחברת קרוע */
+.pj-map {
+  margin: calc(var(--u) * 34) auto 0; max-width: calc(var(--u) * 1100);
+  rotate: -1deg;
+  filter: drop-shadow(0 calc(var(--u) * 8) calc(var(--u) * 14) rgba(0,0,0,.16));
+}
+.pj-map__svg {
+  display: block; width: 100%; height: auto; background: #fbfaf6;
+  -webkit-mask: url("../assets/torn-top.svg") top / 100% calc(var(--u) * 14) no-repeat,
+                linear-gradient(#000, #000) 0 calc(var(--u) * 13) / 100% calc(100% - var(--u) * 26) no-repeat,
+                url("../assets/torn-bottom.svg") bottom / 100% calc(var(--u) * 14) no-repeat;
+          mask: url("../assets/torn-top.svg") top / 100% calc(var(--u) * 14) no-repeat,
+                linear-gradient(#000, #000) 0 calc(var(--u) * 13) / 100% calc(100% - var(--u) * 26) no-repeat,
+                url("../assets/torn-bottom.svg") bottom / 100% calc(var(--u) * 14) no-repeat;
+}
+.pj-map__lines path { stroke: #c9d6e2; stroke-width: 1.5; fill: none; }
+.pj-map__pencil path, .pj-map__pencil ellipse { fill: none; stroke: #4b4b4b; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; opacity: .85; }
+.pj-map__marker { fill: #DCE04A; opacity: .8; }
+.pj-map__circle { fill: none; stroke: #F2603E; stroke-width: 5; stroke-linecap: round; }
+.pj-map__arrow { fill: none; stroke: #F2603E; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.pj-map__text text { font-family: var(--f-body); direction: ltr; }
+.pj-map__axis { font-size: 24px; font-weight: 600; fill: #6a6a6a; }
+.pj-map__name { font-size: 26px; fill: #333; }
+.pj-map__win { font-family: var(--f-display) !important; font-size: 46px; font-weight: 900; fill: #183356; }
+.pj-map__note { font-size: 24px; font-weight: 600; fill: #F2603E; }
+.pj-map figcaption { margin-top: calc(var(--u) * 12); text-align: center; font-weight: 600; font-size: calc(var(--ft) * 14); }
+/* השרבוט "מצטייר" כשמגיעים אליו */
+.js .pj-map .pj-map__pencil path, .js .pj-map .pj-map__pencil ellipse, .js .pj-map .pj-map__circle, .js .pj-map .pj-map__arrow { stroke-dasharray: 2400; stroke-dashoffset: 2400; transition: stroke-dashoffset 2.2s cubic-bezier(.6,0,.2,1) .3s; }
+.js .pj-map .pj-map__circle { transition-delay: 1.4s; }
+.js .pj-map .pj-map__arrow { transition-delay: 2s; }
+.js .pj-map.is-visible .pj-map__pencil path, .js .pj-map.is-visible .pj-map__pencil ellipse, .js .pj-map.is-visible .pj-map__circle, .js .pj-map.is-visible .pj-map__arrow { stroke-dashoffset: 0; }
+
+/* ההחלטות: הטקסט ממורכז לגובה הפתק */
+.pj-note { display: flex; flex-direction: column; justify-content: center; }
+
+/* כדור טניס שעף ומבצבץ מקצה המסך */
+.pj-decisions { position: relative; }
+.pj-fly-ball {
+  position: absolute; z-index: 4; pointer-events: none;
+  width: calc(var(--u) * 150); left: calc(var(--u) * -70); top: calc(var(--u) * 40);
+  rotate: -8deg;
+}
+.js .pj-fly-ball { translate: -60% 0; opacity: 0; transition: translate 1.1s cubic-bezier(.2,.8,.2,1.1), opacity .4s; }
+.js .pj-fly-ball.is-on { translate: 0 0; opacity: 1; animation: pj-ball-float 4s 1.2s ease-in-out infinite; }
+@keyframes pj-ball-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(calc(var(--u) * -10)); } }
+
+/* מגרשים → פלטה */
+.pj-palette__photo--court img { aspect-ratio: 4 / 5; object-fit: cover; object-position: center 45%; }
+.pj-palette__photo--court figcaption { margin-top: calc(var(--u) * 8); }
+
+/* סקיצות → התפתחות → סמל */
+.pj-steps--tw { align-items: center; }
+.pj-steps--tw .pj-figure { margin: 0; }
+
+/* לוחות מיקוד */
+.pj-boards { margin-top: calc(var(--u) * 30); display: grid; gap: calc(var(--u) * 18); }
+.pj-boards .pj-figure { margin: 0; }
+
+/* גלריה: ספר המותג לכל הרוחב */
+.pj-gallery__item--full { grid-column: 1 / -1; }
+.pj-gallery__item--full img { height: auto; }
+
+/* היריעה על המגרש */
+.pj-figure--court { max-width: calc(var(--u) * 900); margin-inline: auto; rotate: 1deg; }
+.pj-figure--court img { border: calc(var(--u) * 8) solid #fff; }
+
+@media (min-width: 768px) {
+  .pj-map__axis { font-size: 22px; }
+  .pj-fly-ball { width: calc(var(--u) * 200); left: calc(var(--u) * -110); top: calc(var(--u) * 60); }
+  .pj-boards { gap: calc(var(--u) * 26); }
+}
+@media (min-width: 1200px) {
+  .pj-map { margin-top: calc(var(--u) * 60); }
+  .pj-map figcaption { font-size: calc(var(--ft) * 22); margin-top: calc(var(--u) * 18); }
+  .pj-fly-ball { width: calc(var(--u) * 300); left: calc((var(--u) * 1320 - 100vw) / 2 - var(--u) * 60); top: calc(var(--u) * 330); }
+  .pj-boards { margin-top: calc(var(--u) * 60); gap: calc(var(--u) * 40); }
+  .pj-figure--court img { border-width: calc(var(--u) * 14); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .pj-fly-ball { translate: none; opacity: 1; animation: none; }
+  .js .pj-map .pj-map__pencil path, .js .pj-map .pj-map__circle, .js .pj-map .pj-map__arrow { stroke-dashoffset: 0; transition: none; }
+}
+html.a11y-still .pj-fly-ball { translate: none !important; opacity: 1 !important; animation: none !important; }
+html.a11y-still .pj-map path { stroke-dashoffset: 0 !important; }

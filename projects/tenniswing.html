@@ -12,11 +12,11 @@
   <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
   <link rel="preload" href="../fonts/Danidin-CondensedBlack.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/Polin-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/style.css?v=18">
-  <link rel="stylesheet" href="../css/project.css?v=18">
-  <link rel="stylesheet" href="../css/a11y.css?v=18">
+  <link rel="stylesheet" href="../css/style.css?v=19">
+  <link rel="stylesheet" href="../css/project.css?v=19">
+  <link rel="stylesheet" href="../css/a11y.css?v=19">
   <script>document.documentElement.classList.add("js");</script>
-  <script src="../js/a11y.js?v=18"></script>
+  <script src="../js/a11y.js?v=19"></script>
 </head>
 <body class="pj-page">
 <a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
@@ -122,8 +122,11 @@
         <p class="pj-peek__tag-text">המגרש <br>שכיף לחזור <br>אליו</p>
         <ul class="pj-peek__dots" aria-hidden="true"><li style="--c:#183356"></li><li style="--c:#F2603E"></li><li style="--c:#DCE04A"></li></ul>
       </div>
-      <figure class="pj-peek__wide" data-reveal>
-        <img src="../assets/projects/tenniswing/banner-cap.jpg" alt="יריעה לבנה עם לוגו TENNISWING CLUB על גדר המגרש, וכובע כחול רקום בלוגו" loading="lazy" width="1672" height="941">
+      <figure class="pj-peek__half" data-reveal>
+        <img src="../assets/projects/tenniswing/shirt.jpg" alt="שחקן טניס בחולצה לבנה עם לוגו TENNISWING CLUB ומגן זיעה ממותג, ויריעה כחולה עם הלוגו ברקע" loading="lazy" width="1400" height="933">
+      </figure>
+      <figure class="pj-peek__half" data-reveal>
+        <img src="../assets/projects/tenniswing/stationery.jpg" alt="ניירת ממותגת של TENNISWING CLUB: דף מכתבים, כרטיסי ביקור כחולים וירוקים, עט ובקבוק" loading="lazy" width="1374" height="1145">
       </figure>
     </section>
 
@@ -156,8 +159,52 @@
       <figure class="pj-figure pj-figure--wide" data-reveal>
         <img src="../assets/projects/tenniswing/strategy-doc.jpg" alt="עמודים מתוך המסמך האסטרטגי של המותג: קהל יעד, מתחרים, ייחודיות ומיצוב" loading="lazy" width="1400" height="795">
       </figure>
-      <!-- placeholder: חתיכה מטבלת המתחרים / תרשים מיצוב -->
-      <div class="pj-ph pj-ph--strip" data-reveal><span>כאן ייכנס: חתיכה מטבלת המתחרים או תרשים קטן שמראה איפה TENNISWING יושב ביחס אליהם</span></div>
+      <!-- מפת מיצוב – שרבוט ידני על דף מחברת -->
+      <figure class="pj-map" data-reveal>
+        <svg class="pj-map__svg" viewBox="0 0 1000 640" role="img" aria-labelledby="pj-map-title pj-map-desc">
+          <title id="pj-map-title">מפת מיצוב: איפה TENNISWING יושב ביחס למתחרים</title>
+          <desc id="pj-map-desc">ציר אופקי מ"אקדמי ותחרותי" ל"אנושי ומשוחרר", ציר אנכי מ"כניסה קלה" ל"מקצועי". האקדמיה לטניס דודי סלע: מקצועית ואקדמית. בית הספר לטניס שר: קהילתי, באמצע. טניסקול: נגיש וכניסה קלה. TENNISWING: מקצועי וגם אנושי ומשוחרר – הפינה שאף אחד לא תפס.</desc>
+          <defs>
+            <filter id="pj-pencil" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="n"/>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+          </defs>
+          <!-- שורות מחברת -->
+          <g class="pj-map__lines">
+            <path d="M0 70H1000M0 120H1000M0 170H1000M0 220H1000M0 270H1000M0 320H1000M0 370H1000M0 420H1000M0 470H1000M0 520H1000M0 570H1000M0 620H1000"/>
+          </g>
+          <g class="pj-map__pencil" filter="url(#pj-pencil)">
+            <!-- צירים -->
+            <path d="M500 590C499 450 502 260 500 70M488 92 500 66 513 93"/>
+            <path d="M60 330C300 333 700 327 940 330M916 318 942 330 917 343M84 318 58 330 83 343"/>
+            <!-- המתחרים: עיגולי עיפרון כפולים -->
+            <ellipse cx="772" cy="160" rx="22" ry="19"/><ellipse cx="770" cy="158" rx="25" ry="21" transform="rotate(-8 770 158)"/>
+            <ellipse cx="622" cy="410" rx="19" ry="17"/><ellipse cx="624" cy="408" rx="22" ry="19" transform="rotate(10 624 408)"/>
+            <ellipse cx="402" cy="532" rx="19" ry="17"/><ellipse cx="400" cy="531" rx="22" ry="19" transform="rotate(-6 400 531)"/>
+          </g>
+          <!-- TENNISWING: כתם מרקר + עיגול כתום משורבט -->
+          <path class="pj-map__marker" d="M168 168c40-34 158-36 196-6 30 24 6 66-48 74-70 10-182 6-170-36 3-12 10-22 22-32z"/>
+          <path class="pj-map__circle" filter="url(#pj-pencil)" d="M150 198c-6-44 92-66 174-56 70 8 98 46 66 74-34 30-168 34-216 10-30-15-34-38-6-58 20-14 60-22 100-24"/>
+          <!-- חץ משורבט אל הפער -->
+          <path class="pj-map__arrow" filter="url(#pj-pencil)" d="M468 250c-40 2-64-20-72-50M384 214l12-16 15 13"/>
+
+          <g class="pj-map__text">
+            <text x="500" y="44" text-anchor="middle" class="pj-map__axis">מקצועי ומדויק</text>
+            <text x="500" y="626" text-anchor="middle" class="pj-map__axis">בסיסי · כניסה קלה</text>
+            <text x="955" y="318" text-anchor="end" class="pj-map__axis" transform="rotate(-2 955 318)">אקדמי ותחרותי</text>
+            <text x="45" y="318" text-anchor="start" class="pj-map__axis" transform="rotate(2 45 318)">אנושי ומשוחרר</text>
+
+            <text x="772" y="208" text-anchor="middle" class="pj-map__name" transform="rotate(-2 772 208)">האקדמיה לטניס דודי סלע</text>
+            <text x="622" y="456" text-anchor="middle" class="pj-map__name" transform="rotate(2 622 456)">בית הספר לטניס שר</text>
+            <text x="402" y="578" text-anchor="middle" class="pj-map__name" transform="rotate(-1 402 578)">טניסקול</text>
+
+            <text x="262" y="204" text-anchor="middle" class="pj-map__win" dir="ltr">TENNISWING</text>
+            <text x="478" y="262" text-anchor="end" class="pj-map__note" transform="rotate(-4 478 262)" direction="ltr">הפינה שאף אחד לא תפס</text>
+          </g>
+        </svg>
+        <figcaption>מפת המיצוב: מקצועיות בלי הנוקשות של "אקדמיה"</figcaption>
+      </figure>
     </section>
 
     <!-- ===== האתגר: השם ===== -->
@@ -201,7 +248,8 @@
     </section>
 
     <!-- ===== ההחלטות ===== -->
-    <section class="pj-section" aria-labelledby="pj-decisions">
+    <section class="pj-section pj-decisions" aria-labelledby="pj-decisions">
+      <img class="pj-fly-ball" src="../assets/projects/tenniswing/fly-ball.svg" alt="" aria-hidden="true" loading="lazy">
       <div class="pj-center-head">
         <p class="pj-kicker">ההחלטות</p>
         <h2 class="pj-h2" id="pj-decisions">כל בחירה חזרה לאותו רעיון</h2>
@@ -227,7 +275,7 @@
 
       <!-- מגרשים → דגימה → פלטה -->
       <div class="pj-palette">
-        <div class="pj-ph pj-palette__photo" data-reveal><span>כאן ייכנסו: התמונות של המגרשים האמיתיים</span></div>
+        <figure class="pj-figure pj-palette__photo pj-palette__photo--court" data-reveal><img src="../assets/projects/tenniswing/court.jpg" alt="המגרש של ליאור: משטח כחול, שוליים אדומים-חומים וגדר ירוקה – משם נדגמו צבעי המותג" loading="lazy" width="900" height="1600"><figcaption>המגרש האמיתי של ליאור</figcaption></figure>
         <span class="pj-palette__arrow" aria-hidden="true"><svg viewBox="0 0 62 22"><path d="M61 11H2M11 1.5 1.5 11l9.5 9.5" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></span>
         <ul class="pj-swatches" aria-label="פלטת הצבעים של המותג">
           <li class="pj-swatch" style="--c:#183356" data-reveal><span dir="ltr">#183356</span>כחול</li>
@@ -238,10 +286,10 @@
       </div>
       <p class="pj-note-small">* הצבעים נדגמו מהמוקאפ – כדאי לעדכן לקודים המדויקים מספר המותג</p>
 
-      <div class="pj-steps">
-        <div class="pj-ph" data-reveal><span>סקיצות ידניות של הסמל</span></div>
-        <div class="pj-ph" data-reveal><span>ההתפתחות</span></div>
-        <div class="pj-ph pj-ph--logo" data-reveal><span>הלוגו הסופי</span></div>
+      <div class="pj-steps pj-steps--tw">
+        <figure class="pj-figure pj-figure--paper" data-reveal><img src="../assets/projects/tenniswing/sketch-1.jpg" alt="דף מחברת עם סקיצות עיפרון ראשונות: כדורים, רשתות, מחבטים והשם טניסווינג בכתב יד" loading="lazy" width="1000" height="1328"><figcaption>סקיצות ידניות של הסמל</figcaption></figure>
+        <figure class="pj-figure pj-figure--paper" data-reveal><img src="../assets/projects/tenniswing/sketch-2.jpg" alt="סקיצות עיפרון של ההתפתחות: כדור עם רשת שנמתחת אחורה כמו שובל של תנועה, עם חצים על הכיוונים שנבחרו" loading="lazy" width="1300" height="979"><figcaption>ההתפתחות: הכדור, הרשת והתנועה מתחברים</figcaption></figure>
+        <figure class="pj-figure" data-reveal><img src="../assets/projects/tenniswing/ball.jpg" alt="הסמל הסופי של TENNISWING מודפס על כדור טניס במגרש" loading="lazy" width="1400" height="788"><figcaption>הסמל הסופי</figcaption></figure>
       </div>
     </section>
 
@@ -254,13 +302,13 @@
         </div>
         <div class="pj-cols__body" data-reveal>
           <p>רק אחרי שהאסטרטגיה, השם והטאגליין היו ברורים, עברתי לעיצוב.</p>
-          <p>יצרתי שני סטיילסקייפים שבחנו דרכים שונות להביא את האישיות של המותג לחיים. במקום לבחור אחד מהם כמו שהוא, החלטנו לחבר בין האלמנטים שעבדו בשני הכיוונים.</p>
+          <p>יצרתי שני לוחות מיקוד שבחנו דרכים שונות להביא את האישיות של המותג לחיים. במקום לבחור אחד מהם כמו שהוא, החלטנו לחבר בין האלמנטים שעבדו בשני הכיוונים.</p>
           <p>משם עברתי לשלוש סקיצות לוגו, סבבי דיוק ופידבק, עד שהגענו למערכת הסופית. התוצאה היא שפה שנבנתה סביב אותו DNA שהוגדר למותג: <strong>כיף.</strong></p>
         </div>
       </div>
-      <div class="pj-duo">
-        <div class="pj-ph pj-ph--tall" data-reveal><span>סטיילסקייפ 1</span></div>
-        <div class="pj-ph pj-ph--tall" data-reveal><span>סטיילסקייפ 2</span></div>
+      <div class="pj-boards">
+        <figure class="pj-figure" data-reveal><img src="../assets/projects/tenniswing/focus-1.jpg" alt="לוח מיקוד 1: כתום וירוק ליים, צילומי טניס אנרגטיים, טיפוגרפיה עבה ולוגואים דינמיים" loading="lazy" width="2000" height="382"><figcaption>לוח מיקוד 1</figcaption></figure>
+        <figure class="pj-figure" data-reveal><img src="../assets/projects/tenniswing/focus-2.jpg" alt="לוח מיקוד 2: כחול עמוק, כתום וירוק ליים, מגרשים, קהילה ושפה גרפית נקייה" loading="lazy" width="2000" height="382"><figcaption>לוח מיקוד 2</figcaption></figure>
       </div>
     </section>
 
@@ -275,9 +323,8 @@
       <div class="pj-gallery">
         <figure class="pj-gallery__item" data-reveal><img src="../assets/projects/tenniswing/after-kids.jpg" alt="מודעת חוג טניס לילדים במיתוג החדש" loading="lazy" width="1000" height="1000"></figure>
         <figure class="pj-gallery__item" data-reveal><img src="../assets/projects/tenniswing/after-adults.jpg" alt="מודעת אימון טניס למבוגרים במיתוג החדש" loading="lazy" width="1000" height="1000"></figure>
-        <div class="pj-gallery__item pj-ph" data-reveal><span>כדורי טניס ממותגים</span></div>
-        <div class="pj-gallery__item pj-ph" data-reveal><span>חומרים שיווקיים</span></div>
-        <div class="pj-gallery__item pj-gallery__item--wide pj-ph" data-reveal><span>עמודים נבחרים מספר המותג</span></div>
+        <figure class="pj-gallery__item" data-reveal><img src="../assets/projects/tenniswing/fb-ad.jpg" alt="מודעת פייסבוק של TENNISWING CLUB לחוג טניס לילדים על מסך טלפון" loading="lazy" width="1400" height="788"></figure>
+        <figure class="pj-gallery__item pj-gallery__item--full" data-reveal><img src="../assets/projects/tenniswing/brandbook.jpg" alt="עמודים מתוך ספר המותג של TENNISWING: שער, לוגו, פאטרן, צבעים, טיפוגרפיה ושפה עיצובית" loading="lazy" width="1800" height="1012"></figure>
       </div>
     </section>
 
@@ -295,7 +342,10 @@
           <p>הפרויקט התחיל כשבעל העסק לא הרגיש גאה בשם ובלוגו שמופיעים על המגרש שלו. הוא הסתיים כשהוא מרגיש שהמותג החדש באמת מייצג אותו.</p>
         </div>
       </div>
-      <div class="pj-ph pj-ph--strip" data-reveal><span>כאן ייכנס: צילום של היריעה המודפסת על המגרש (לפני / אחרי בקונטקסט אמיתי)</span></div>
+      <figure class="pj-figure pj-figure--court" data-reveal>
+        <img src="../assets/projects/tenniswing/banner-court.jpg" alt="יריעת החסות עם הלוגו של TENNISWING CLUB על הגדר במגרש האמיתי של ליאור" loading="lazy" width="600" height="450">
+        <figcaption>המותג על המגרש של ליאור</figcaption>
+      </figure>
     </section>
 
     <!-- ===== ההוכחה + פריים סיום ===== -->
@@ -402,7 +452,7 @@
 
 </div>
 
-<script src="../js/config.js?v=18"></script>
-<script src="../js/main.js?v=18"></script>
+<script src="../js/config.js?v=19"></script>
+<script src="../js/main.js?v=19"></script>
 </body>
 </html>

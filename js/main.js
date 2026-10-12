@@ -73,7 +73,7 @@
   }
 
   // אנימציות שמופעלות פעם אחת כשנכנסים למסך (לוח השמות, ה-Reveal של השם)
-  var onceEls = document.querySelectorAll(".pj-names, .pj-reveal__word");
+  var onceEls = document.querySelectorAll(".pj-names, .pj-reveal__word, .pj-fly-ball");
   if ("IntersectionObserver" in window && !reduceMotion) {
     var io2 = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
