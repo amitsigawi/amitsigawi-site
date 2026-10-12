@@ -27,6 +27,7 @@
     [".card"],
     [".process .title", ".process__text", ".video"],
     [".about__badge", ".about__text--a", ".about__text--b", ".about__photo"],
+    [".reels .title", ".reels__text", ".reel"],
     [".chat"],
     [".contact__kicker", ".contact .title", ".contact__text", ".form-wrap"]
   ];
@@ -76,6 +77,59 @@
     window.addEventListener("resize", onScroll);
     window.addEventListener("a11ychange", onScroll);
     update();
+  }
+
+  // ---------- reels carousel (פעיל רק כשהמסילה נגללת – במובייל) ----------
+  var track = document.querySelector(".reels__track");
+  if (track) {
+    var reels = Array.prototype.slice.call(track.querySelectorAll(".reel"));
+    var dotsWrap = document.querySelector(".reels__dots");
+    var prevBtn = document.querySelector(".reels__btn--prev");
+    var nextBtn = document.querySelector(".reels__btn--next");
+    var current = 0;
+    var dots = reels.map(function (r, i) {
+      var d = document.createElement("button");
+      d.type = "button"; d.className = "reels__dot";
+      d.setAttribute("aria-label", "המלצה " + (i + 1) + " מתוך " + reels.length);
+      d.addEventListener("click", function () { goTo(i); });
+      dotsWrap.appendChild(d);
+      return d;
+    });
+    var setActive = function (i) {
+      current = i;
+      reels.forEach(function (r, j) { r.classList.toggle("is-active", j === i); });
+      dots.forEach(function (d, j) { d.setAttribute("aria-current", j === i ? "true" : "false"); });
+      prevBtn.disabled = i === 0;
+      nextBtn.disabled = i === reels.length - 1;
+    };
+    var goTo = function (i) {
+      i = Math.max(0, Math.min(reels.length - 1, i));
+      // ממרכזים לפי מיקום (עובד גם ב-RTL, בלי לגלול את העמוד אנכית)
+      var t = track.getBoundingClientRect(), r = reels[i].getBoundingClientRect();
+      track.scrollBy({ left: (r.left + r.width / 2) - (t.left + t.width / 2), behavior: reduceMotion ? "auto" : "smooth" });
+      setActive(i);
+    };
+    prevBtn.addEventListener("click", function () { goTo(current - 1); });
+    nextBtn.addEventListener("click", function () { goTo(current + 1); });
+    var syncFromScroll = function () {
+      var t = track.getBoundingClientRect(), mid = t.left + t.width / 2, best = 0, bestD = Infinity;
+      reels.forEach(function (r, i) {
+        var b = r.getBoundingClientRect(), dist = Math.abs(b.left + b.width / 2 - mid);
+        if (dist < bestD) { bestD = dist; best = i; }
+      });
+      if (best !== current) setActive(best);
+    };
+    var scrollTick = false;
+    track.addEventListener("scroll", function () {
+      if (!scrollTick) { scrollTick = true; requestAnimationFrame(function () { scrollTick = false; syncFromScroll(); }); }
+    }, { passive: true });
+    setActive(0);
+    track.classList.add("is-ready");
+
+    // רק סרטון אחד מתנגן בכל פעם
+    track.addEventListener("play", function (e) {
+      track.querySelectorAll("video").forEach(function (v) { if (v !== e.target) v.pause(); });
+    }, true);
   }
 
   // ---------- sticky header ----------

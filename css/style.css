@@ -72,7 +72,7 @@ button, input, textarea { font: inherit; color: inherit; }
 .skip-link:focus { top: calc(var(--u) * 16); }
 :focus-visible { outline: calc(var(--u) * 3) solid var(--green); outline-offset: calc(var(--u) * 3); }
 
-.page { position: relative; overflow: hidden; }
+.page { position: relative; overflow: hidden; overflow: clip; } /* clip: לא ניתן לגלילה בטעות (פוקוס/קרוסלה) */
 section, header.hero, footer { position: relative; }
 .deco { position: absolute; pointer-events: none; user-select: none; }
 
@@ -103,7 +103,7 @@ section, header.hero, footer { position: relative; }
 .nav {
   position: relative; z-index: 20;
   margin: calc(var(--u) * 12) calc(var(--u) * 12) 0;
-  height: calc(var(--u) * 62);
+  height: calc(var(--u) * 80);
   background: var(--white);
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 calc(var(--u) * 18);
@@ -131,12 +131,12 @@ section, header.hero, footer { position: relative; }
 .nav__star { display: none; }
 
 /* ---------- hero ---------- */
-.hero { display: flex; flex-direction: column; padding-top: calc(var(--u) * 74); }
+.hero { display: flex; flex-direction: column; padding-top: calc(var(--u) * 92); }
 .hero .nav { order: 0; }
 .hero__content { order: 1; }
 .hero__photo { order: 2; }
 .hero__bg { position: absolute; inset: 0; z-index: 0; }
-.hero__scribble { z-index: 2; mix-blend-mode: color-burn; width: calc(var(--u) * 200); top: calc(var(--u) * 40); left: calc(var(--u) * -70); }
+.hero__scribble { z-index: 2; mix-blend-mode: color-burn; width: calc(var(--u) * 190); top: calc(var(--u) * -30); left: calc(var(--u) * -75); }
 .hero__dots-l   { z-index: 2; mix-blend-mode: multiply; width: calc(var(--u) * 170); bottom: calc(var(--u) * 60); left: 0; }
 .hero__dots-r   { z-index: 2; mix-blend-mode: multiply; width: calc(var(--u) * 150); top: 0; right: 0; }
 .hero__star     { z-index: 2; mix-blend-mode: multiply; width: calc(var(--u) * 120); bottom: calc(var(--u) * 150); right: calc(var(--u) * 0); }
@@ -879,6 +879,119 @@ html.a11y-still .footer__skate { translate: 70vw 0; }
 .hero__bg {
   -webkit-mask-image: linear-gradient(#000 78%, transparent 100%);
           mask-image: linear-gradient(#000 78%, transparent 100%);
+}
+
+/* =========================================================
+   סרטוני המלצה (ריילס) – ממחזר את הסקשן הירוק של התהליך
+   ========================================================= */
+.reels {
+  background: var(--green-dark);
+  padding: calc(var(--u) * 30) 0 calc(var(--u) * 140);
+  text-align: center;
+}
+/* המברשת הירוקה עולה מעל תחתית "מי אני", הצהובה יורדת אל האזור הצהוב שאחרי */
+.reels .brush--green { z-index: 2; }
+.reels .brush--yellow { z-index: 6; }
+.reels .title, .reels__text, .reels__carousel { position: relative; z-index: 7; }
+.reels .title { padding: 0 calc(var(--u) * 20); }
+.reels__text { margin-top: calc(var(--u) * 14); padding: 0 calc(var(--u) * 20); color: var(--white); font-size: calc(var(--ft) * 19); line-height: 1.15; }
+
+/* מסילה: גלילה אופקית עם הצמדה, הכרטיס הפעיל במרכז והשכנים מציצים */
+.reels__track {
+  display: flex; gap: calc(var(--u) * 18);
+  margin-top: calc(var(--u) * 16);
+  padding: calc(var(--u) * 30) calc(var(--u) * 85) calc(var(--u) * 24);
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scrollbar-width: none;
+}
+.reels__track::-webkit-scrollbar { display: none; }
+.reel { flex: 0 0 calc(var(--u) * 260);scroll-snap-align: center; position: relative; transition: scale .4s cubic-bezier(.2,.7,.2,1), opacity .4s; }
+.reel:nth-child(1) { rotate: -2.5deg; }
+.reel:nth-child(2) { rotate: 2deg; }
+.reel:nth-child(3) { rotate: -1.5deg; }
+/* סלוטייפ כמו בהמלצות הוואטסאפ */
+.reel::before {
+  content: ""; position: absolute; z-index: 3; top: calc(var(--u) * -14); left: 50%;
+  width: calc(var(--u) * 90); height: calc(var(--u) * 28);
+  translate: -50% 0; rotate: var(--tape, -6deg);
+  background: rgba(238, 230, 205, .85);
+  box-shadow: 0 calc(var(--u) * 1) calc(var(--u) * 3) rgba(0,0,0,.15);
+  clip-path: polygon(0 8%, 6% 0, 10% 12%, 15% 2%, 85% 0, 90% 10%, 94% 0, 100% 9%, 97% 50%, 100% 92%, 93% 100%, 88% 88%, 83% 100%, 15% 98%, 10% 88%, 5% 100%, 0 92%, 3% 50%);
+}
+.reel:nth-child(2)::before { --tape: 5deg; }
+.reel__frame {
+  position: relative; aspect-ratio: 9 / 16; overflow: hidden;
+  background: #0b5a55;
+  border: calc(var(--u) * 6) solid var(--white);
+  box-shadow: 0 calc(var(--u) * 10) calc(var(--u) * 24) rgba(0,0,0,.3);
+}
+.reel__frame video { width: 100%; height: 100%; object-fit: cover; background: #000; }
+.reel__empty {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: calc(var(--u) * 14);
+  color: var(--mint); font-size: calc(var(--ft) * 16);
+  background: repeating-linear-gradient(-45deg, rgba(14,224,174,.06) 0 calc(var(--u) * 10), transparent calc(var(--u) * 10) calc(var(--u) * 20));
+}
+.reel__play {
+  width: calc(var(--u) * 64); height: calc(var(--u) * 64); border-radius: 50%;
+  background: var(--yellow); position: relative;
+  transition: transform .35s cubic-bezier(.3,1.6,.5,1);
+}
+.reel__play::after {
+  content: ""; position: absolute; top: 50%; left: 54%; translate: -50% -50%;
+  border-style: solid; border-color: transparent transparent transparent var(--ink);
+  border-width: calc(var(--u) * 11) 0 calc(var(--u) * 11) calc(var(--u) * 18);
+}
+.reel:hover .reel__play { transform: scale(1.1) rotate(-6deg); }
+
+/* כרטיסים שאינם במרכז קטנים ומעומעמים מעט (במובייל בלבד – JS מסמן is-active) */
+.reels__track.is-ready .reel:not(.is-active):not(.reveal), .reels__track.is-ready .reel.is-visible:not(.is-active) { scale: .9; opacity: .65; }
+.js .reel.reveal { transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1), scale .4s cubic-bezier(.2,.7,.2,1); transition-delay: var(--delay, 0s), var(--delay, 0s), 0s; }
+
+.reels__controls { display: flex; align-items: center; justify-content: center; gap: calc(var(--u) * 18); margin-top: calc(var(--u) * 4); }
+.reels__btn {
+  width: calc(var(--u) * 46); height: calc(var(--u) * 46); border-radius: 50%; border: 0; padding: 0; cursor: pointer;
+  background: var(--yellow); color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .3s cubic-bezier(.3,1.6,.5,1), opacity .2s;
+}
+.reels__btn svg { width: 50%; height: 50%; }
+.reels__btn:hover { transform: rotate(-8deg) scale(1.08); }
+.reels__btn[disabled] { opacity: .35; cursor: default; transform: none; }
+.reels__dots { display: flex; gap: calc(var(--u) * 8); }
+.reels__dot {
+  width: calc(var(--u) * 10); height: calc(var(--u) * 10); padding: 0; border: 0; border-radius: calc(var(--u) * 10); cursor: pointer;
+  background: rgba(255,255,255,.4); transition: width .3s, background-color .3s;
+}
+.reels__dot[aria-current="true"] { width: calc(var(--u) * 28); background: var(--mint); }
+
+@media (min-width: 768px) {
+  .reels { padding: calc(var(--u) * 40) calc(var(--u) * 60) calc(var(--u) * 230); }
+  .reels__text { font-size: calc(var(--ft) * 22); }
+  /* בטאבלט ומעלה שלושת הסרטונים נכנסים בשורה – בלי קרוסלה */
+  .reels__track { overflow: visible; justify-content: center; gap: calc(var(--u) * 40); padding: calc(var(--u) * 40) 0 0; margin-top: calc(var(--u) * 20); }
+  .reel { flex: 0 0 calc(var(--u) * 250); }
+  .reel:nth-child(2) { translate: 0 calc(var(--u) * 30); }
+  .reels__track.is-ready .reel.is-visible:not(.is-active), .reels__track.is-ready .reel:not(.is-active):not(.reveal) { scale: none; opacity: 1; }
+  .reels__controls, .reels__text .mobile-br { display: none; }
+  .reel__empty { font-size: calc(var(--ft) * 18); }
+  .reels .brush--yellow { bottom: calc(var(--u) * -330); }
+}
+@media (min-width: 1200px) {
+  .reels { min-height: calc(var(--u) * 1180); padding: calc(var(--u) * 49) 0 calc(var(--u) * 360); }
+  .reels__text { margin-top: calc(var(--u) * 24); font-size: calc(var(--ft) * 32); }
+  .reels__track { gap: calc(var(--u) * 70); padding-top: calc(var(--u) * 60); }
+  .reel { flex-basis: calc(var(--u) * 340); }
+  .reel:nth-child(2) { translate: 0 calc(var(--u) * 50); }
+  .reel::before { top: calc(var(--u) * -22); width: calc(var(--u) * 140); height: calc(var(--u) * 42); }
+  .reel__frame { border-width: calc(var(--u) * 10); }
+  .reel__play { width: calc(var(--u) * 96); height: calc(var(--u) * 96); }
+  .reel__play::after { border-width: calc(var(--u) * 16) 0 calc(var(--u) * 16) calc(var(--u) * 26); }
+  .reel__empty { font-size: calc(var(--ft) * 24); gap: calc(var(--u) * 20); }
+  .reels .brush--yellow { top: auto; bottom: calc(var(--u) * -634); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reels__track { scroll-behavior: auto; }
 }
 
 /* פרויקטים במובייל: שני טורים, קומפקטי */

@@ -13,10 +13,10 @@
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/Danidin-CondensedBlack.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Polin-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=9">
-  <link rel="stylesheet" href="css/a11y.css?v=9">
+  <link rel="stylesheet" href="css/style.css?v=11">
+  <link rel="stylesheet" href="css/a11y.css?v=11">
   <script>document.documentElement.classList.add("js");</script>
-  <script src="js/a11y.js?v=9"></script>
+  <script src="js/a11y.js?v=11"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
@@ -49,7 +49,7 @@
     <img class="deco hero__scribble" src="assets/scribble-teal.svg" alt="" aria-hidden="true">
     <img class="deco hero__dots-l" src="assets/dots-left.jpg" alt="" aria-hidden="true">
     <img class="deco hero__dots-r" src="assets/dots-right.jpg" alt="" aria-hidden="true">
-    <img class="deco hero__star" src="assets/star-yellow.png" alt="" aria-hidden="true">
+    <img class="deco hero__star" src="assets/star-yellow.png?v=11" alt="" aria-hidden="true">
     <img class="hero__photo" src="assets/amit-hero.jpg" alt="עמית סיגאוי מחייכת עם כובע טמבל" width="940" height="918" fetchpriority="high">
     <img class="deco brush brush--hero" src="assets/brush-white.svg" alt="" aria-hidden="true">
 
@@ -100,7 +100,6 @@
     <!-- ===== ABOUT ===== -->
     <section class="about" id="about" aria-labelledby="about-title">
       <div class="about__bg" aria-hidden="true"></div>
-      <img class="deco brush brush--yellow" src="assets/brush-yellow.svg" alt="" aria-hidden="true">
 
       <div class="about__badge">
         <img class="about__badge-bg" src="assets/brush-dark.svg" alt="" aria-hidden="true">
@@ -126,6 +125,47 @@
         <figure class="chat chat--2"><img src="assets/chat-2.jpg" alt="הודעת וואטסאפ: המיתוג ממש מזניק הכל!" loading="lazy" width="584" height="115"></figure>
         <figure class="chat chat--3"><img src="assets/chat-3.jpg" alt="שיחת וואטסאפ עם לקוח שמספר שהאתר נראה מקצועי ושכבר קיבל עשרות פניות" loading="lazy" width="744" height="759"></figure>
       </div>
+    </section>
+
+    <!-- ===== REELS – סרטוני המלצה =====
+         להוספת סרטון: מחליפים את <div class="reel__empty">…</div> של אותה המלצה ב:
+         <video src="assets/reels/reel-1.mp4" poster="assets/reels/reel-1.jpg" controls playsinline preload="none"></video>
+         (הסרטון אנכי 9:16, עדיף MP4 עד ~15MB; ה-poster הוא תמונת הפתיחה) -->
+    <section class="reels" id="reviews" aria-labelledby="reels-title">
+      <img class="deco brush brush--green" src="assets/brush-green.svg" alt="" aria-hidden="true">
+      <h2 class="title title--mint" id="reels-title">אל תסמכו רק עליי</h2>
+      <p class="reels__text">הנה מה ש<strong>הלקוחות שלי מספרים</strong><br class="mobile-br"> אחרי שעבדנו יחד</p>
+
+      <div class="reels__carousel">
+        <ul class="reels__track" aria-label="סרטוני המלצה">
+          <li class="reel">
+            <div class="reel__frame">
+              <div class="reel__empty"><span class="reel__play" aria-hidden="true"></span><span>סרטון המלצה בקרוב</span></div>
+            </div>
+          </li>
+          <li class="reel">
+            <div class="reel__frame">
+              <div class="reel__empty"><span class="reel__play" aria-hidden="true"></span><span>סרטון המלצה בקרוב</span></div>
+            </div>
+          </li>
+          <li class="reel">
+            <div class="reel__frame">
+              <div class="reel__empty"><span class="reel__play" aria-hidden="true"></span><span>סרטון המלצה בקרוב</span></div>
+            </div>
+          </li>
+        </ul>
+        <div class="reels__controls">
+          <button class="reels__btn reels__btn--prev" type="button" aria-label="ההמלצה הקודמת">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="reels__dots"></div>
+          <button class="reels__btn reels__btn--next" type="button" aria-label="ההמלצה הבאה">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <img class="deco brush brush--yellow" src="assets/brush-yellow.svg" alt="" aria-hidden="true">
     </section>
 
     <!-- ===== INSTAGRAM (מתעדכן אוטומטית דרך Behold – ראו config.js) ===== -->
@@ -227,7 +267,7 @@
 
 </div>
 
-<script src="js/config.js?v=9"></script>
-<script src="js/main.js?v=9"></script>
+<script src="js/config.js?v=11"></script>
+<script src="js/main.js?v=11"></script>
 </body>
 </html>
