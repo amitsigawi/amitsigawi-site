@@ -1015,3 +1015,36 @@ html.a11y-still .footer__skate { translate: 70vw 0; }
   .grid { grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 16) calc(var(--u) * 12); }
   .card__label { height: auto; min-height: calc(var(--u) * 44); padding: calc(var(--u) * 6) calc(var(--u) * 6); font-size: calc(var(--ft) * 13); line-height: 1.2; text-align: center; }
 }
+/* =========================================================
+   אינסטגרם בגודל כרטיסי הפרויקטים + כפתור מעקב, פוטר בשתי שורות
+   ========================================================= */
+/* אותם טורים ומרווחים כמו .grid של הפרויקטים */
+.insta__sheet .insta__grid { grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 16) calc(var(--u) * 12); }
+.insta__sheet { padding-right: calc(var(--u) * 14); padding-left: calc(var(--u) * 14); }
+
+.btn--dark { background: var(--ink); color: var(--white); }
+.btn--dark::before { background: var(--yellow); }
+.btn--dark:hover, .btn--dark:focus-visible { background: var(--ink); color: var(--ink); }
+.insta__follow { margin-top: calc(var(--u) * 26); gap: calc(var(--u) * 12); }
+.insta__follow-icon { width: calc(var(--u) * 26); height: calc(var(--u) * 26); flex: none; }
+
+.footer__copy > span { display: block; }
+
+@media (min-width: 768px) {
+  .insta__sheet .insta__grid { grid-template-columns: repeat(2, 1fr); gap: calc(var(--u) * 26) calc(var(--u) * 20); }
+  .insta__sheet { padding-right: calc(var(--u) * 40); padding-left: calc(var(--u) * 40); }
+  .insta__follow { margin-top: calc(var(--u) * 34); }
+}
+@media (min-width: 1200px) {
+  .insta__paper { width: calc(var(--u) * 1380); }
+  .insta__sheet { padding: calc(var(--u) * 56) calc(var(--u) * 60) calc(var(--u) * 64); }
+  .insta__sheet .insta__grid {
+    width: calc(var(--u) * 1260); margin: calc(var(--u) * 32) auto 0;
+    grid-template-columns: repeat(3, calc(var(--u) * 388));
+    column-gap: calc(var(--u) * 48); row-gap: calc(var(--u) * 52);
+  }
+  .insta__follow { display: inline-flex; margin: calc(var(--u) * 48) 0 0; height: calc(var(--u) * 66); padding: 0 calc(var(--u) * 44); font-size: calc(var(--ft) * 26); }
+  .insta__follow-icon { width: calc(var(--u) * 34); height: calc(var(--u) * 34); }
+  .footer { height: calc(var(--u) * 350); }
+  .footer__copy { top: calc(var(--u) * 236); line-height: 1.5; }
+}
