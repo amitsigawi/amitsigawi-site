@@ -685,3 +685,30 @@ html.a11y-still .pj-map path { stroke-dashoffset: 0 !important; }
 }
 .pj-proof__frame--cap img { box-shadow: 0 calc(var(--u) * 16) calc(var(--u) * 34) rgba(0,0,0,.28); }
 @media (min-width: 768px) { .pj-proof__stack { margin-top: 0; } }
+/* =========================================================
+   עמודי מעבר לקווים / מיה שיפלסקי / זמן יער
+   ========================================================= */
+.pj--maavar { --brand-bg: #861F2B; --brand-fg: #F5ECE3; }
+.pj--maya   { --brand-bg: #5D1E0D; --brand-fg: #E97E5A; }
+.pj--zman   { --brand-bg: #114A29; --brand-fg: #F39A2B; }
+
+.pj-lead--center { text-align: center; }
+.pj-figure--narrow { max-width: calc(var(--u) * 900); margin-inline: auto; }
+.pj-figure--icons img, .pj-figure--values img { box-shadow: none; }
+.pj-figure--logo { background: #fff; }
+.pj-figure--logo img { box-shadow: none; max-width: 80%; margin: 0 auto; display: block; }
+.pj-quote__text--long { font-size: calc(var(--ft) * 26); line-height: 1.15; }
+.pj-link { font-weight: 600; color: var(--green); text-decoration: underline; text-underline-offset: .2em; display: inline-block; transition: transform .3s cubic-bezier(.3,1.6,.5,1); }
+.pj-link:hover { transform: rotate(-2deg); }
+.pj-results .pj-insight__num { width: auto; min-width: calc(var(--u) * 46); padding: 0 calc(var(--u) * 6); border-radius: calc(var(--u) * 30); }
+.pj-results { margin-bottom: calc(var(--u) * 34); }
+.pj-final .pj-gallery { gap: calc(var(--u) * 16); }
+
+@media (min-width: 768px) {
+  .pj-quote__text--long { font-size: calc(var(--ft) * 38); }
+}
+@media (min-width: 1200px) {
+  .pj-quote__text--long { font-size: calc(var(--ft) * 60); }
+  .pj-results { margin-bottom: calc(var(--u) * 70); }
+  .pj-final .pj-gallery { gap: calc(var(--u) * 30); }
+}
