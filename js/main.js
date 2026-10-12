@@ -194,7 +194,9 @@
   // ---------- project links ----------
   var links = window.PROJECT_LINKS || {};
   document.querySelectorAll(".card__link").forEach(function (a) {
-    var url = links[a.dataset.project];
+    // קישור שכתוב ישירות ב-HTML (לא "#") קודם – כך הכרטיס לחיץ גם בלי config.js
+    var own = a.getAttribute("href");
+    var url = (own && own !== "#") ? own : links[a.dataset.project];
     if (url) {
       a.href = url;
       // עמוד פרויקט באתר נפתח באותה לשונית, קישור חיצוני בלשונית חדשה
