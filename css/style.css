@@ -189,7 +189,7 @@ section, header.hero, footer { position: relative; }
 }
 
 /* ---------- projects ---------- */
-.projects { padding: calc(var(--u) * 30) calc(var(--u) * 20) calc(var(--u) * 190); }
+.projects { padding: calc(var(--u) * 30) calc(var(--u) * 20) calc(var(--u) * 120); }
 .projects > * { position: relative; z-index: 5; }
 .projects__hint { text-align: center; margin-top: calc(var(--u) * 10); font-size: calc(var(--ft) * 16); }
 .grid {
@@ -596,6 +596,22 @@ section, header.hero, footer { position: relative; }
 }
 
 /* =========================================================
+   LAPTOP 1200–1599
+   בלפטופ הקטנה של 0.75 הופכת את הטקסט לזעיר (10–13px).
+   כאן הפריסה מוקטנת פחות (--k: .85, עדיין הכול ב-VW),
+   והטקסט מקבל עוד הגדלה משלו (--lt).
+   ========================================================= */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  :root {
+    --k: .85;
+    --lt: 1.15;
+    --ft: calc(var(--u) * var(--ts, 1) * var(--lt));
+  }
+  /* כותרות התצוגה גדולות ממילא – בלי ההגדלה הנוספת */
+  .hero__title, .title, .about__title { --ft: calc(var(--u) * var(--ts, 1)); }
+}
+
+/* =========================================================
    GRUNGE + אפקטים
    ========================================================= */
 
@@ -886,7 +902,7 @@ html.a11y-still .footer__skate { translate: 70vw 0; }
    ========================================================= */
 .reels {
   background: var(--green-dark);
-  padding: calc(var(--u) * 30) 0 calc(var(--u) * 140);
+  padding: calc(var(--u) * 30) 0 calc(var(--u) * 115);
   text-align: center;
 }
 /* המברשת הירוקה עולה מעל תחתית "מי אני", הצהובה יורדת אל האזור הצהוב שאחרי */
