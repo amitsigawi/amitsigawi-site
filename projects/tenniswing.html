@@ -12,11 +12,11 @@
   <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
   <link rel="preload" href="../fonts/Danidin-CondensedBlack.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/Polin-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/style.css?v=16">
-  <link rel="stylesheet" href="../css/project.css?v=16">
-  <link rel="stylesheet" href="../css/a11y.css?v=16">
+  <link rel="stylesheet" href="../css/style.css?v=17">
+  <link rel="stylesheet" href="../css/project.css?v=17">
+  <link rel="stylesheet" href="../css/a11y.css?v=17">
   <script>document.documentElement.classList.add("js");</script>
-  <script src="../js/a11y.js?v=16"></script>
+  <script src="../js/a11y.js?v=17"></script>
 </head>
 <body class="pj-page">
 <a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
@@ -49,6 +49,10 @@
        <video class="pj-cover__media" src="../assets/projects/tenniswing/logo-anim.mp4" autoplay muted loop playsinline poster="../assets/projects/tenniswing/cover.jpg"></video> -->
   <section class="pj-cover" aria-label="TENNISWING – תמונת פתיחה">
     <img class="pj-cover__media" src="../assets/projects/tenniswing/cover.jpg" alt="יריעה כחולה עם הלוגו של TENNISWING CLUB תלויה על גדר מגרש טניס, וסל כדורים בקדמת התמונה" width="1672" height="941" fetchpriority="high">
+    <a class="pj-scroll" href="#main">
+      <span>לסיפור המלא</span>
+      <svg viewBox="0 0 22 40" aria-hidden="true"><path d="M11 1v36M2 28l9 9.5 9-9.5" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+    </a>
   </section>
 
   <main id="main" class="pj">
@@ -63,7 +67,7 @@
       <dl class="pj-meta">
         <div><dt>הלקוח</dt><dd>ליאור, מועדון טניס עם שני סניפים</dd></div>
         <div><dt>סוג הפרויקט</dt><dd>מיתוג מחדש מהבסיס</dd></div>
-        <div><dt>התפקיד שלי</dt><dd>אסטרטגיית מותג · Naming · זהות חזותית · Brand Guidelines</dd></div>
+        <div><dt>התפקיד שלי</dt><dd>אסטרטגיית מותג · מציאת שם לעסק · זהות חזותית · ספר מותג</dd></div>
       </dl>
       <div class="pj-intro__text" data-reveal>
         <h2 class="pj-h3">מלוגו שלא נעים להציג, למותג שמרגיש שלו</h2>
@@ -107,6 +111,20 @@
           <p>ובמקביל, רציתי שהעבודה תיתן לו בסיס שאפשר להמשיך ממנו לשיווק - ולא תיגמר בקובץ לוגו.</p>
         </div>
       </div>
+    </section>
+
+    <!-- ===== הצצה לתוצאה (לוגו + מוקאפים) ===== -->
+    <section class="pj-peek" aria-label="הצצה לתוצאה">
+      <figure class="pj-peek__logo" data-reveal>
+        <img src="../assets/projects/tenniswing/logo-detail.jpg" alt="הלוגו של TENNISWING CLUB עם הטאגליין 'המגרש שכיף לחזור אליו' על יריעה כחולה" loading="lazy" width="1050" height="470">
+      </figure>
+      <div class="pj-peek__tag" data-reveal>
+        <p class="pj-peek__tag-text">המגרש <br>שכיף לחזור <br>אליו</p>
+        <ul class="pj-peek__dots" aria-hidden="true"><li style="--c:#183356"></li><li style="--c:#F2603E"></li><li style="--c:#DCE04A"></li></ul>
+      </div>
+      <figure class="pj-peek__wide" data-reveal>
+        <img src="../assets/projects/tenniswing/banner-cap.jpg" alt="יריעה לבנה עם לוגו TENNISWING CLUB על גדר המגרש, וכובע כחול רקום בלוגו" loading="lazy" width="1672" height="941">
+      </figure>
     </section>
 
     <!-- ===== משפט גדול ===== -->
@@ -173,7 +191,7 @@
       <p class="pj-kicker pj-kicker--light">הפתרון</p>
       <!-- כשאנימציית הלוגו מוכנה – אפשר להחליף את הכותרת בווידאו -->
       <h2 class="pj-reveal__word" id="pj-solution" dir="ltr" aria-label="TENNISWING">
-        <span>T</span><span>E</span><span>N</span><span>N</span><span>I</span><span>S</span><span class="is-swing">W</span><span class="is-swing">I</span><span class="is-swing">N</span><span class="is-swing">G</span>
+        <span>T</span><span>E</span><span>N</span><span>N</span><span>I</span><span class="is-split">S</span><span class="is-swing">W</span><span class="is-swing">I</span><span class="is-swing">N</span><span class="is-swing">G</span>
       </h2>
       <div class="pj-reveal__text" data-reveal>
         <p>בסוף הגענו ל-TENNISWING.</p>
@@ -255,7 +273,6 @@
         <p class="pj-lead" data-reveal>לא רציתי להשאיר את ליאור עם "לוגו יפה", אלא עם מערכת שגם הוא וגם אנשי מקצוע שיעבדו איתו בהמשך ידעו להשתמש בה.</p>
       </div>
       <div class="pj-gallery">
-        <figure class="pj-gallery__item pj-gallery__item--wide" data-reveal><img src="../assets/projects/tenniswing/banner-cap.jpg" alt="יריעה לבנה עם לוגו TENNISWING CLUB על גדר המגרש, וכובע כחול רקום בלוגו" loading="lazy" width="1672" height="941"></figure>
         <figure class="pj-gallery__item" data-reveal><img src="../assets/projects/tenniswing/after-kids.jpg" alt="מודעת חוג טניס לילדים במיתוג החדש" loading="lazy" width="1000" height="1000"></figure>
         <figure class="pj-gallery__item" data-reveal><img src="../assets/projects/tenniswing/after-adults.jpg" alt="מודעת אימון טניס למבוגרים במיתוג החדש" loading="lazy" width="1000" height="1000"></figure>
         <div class="pj-gallery__item pj-ph" data-reveal><span>כדורי טניס ממותגים</span></div>
@@ -295,14 +312,45 @@
     </section>
 
     <!-- ===== קריאה לפעולה ===== -->
-    <section class="pj-cta" id="cta" aria-labelledby="pj-cta-title">
+    <!-- טופס יצירת הקשר – זהה לדף הבית (אותו טופס, אותו גיליון לידים) -->
+    <section class="pj-cta contact" id="cta" aria-labelledby="pj-cta-title">
       <img class="deco brush pj-cta__brush" src="../assets/brush-yellow.svg" alt="" aria-hidden="true">
       <h2 class="title title--dark" id="pj-cta-title">יש לכם עסק טוב, <br>אבל המותג עדיין לא מרגיש כמוכם?</h2>
-      <p class="pj-cta__text">בואו נבנה לו זהות שיהיה לכם כיף לעמוד מאחוריה.</p>
-      <a class="btn btn--dark" href="../index.html#contact">
-        <span>בואו נדבר</span>
-        <svg class="btn__arrow" viewBox="0 0 62 22" aria-hidden="true"><path d="M61 11H2M11 1.5 1.5 11l9.5 9.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-      </a>
+      <p class="contact__text">בואו נבנה לו זהות שיהיה לכם כיף לעמוד מאחוריה. <br>תשאירו פרטים ואחזור אליכם עד 2 ימי עסקים</p>
+
+      <div class="form-wrap">
+        <img class="form-wrap__corner form-wrap__corner--top" src="../assets/form-corner.svg" alt="" aria-hidden="true">
+        <img class="form-wrap__corner form-wrap__corner--bottom" src="../assets/form-corner.svg" alt="" aria-hidden="true">
+
+        <form class="lead-form" id="lead-form" novalidate>
+          <div class="field field--name">
+            <label class="sr-only" for="f-name">שם מלא</label>
+            <input id="f-name" name="name" type="text" placeholder="שם מלא *" autocomplete="name" required>
+          </div>
+          <div class="field field--phone">
+            <label class="sr-only" for="f-phone">טלפון</label>
+            <input id="f-phone" name="phone" type="tel" placeholder="טלפון *" autocomplete="tel" inputmode="tel" required>
+          </div>
+          <div class="field field--email">
+            <label class="sr-only" for="f-email">אימייל</label>
+            <input id="f-email" name="email" type="email" placeholder="אימייל *" autocomplete="email" inputmode="email" dir="auto" required>
+          </div>
+          <div class="field field--msg">
+            <label class="sr-only" for="f-msg">מה הביא אתכם לפנות אליי?</label>
+            <textarea id="f-msg" name="message" placeholder="מה הביא אתכם לפנות אליי? (לא חובה)" rows="3"></textarea>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="f-website">אתר</label>
+            <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="field field--consent">
+            <input id="f-consent" name="consent" type="checkbox" value="yes" required>
+            <label for="f-consent">אני מסכים/ה לשימוש בפרטים שמסרתי בהתאם ל<a href="../privacy.html" target="_blank">מדיניות הפרטיות</a></label>
+          </div>
+          <button class="lead-form__submit" type="submit">שליחה</button>
+          <p class="lead-form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
       <nav class="pj-next" aria-label="ניווט בין פרויקטים">
         <a href="../index.html#projects">→ לכל הפרויקטים</a>
       </nav>
@@ -354,7 +402,7 @@
 
 </div>
 
-<script src="../js/config.js?v=16"></script>
-<script src="../js/main.js?v=16"></script>
+<script src="../js/config.js?v=17"></script>
+<script src="../js/main.js?v=17"></script>
 </body>
 </html>
