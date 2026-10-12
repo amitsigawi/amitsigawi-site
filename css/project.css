@@ -712,3 +712,84 @@ html.a11y-still .pj-map path { stroke-dashoffset: 0 !important; }
   .pj-results { margin-bottom: calc(var(--u) * 70); }
   .pj-final .pj-gallery { gap: calc(var(--u) * 30); }
 }
+/* =========================================================
+   סבב יישור לתבנית TENNISWING – כל הפרויקטים
+   ========================================================= */
+/* שם העסק בצד שמאל, כמו TENNISWING – גם כשהשם בעברית */
+.pj-intro__title--left { text-align: left; }
+
+/* הצצה: מוקאפים שלמים, בלי חיתוך */
+.pj-peek--fit { align-items: center; }
+.pj-peek--fit figure { aspect-ratio: auto; height: auto; }
+.pj-peek--fit img { height: auto; object-fit: contain; }
+@media (min-width: 768px) { .pj-peek--fit .pj-peek__logo { height: auto; } }
+
+/* ערכים – קטן יותר וממורכז */
+.pj-figure--values { max-width: 82%; margin-inline: auto; }
+@media (min-width: 1200px) { .pj-figure--values { max-width: calc(var(--u) * 760); } }
+
+/* לוחות מיקוד: הנבחר בולט, השני שקוף ומוצנע */
+.pj-board { position: relative; }
+.pj-board--muted img, .pj-board--muted figcaption { opacity: .4; filter: saturate(.6); transition: opacity .4s; }
+.pj-board--muted:hover img { opacity: .75; }
+.pj-board--pick img { outline: calc(var(--u) * 4) solid var(--brand-fg, var(--orange)); outline-offset: calc(var(--u) * 4); }
+.pj-board__tag {
+  position: absolute; top: calc(var(--u) * -12); right: calc(var(--u) * 10); z-index: 2;
+  background: var(--brand-fg, var(--orange)); color: var(--ink); font-weight: 900;
+  font-size: calc(var(--ft) * 14); padding: calc(var(--u) * 3) calc(var(--u) * 12);
+  rotate: 3deg; box-shadow: 0 calc(var(--u) * 4) calc(var(--u) * 10) rgba(0,0,0,.18);
+}
+
+/* סקיצות → לוגו → וריאציות, באוויר ובאיזון */
+.pj-steps--zy .pj-figure--logo {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: calc(var(--u) * 26) calc(var(--u) * 16);
+  box-shadow: 0 calc(var(--u) * 10) calc(var(--u) * 26) rgba(0,0,0,.12);
+}
+.pj-steps--zy .pj-figure--logo img { max-width: 38%; width: 38%; }
+.pj-steps--zy .pj-figure--logo figcaption { margin-top: calc(var(--u) * 16); }
+
+/* אפיון: מחברת + שלושה עמודים נפרדים */
+.pj-wf { margin-top: calc(var(--u) * 34); display: grid; gap: calc(var(--u) * 16); grid-template-columns: repeat(3, 1fr); align-items: start; }
+.pj-wf .pj-figure { margin: 0; }
+.pj-wf__note { grid-column: 1 / -1; rotate: -1deg; }
+.pj-wf__page img { background: #fff; border: calc(var(--u) * 1) solid rgba(0,0,0,.08); }
+.pj-wf__page:nth-child(2) { rotate: 1deg; }
+.pj-wf__page:nth-child(3) { rotate: -.8deg; margin-top: calc(var(--u) * 14); }
+.pj-wf__page:nth-child(4) { rotate: .6deg; }
+.pj-wf figcaption { font-size: calc(var(--ft) * 12); }
+@media (min-width: 768px) {
+  .pj-wf { grid-template-columns: 2.4fr repeat(3, 1fr); gap: calc(var(--u) * 20); }
+  .pj-wf__note { grid-column: auto; }
+  .pj-wf figcaption { font-size: calc(var(--ft) * 15); }
+}
+@media (min-width: 1200px) {
+  .pj-wf { margin-top: calc(var(--u) * 70); gap: calc(var(--u) * 34); }
+  .pj-wf figcaption { font-size: calc(var(--ft) * 20); }
+  .pj-steps--zy .pj-figure--logo { padding: calc(var(--u) * 50) calc(var(--u) * 30); }
+}
+
+/* ההוכחה: צילומי מסך של טלפון זה לצד זה, בהטיות הפוכות */
+.pj-proof__phones { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 14); margin-top: calc(var(--u) * 34); align-items: start; }
+.pj-proof__phones .pj-proof__frame { margin: 0; }
+.pj-proof__phones .pj-proof__frame:first-child { rotate: -3deg; }
+.pj-proof__phones .pj-proof__frame:last-child { rotate: 2.5deg; margin-top: calc(var(--u) * 30); }
+.pj-proof__phones img { border-radius: calc(var(--u) * 14); }
+@media (min-width: 768px) { .pj-proof__phones { margin-top: 0; gap: calc(var(--u) * 24); } }
+@media (min-width: 1200px) { .pj-proof__phones { gap: calc(var(--u) * 40); } .pj-proof__phones img { border-radius: calc(var(--u) * 24); } }
+
+/* גלריה: שני מוקאפים מרובעים זה לצד זה */
+.pj-gallery__item--sq img { aspect-ratio: 1; height: auto; }
+
+/* מפת המיצוב בצבעי כל מותג */
+.pj-name { white-space: nowrap; }
+.pj-map--zman   { --m-mark: #F39A2B; --m-pen: #114A29; --m-win: #114A29; }
+.pj-map--rikmat { --m-mark: #E4B49C; --m-pen: #293A2F; --m-win: #293A2F; }
+.pj-map--maya   { --m-mark: #E97E5A; --m-pen: #5D1E0D; --m-win: #5D1E0D; }
+.pj-map--maavar { --m-mark: #F5C9C0; --m-pen: #861F2B; --m-win: #861F2B; }
+.pj-map[class*="pj-map--"] .pj-map__marker { fill: var(--m-mark); opacity: .7; }
+.pj-map[class*="pj-map--"] .pj-map__circle,
+.pj-map[class*="pj-map--"] .pj-map__arrow { stroke: var(--m-pen); }
+.pj-map[class*="pj-map--"] .pj-map__win { fill: var(--m-win); }
+.pj-map[class*="pj-map--"] .pj-map__note { fill: var(--m-pen); }
+.pj-map__win { font-size: 44px; }

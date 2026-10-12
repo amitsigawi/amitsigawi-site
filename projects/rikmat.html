@@ -12,11 +12,11 @@
   <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
   <link rel="preload" href="../fonts/Danidin-CondensedBlack.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/Polin-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/style.css?v=21">
-  <link rel="stylesheet" href="../css/project.css?v=21">
-  <link rel="stylesheet" href="../css/a11y.css?v=21">
+  <link rel="stylesheet" href="../css/style.css?v=22">
+  <link rel="stylesheet" href="../css/project.css?v=22">
+  <link rel="stylesheet" href="../css/a11y.css?v=22">
   <script>document.documentElement.classList.add("js");</script>
-  <script src="../js/a11y.js?v=21"></script>
+  <script src="../js/a11y.js?v=22"></script>
 </head>
 <body class="pj-page">
 <a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
@@ -60,7 +60,7 @@
     <section class="pj-intro" aria-labelledby="pj-title">
       <div class="pj-intro__head">
         <p class="pj-kicker">קייס סטאדי</p>
-        <h1 class="pj-intro__title" id="pj-title">רֹקמת</h1>
+        <h1 class="pj-intro__title pj-intro__title--left" id="pj-title">רֹקמת</h1>
         <p class="pj-intro__sub">מיתוג לליווי נשים ומשפחות אחרי לידה</p>
       </div>
       <dl class="pj-meta">
@@ -162,6 +162,44 @@
       <figure class="pj-figure" data-reveal>
         <img src="../assets/projects/rikmat/strategy-doc.jpg" alt="עמודים מתוך מסמך אסטרטגיית המותג של רֹקמת" loading="lazy" width="1400" height="780">
       </figure>
+      <!-- מפת מיצוב – לפי עמודי המתחרים במסמך האסטרטגיה -->
+      <figure class="pj-map pj-map--rikmat" data-reveal>
+        <svg class="pj-map__svg" viewBox="0 0 1000 640" role="img" aria-labelledby="pj-map-title pj-map-desc">
+          <title id="pj-map-title">מפת מיצוב: איפה רֹקמת יושבת ביחס למתחרות</title>
+          <desc id="pj-map-desc">ציר אופקי מ"סביב הלידה והתינוק" ל"סביב האם והמורכבות", ציר אנכי מ"רך וקהילתי" ל"קליני ומקצועי". לירון שלו נאוה: התפתחות וייעוץ שינה לתינוקות, פרקטי ומקצועי. אביבה ברזילי: מיילדת, הכנה ללידה וזכויות. מבראשית: דולה חמה וקהילת אימהות. רֹקמת: ניסיון קליני מהפגייה וליווי רגשי שמחזיק גם מורכבות.</desc>
+          <defs>
+            <filter id="pj-pencil" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="n"/>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+          </defs>
+          <g class="pj-map__lines">
+            <path d="M0 70H1000M0 120H1000M0 170H1000M0 220H1000M0 270H1000M0 320H1000M0 370H1000M0 420H1000M0 470H1000M0 520H1000M0 570H1000M0 620H1000"/>
+          </g>
+          <g class="pj-map__pencil" filter="url(#pj-pencil)">
+            <path d="M500 590C499 450 502 260 500 70M488 92 500 66 513 93M488 568 500 594 513 567"/>
+            <path d="M60 340C300 343 700 337 940 340M916 328 942 340 917 353M84 328 58 340 83 353"/>
+            <ellipse cx="700" cy="150" rx="22" ry="19"/><ellipse cx="698" cy="148" rx="25" ry="21" transform="rotate(-8 698 148)"/>
+            <ellipse cx="850" cy="236" rx="19" ry="17"/><ellipse cx="852" cy="234" rx="22" ry="19" transform="rotate(10 852 234)"/>
+            <ellipse cx="640" cy="480" rx="19" ry="17"/><ellipse cx="638" cy="479" rx="22" ry="19" transform="rotate(-6 638 479)"/>
+          </g>
+          <path class="pj-map__marker" d="M168 168c40-34 158-36 196-6 30 24 6 66-48 74-70 10-182 6-170-36 3-12 10-22 22-32z"/>
+          <path class="pj-map__circle" filter="url(#pj-pencil)" d="M150 198c-6-44 92-66 174-56 70 8 98 46 66 74-34 30-168 34-216 10-30-15-34-38-6-58 20-14 60-22 100-24"/>
+          <path class="pj-map__arrow" filter="url(#pj-pencil)" d="M440 238c-8-14-20-24-34-28M414 202l-12 6 8 12"/>
+          <g class="pj-map__text">
+            <text x="500" y="44" text-anchor="middle" class="pj-map__axis">קליני ומקצועי</text>
+            <text x="500" y="626" text-anchor="middle" class="pj-map__axis">רך וקהילתי</text>
+            <text x="935" y="304" text-anchor="end" class="pj-map__axis" transform="rotate(-2 935 304)">סביב הלידה והתינוק</text>
+            <text x="64" y="304" text-anchor="start" class="pj-map__axis" transform="rotate(2 64 304)">סביב האם והמורכבות</text>
+            <text x="700" y="198" text-anchor="middle" class="pj-map__name" transform="rotate(-2 700 198)">לירון שלו נאוה</text>
+            <text x="850" y="282" text-anchor="middle" class="pj-map__name" transform="rotate(2 850 282)">אביבה ברזילי</text>
+            <text x="640" y="528" text-anchor="middle" class="pj-map__name" transform="rotate(-1 640 528)">מבראשית</text>
+            <text x="266" y="206" text-anchor="middle" class="pj-map__win">רֹקמת</text>
+            <text x="478" y="276" text-anchor="end" class="pj-map__note" transform="rotate(-3 478 276)">ניסיון קליני + ליווי רגשי</text>
+          </g>
+        </svg>
+        <figcaption>מפת המיצוב: מקצועיות מהפגייה, עם מקום גם למה שמורכב</figcaption>
+      </figure>
     </section>
 
     <!-- ===== האתגרים ===== -->
@@ -176,10 +214,15 @@
           <p>בנוסף, היה צורך להתרחק מהשפה הוויזואלית הנפוצה בתחום, שמבוססת לרוב על אייקונים של היריון או תינוקות. <strong>המטרה הייתה ליצור מותג שמרגיש עמוק יותר ומבטא תהליך.</strong></p>
         </div>
       </div>
-      <!-- רעיונות לשם – בכתב יד -->
-      <figure class="pj-figure pj-figure--paper" data-reveal>
-        <img src="../assets/projects/rikmat/names-notes.jpg" alt="דף בכתב יד עם רעיונות לשם לעסק וההסבר לכל אחד מהם" loading="lazy" width="1400" height="998">
-      </figure>
+      <!-- לוח השמות -->
+      <div class="pj-names" aria-label="חלק מהשמות שנבדקו בדרך לשם הסופי">
+        <span class="pj-name" style="--x:6%;--y:6%;--r:-6deg">במרחב שלך<em>לא</em></span>
+        <span class="pj-name" style="--x:44%;--y:2%;--r:4deg">מרחב<em>יש כבר</em></span>
+        <span class="pj-name" style="--x:70%;--y:16%;--r:-3deg">עוגן<em>יש כבר</em></span>
+        <span class="pj-name" style="--x:8%;--y:46%;--r:5deg">אחרי הרגע<em>לא</em></span>
+        <span class="pj-name pj-name--maybe" style="--x:54%;--y:44%;--r:-5deg">להיות<em>מעניין</em></span>
+        <span class="pj-name pj-name--win" style="--x:32%;--y:78%;--r:-3deg">רֹקמת<em>זה!</em></span>
+      </div>
     </section>
 
     <!-- ===== השם: Reveal ===== -->
@@ -256,7 +299,6 @@
           <li class="pj-swatch pj-swatch--light" style="--c:#A8C0A8" data-reveal><span dir="ltr">#A8C0A8</span>מרווה</li>
         </ul>
       </div>
-      <p class="pj-note-small">* הצבעים נדגמו מהלוגו – כדאי לעדכן לקודים המדויקים מספר המותג</p>
     </section>
 
     <!-- ===== התוצאה ===== -->
@@ -373,7 +415,7 @@
 
 </div>
 
-<script src="../js/config.js?v=21"></script>
-<script src="../js/main.js?v=21"></script>
+<script src="../js/config.js?v=22"></script>
+<script src="../js/main.js?v=22"></script>
 </body>
 </html>

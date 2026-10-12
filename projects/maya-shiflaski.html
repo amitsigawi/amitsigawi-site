@@ -12,11 +12,11 @@
   <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
   <link rel="preload" href="../fonts/Danidin-CondensedBlack.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/Polin-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/style.css?v=21">
-  <link rel="stylesheet" href="../css/project.css?v=21">
-  <link rel="stylesheet" href="../css/a11y.css?v=21">
+  <link rel="stylesheet" href="../css/style.css?v=22">
+  <link rel="stylesheet" href="../css/project.css?v=22">
+  <link rel="stylesheet" href="../css/a11y.css?v=22">
   <script>document.documentElement.classList.add("js");</script>
-  <script src="../js/a11y.js?v=21"></script>
+  <script src="../js/a11y.js?v=22"></script>
 </head>
 <body class="pj-page">
 <a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
@@ -45,7 +45,7 @@
 
 <div class="page">
 
-    <!-- ===== קאבר ===== -->
+  <!-- ===== קאבר ===== -->
   <section class="pj-cover" aria-label="מיה שיפלסקי – תמונת פתיחה">
     <img class="pj-cover__media" src="../assets/projects/maya-shiflaski/cover.jpg" alt="ילדה מלטפת כלב גולדן רטריבר מחייך" width="1000" height="562" fetchpriority="high">
     <a class="pj-scroll" href="#main">
@@ -60,7 +60,7 @@
     <section class="pj-intro" aria-labelledby="pj-title">
       <div class="pj-intro__head">
         <p class="pj-kicker">קייס סטאדי</p>
-        <h1 class="pj-intro__title" id="pj-title">מיה שיפלסקי</h1>
+        <h1 class="pj-intro__title pj-intro__title--left" id="pj-title">מיה שיפלסקי</h1>
         <p class="pj-intro__sub">מיתוג להכשרת כלבי תרפיה</p>
       </div>
       <dl class="pj-meta">
@@ -137,6 +137,44 @@
         <img src="../assets/projects/maya-shiflaski/values.jpg" alt="ערכי המותג על רקע חום: אמון, ריפוי דרך קשר, חום ואנושיות, הקשבה אמיתית, מקצועיות וליווי אישי – לצד צילומים של אנשים וכלבים" loading="lazy" width="1400" height="1729">
         <figcaption>ערכי המותג: אמון · ריפוי דרך קשר · חום ואנושיות · הקשבה אמיתית · מקצועיות · ליווי אישי</figcaption>
       </figure>
+      <!-- positioning map / strategy doc -->
+      <figure class="pj-map pj-map--maya" data-reveal>
+        <svg class="pj-map__svg" viewBox="0 0 1000 640" role="img" aria-labelledby="pj-map-title pj-map-desc">
+          <title id="pj-map-title">מפת מיצוב: איפה מיה שיפלסקי יושבת ביחס למתחרים</title>
+          <desc id="pj-map-desc">ציר אופקי מ"מוסדי, הכל במקום אחד" ל"אישי, מהבית", ציר אנכי מ"אילוף ושירות" ל"טיפולי ורגשי". מעיין מור: מפגשים טיפוליים בעזרת כלב. רביבים: כלבי שירות מוסמכים, מוסדי. הגיבורים של יוגב: פנסיון, אילוף וחנות במקום אחד. מיה שיפלסקי: תהליך אישי מהבית, שבו מאלפים יחד את הכלב שלך לכלב טיפולי – רגשי ופרקטי.</desc>
+          <defs>
+            <filter id="pj-pencil" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="n"/>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+          </defs>
+          <g class="pj-map__lines">
+            <path d="M0 70H1000M0 120H1000M0 170H1000M0 220H1000M0 270H1000M0 320H1000M0 370H1000M0 420H1000M0 470H1000M0 520H1000M0 570H1000M0 620H1000"/>
+          </g>
+          <g class="pj-map__pencil" filter="url(#pj-pencil)">
+            <path d="M500 590C499 450 502 260 500 70M488 92 500 66 513 93M488 568 500 594 513 567"/>
+            <path d="M60 340C300 343 700 337 940 340M916 328 942 340 917 353M84 328 58 340 83 353"/>
+            <ellipse cx="720" cy="160" rx="20" ry="18"/><ellipse cx="718" cy="158" rx="23" ry="20" transform="rotate(10 718 158)"/>
+            <ellipse cx="850" cy="430" rx="20" ry="18"/><ellipse cx="848" cy="428" rx="23" ry="20" transform="rotate(-6 848 428)"/>
+            <ellipse cx="640" cy="500" rx="20" ry="18"/><ellipse cx="638" cy="498" rx="23" ry="20" transform="rotate(6 638 498)"/>
+          </g>
+          <path class="pj-map__marker" d="M158 168c40-34 168-36 206-6 30 24 6 66-48 74-70 10-192 6-180-36 3-12 10-22 22-32z"/>
+          <path class="pj-map__circle" filter="url(#pj-pencil)" d="M140 198c-6-44 102-66 184-56 70 8 98 46 66 74-34 30-178 34-226 10-30-15-34-38-6-58 20-14 60-22 100-24"/>
+          <path class="pj-map__arrow" filter="url(#pj-pencil)" d="M440 238c-8-14-20-24-34-28M414 202l-12 6 8 12"/>
+          <g class="pj-map__text">
+            <text x="500" y="44" text-anchor="middle" class="pj-map__axis">טיפולי ורגשי</text>
+            <text x="500" y="626" text-anchor="middle" class="pj-map__axis">אילוף ושירות</text>
+            <text x="935" y="304" text-anchor="end" class="pj-map__axis" transform="rotate(-2 935 304)">מוסדי · הכל במקום אחד</text>
+            <text x="64" y="304" text-anchor="start" class="pj-map__axis" transform="rotate(2 64 304)">אישי · מהבית</text>
+            <text x="720" y="208" text-anchor="middle" class="pj-map__name" transform="rotate(2 720 208)">מעיין מור</text>
+            <text x="850" y="478" text-anchor="middle" class="pj-map__name" transform="rotate(-1 850 478)">רביבים</text>
+            <text x="640" y="548" text-anchor="middle" class="pj-map__name" transform="rotate(1 640 548)">הגיבורים של יוגב</text>
+            <text x="258" y="206" text-anchor="middle" class="pj-map__win">מיה שיפלסקי</text>
+            <text x="478" y="276" text-anchor="end" class="pj-map__note" transform="rotate(-3 478 276)">מאלפים יחד את הכלב שלך</text>
+          </g>
+        </svg>
+        <figcaption>מפת המיצוב: תהליך אישי, רגשי וגם פרקטי</figcaption>
+      </figure>
     </section>
 
     <!-- ===== האתגר ===== -->
@@ -201,7 +239,6 @@
           <li class="pj-swatch pj-swatch--light" style="--c:#F1EEE8" data-reveal><span dir="ltr">#F1EEE8</span>שמנת</li>
         </ul>
       </div>
-      <p class="pj-note-small">* הצבעים נדגמו מהמוקאפים – כדאי לעדכן לקודים המדויקים מספר המותג</p>
     </section>
 
     <!-- ===== התוצאה ===== -->
@@ -306,7 +343,7 @@
 
 </div>
 
-<script src="../js/config.js?v=21"></script>
-<script src="../js/main.js?v=21"></script>
+<script src="../js/config.js?v=22"></script>
+<script src="../js/main.js?v=22"></script>
 </body>
 </html>

@@ -12,11 +12,11 @@
   <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
   <link rel="preload" href="../fonts/Danidin-CondensedBlack.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/Polin-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/style.css?v=21">
-  <link rel="stylesheet" href="../css/project.css?v=21">
-  <link rel="stylesheet" href="../css/a11y.css?v=21">
+  <link rel="stylesheet" href="../css/style.css?v=22">
+  <link rel="stylesheet" href="../css/project.css?v=22">
+  <link rel="stylesheet" href="../css/a11y.css?v=22">
   <script>document.documentElement.classList.add("js");</script>
-  <script src="../js/a11y.js?v=21"></script>
+  <script src="../js/a11y.js?v=22"></script>
 </head>
 <body class="pj-page">
 <a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
@@ -45,7 +45,7 @@
 
 <div class="page">
 
-    <!-- ===== קאבר ===== -->
+  <!-- ===== קאבר ===== -->
   <section class="pj-cover" aria-label="מעבר לקווים – תמונת פתיחה">
     <img class="pj-cover__media" src="../assets/projects/maavar-lakavim/cover.jpg" alt="ידיים של ילדים מציירות בצבעים בתוך מבוך על דף לבן" width="1920" height="1080" fetchpriority="high">
     <a class="pj-scroll" href="#main">
@@ -60,7 +60,7 @@
     <section class="pj-intro" aria-labelledby="pj-title">
       <div class="pj-intro__head">
         <p class="pj-kicker">קייס סטאדי</p>
-        <h1 class="pj-intro__title" id="pj-title">מעבר לקווים</h1>
+        <h1 class="pj-intro__title pj-intro__title--left" id="pj-title">מעבר לקווים</h1>
         <p class="pj-intro__sub">מיתוג למרחב יצירה וביטוי רגשי לילדים ונוער</p>
       </div>
       <dl class="pj-meta">
@@ -138,6 +138,44 @@
       <figure class="pj-figure" data-reveal>
         <img src="../assets/projects/maavar-lakavim/strategy.jpg" alt="עמודים מתוך מסמך אסטרטגיית המותג של מעבר לקווים: קהל, יתרון, תרבות, טון דיבור, X-Factor והשפעה" loading="lazy" width="1400" height="905">
       </figure>
+      <!-- positioning map / strategy doc -->
+      <figure class="pj-map pj-map--maavar" data-reveal>
+        <svg class="pj-map__svg" viewBox="0 0 1000 640" role="img" aria-labelledby="pj-map-title pj-map-desc">
+          <title id="pj-map-title">מפת מיצוב: איפה מעבר לקווים יושב ביחס לחלופות</title>
+          <desc id="pj-map-desc">ציר אופקי מ"קליני וטיפולי" ל"חופשי ולא שיפוטי", ציר אנכי מ"יצירה להנאה" ל"רגשי ומעמיק". טיפול באמנות קליני: רגשי אבל טיפולי. חוגי יצירה: חופשי וכיפי. סדנאות חד-פעמיות: באמצע. מעבר לקווים: תמיכה רגשית עמוקה במרחב חופשי ולא שיפוטי.</desc>
+          <defs>
+            <filter id="pj-pencil" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="n"/>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+          </defs>
+          <g class="pj-map__lines">
+            <path d="M0 70H1000M0 120H1000M0 170H1000M0 220H1000M0 270H1000M0 320H1000M0 370H1000M0 420H1000M0 470H1000M0 520H1000M0 570H1000M0 620H1000"/>
+          </g>
+          <g class="pj-map__pencil" filter="url(#pj-pencil)">
+            <path d="M500 590C499 450 502 260 500 70M488 92 500 66 513 93M488 568 500 594 513 567"/>
+            <path d="M60 340C300 343 700 337 940 340M916 328 942 340 917 353M84 328 58 340 83 353"/>
+            <ellipse cx="760" cy="160" rx="20" ry="18"/><ellipse cx="758" cy="158" rx="23" ry="20" transform="rotate(10 758 158)"/>
+            <ellipse cx="700" cy="470" rx="20" ry="18"/><ellipse cx="698" cy="468" rx="23" ry="20" transform="rotate(-6 698 468)"/>
+            <ellipse cx="280" cy="520" rx="20" ry="18"/><ellipse cx="278" cy="518" rx="23" ry="20" transform="rotate(6 278 518)"/>
+          </g>
+          <path class="pj-map__marker" d="M158 168c40-34 168-36 206-6 30 24 6 66-48 74-70 10-192 6-180-36 3-12 10-22 22-32z"/>
+          <path class="pj-map__circle" filter="url(#pj-pencil)" d="M140 198c-6-44 102-66 184-56 70 8 98 46 66 74-34 30-178 34-226 10-30-15-34-38-6-58 20-14 60-22 100-24"/>
+          <path class="pj-map__arrow" filter="url(#pj-pencil)" d="M440 238c-8-14-20-24-34-28M414 202l-12 6 8 12"/>
+          <g class="pj-map__text">
+            <text x="500" y="44" text-anchor="middle" class="pj-map__axis">רגשי ומעמיק</text>
+            <text x="500" y="626" text-anchor="middle" class="pj-map__axis">יצירה להנאה</text>
+            <text x="935" y="304" text-anchor="end" class="pj-map__axis" transform="rotate(-2 935 304)">קליני · טיפולי</text>
+            <text x="64" y="304" text-anchor="start" class="pj-map__axis" transform="rotate(2 64 304)">חופשי · לא שיפוטי</text>
+            <text x="760" y="208" text-anchor="middle" class="pj-map__name" transform="rotate(2 760 208)">טיפול באמנות קליני</text>
+            <text x="700" y="518" text-anchor="middle" class="pj-map__name" transform="rotate(-1 700 518)">סדנאות חד-פעמיות</text>
+            <text x="280" y="568" text-anchor="middle" class="pj-map__name" transform="rotate(1 280 568)">חוגי יצירה</text>
+            <text x="258" y="206" text-anchor="middle" class="pj-map__win">מעבר לקווים</text>
+            <text x="478" y="276" text-anchor="end" class="pj-map__note" transform="rotate(-3 478 276)">מרחב מאפשר – לא טיפול ולא חוג</text>
+          </g>
+        </svg>
+        <figcaption>מפת המיצוב מול סוגי החלופות בתחום</figcaption>
+      </figure>
 
       <div class="pj-boards">
         <figure class="pj-figure" data-reveal>
@@ -210,7 +248,6 @@
           <li class="pj-swatch pj-swatch--light" style="--c:#F5ECE3" data-reveal><span dir="ltr">#F5ECE3</span>שמנת</li>
         </ul>
       </div>
-      <p class="pj-note-small">* הצבעים נדגמו מהמוקאפים – כדאי לעדכן לקודים המדויקים</p>
     </section>
 
     <!-- ===== התוצאה ===== -->
@@ -316,7 +353,7 @@
 
 </div>
 
-<script src="../js/config.js?v=21"></script>
-<script src="../js/main.js?v=21"></script>
+<script src="../js/config.js?v=22"></script>
+<script src="../js/main.js?v=22"></script>
 </body>
 </html>
