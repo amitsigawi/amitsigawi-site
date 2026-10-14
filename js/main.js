@@ -306,3 +306,8 @@
       .finally(function () { submit.disabled = false; });
   });
 })();
+
+// סרטון אחד בכל פעם: כשמפעילים סרטון עם קול, האחרים נעצרים
+document.addEventListener("play", function (e) {
+  document.querySelectorAll("video").forEach(function (v) { if (v !== e.target && !v.muted && !v.paused) v.pause(); });
+}, true);

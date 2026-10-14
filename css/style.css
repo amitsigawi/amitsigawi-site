@@ -1054,3 +1054,13 @@ html.a11y-still .footer__skate { translate: 70vw 0; }
   .footer { height: calc(var(--u) * 350); }
   .footer__copy { top: calc(var(--u) * 236); line-height: 1.5; }
 }
+
+/* כותרת הפתיחה: כל שורה נשארת שלמה – בלי מירכאה שבורה לבד בשורה */
+.hero__title .nw { white-space: nowrap; }
+@media (max-width: 767.98px) { .hero__title { font-size: calc(var(--ft) * 38); } }
+
+/* סרטוני ההמלצה: פרופורציה של הסרטונים עצמם, כדי שהכתוביות לא ייחתכו */
+.reel__frame { aspect-ratio: 27 / 35; }
+.reel__name { margin-top: calc(var(--u) * 12); text-align: center; color: var(--white); font-weight: 600; font-size: calc(var(--ft) * 15); }
+@media (min-width: 768px) { .reel__name { font-size: calc(var(--ft) * 17); } }
+@media (min-width: 1200px) { .reel__name { margin-top: calc(var(--u) * 18); font-size: calc(var(--ft) * 24); } }

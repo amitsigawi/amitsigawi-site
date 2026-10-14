@@ -13,10 +13,10 @@
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/Danidin-CondensedBlack.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Polin-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=22">
-  <link rel="stylesheet" href="css/a11y.css?v=22">
+  <link rel="stylesheet" href="css/style.css?v=23">
+  <link rel="stylesheet" href="css/a11y.css?v=23">
   <script>document.documentElement.classList.add("js");</script>
-  <script src="js/a11y.js?v=22"></script>
+  <script src="js/a11y.js?v=23"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
@@ -51,14 +51,14 @@
     <img class="deco hero__scribble" src="assets/scribble-teal.svg" alt="" aria-hidden="true">
     <img class="deco hero__dots-l" src="assets/dots-left.jpg" alt="" aria-hidden="true">
     <img class="deco hero__dots-r" src="assets/dots-right.jpg" alt="" aria-hidden="true">
-    <img class="deco hero__star" src="assets/star-yellow.png?v=22" alt="" aria-hidden="true">
+    <img class="deco hero__star" src="assets/star-yellow.png?v=23" alt="" aria-hidden="true">
     <img class="hero__photo" src="assets/amit-hero.jpg" alt="עמית סיגאוי מחייכת עם כובע טמבל" width="940" height="918" fetchpriority="high">
     <img class="deco brush brush--hero" src="assets/brush-white.svg" alt="" aria-hidden="true">
 
 
 
     <div class="hero__content">
-      <h1 class="hero__title">פחות ״אני אחשוב על זה״ <br>ויותר ״איך מתחילים?״</h1>
+      <h1 class="hero__title"><span class="nw">פחות ״אני אחשוב על זה״</span> <br><span class="nw">ויותר ״איך מתחילים?״</span></h1>
       <p class="hero__text">אני עוזרת למטפלים ומאמנים להפוך עסק מקצועי למותג שגם נראה ומרגיש ככה, <strong>כדי שהאנשים הנכונים יבינו מהר יותר למה דווקא אתם.</strong></p>
       <a class="btn" href="#contact">
         <span>בואו נעבוד יחד</span>
@@ -142,18 +142,21 @@
         <ul class="reels__track" aria-label="סרטוני המלצה">
           <li class="reel">
             <div class="reel__frame">
-              <div class="reel__empty"><span class="reel__play" aria-hidden="true"></span><span>סרטון המלצה בקרוב</span></div>
+              <video controls playsinline preload="none" poster="assets/videos/puah.jpg" aria-label="סרטון המלצה של פועה אוריה, עם כתוביות"><source src="assets/videos/puah.mp4" type="video/mp4"></video>
             </div>
+            <p class="reel__name">פועה אוריה</p>
           </li>
           <li class="reel">
             <div class="reel__frame">
-              <div class="reel__empty"><span class="reel__play" aria-hidden="true"></span><span>סרטון המלצה בקרוב</span></div>
+              <video controls playsinline preload="none" poster="assets/videos/reuven.jpg" aria-label="סרטון המלצה של ראובן, עם כתוביות"><source src="assets/videos/reuven.mp4" type="video/mp4"></video>
             </div>
+            <p class="reel__name">ראובן</p>
           </li>
           <li class="reel">
             <div class="reel__frame">
-              <div class="reel__empty"><span class="reel__play" aria-hidden="true"></span><span>סרטון המלצה בקרוב</span></div>
+              <video controls playsinline preload="none" poster="assets/videos/sigal.jpg" aria-label="סרטון המלצה של סיגל וויינהוס · מעבר לקווים, עם כתוביות"><source src="assets/videos/sigal.mp4" type="video/mp4"></video>
             </div>
+            <p class="reel__name">סיגל וויינהוס · מעבר לקווים</p>
           </li>
         </ul>
         <div class="reels__controls">
@@ -273,7 +276,7 @@
 
 </div>
 
-<script src="js/config.js?v=22"></script>
-<script src="js/main.js?v=22"></script>
+<script src="js/config.js?v=23"></script>
+<script src="js/main.js?v=23"></script>
 </body>
 </html>
