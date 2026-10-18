@@ -866,3 +866,30 @@ html.a11y-still .pj-map path { stroke-dashoffset: 0 !important; }
 .pj-gallery__item--cut:hover img { transform: none; }
 /* גלריית התוצאה: זוגות חצי-חצי (לא שליש) */
 @media (min-width: 768px) { .pj-final .pj-gallery { grid-template-columns: 1fr 1fr; } }
+
+/* =========================================================
+   שיטת ההזרה – שני מעגלים: מה שעולה מיד / מה שמתחבר אחרת
+   ========================================================= */
+.pj-map--tw { --m-mark: #DCE04A; --m-pen: #183356; --m-win: #183356; }
+.pj-zara { margin: calc(var(--u) * 34) auto 0; max-width: calc(var(--u) * 1100); }
+.pj-zara__svg { display: block; width: 100%; height: auto; overflow: visible; }
+.pj-zara__ring { fill: none; stroke: #4b4b4b; stroke-width: 3; stroke-linecap: round; opacity: .8; }
+.pj-zara__ring--in { fill: rgba(0,0,0,.035); }
+.pj-zara text { font-family: var(--f-body); direction: rtl; }
+.pj-zara__lbl { font-size: 19px; font-weight: 600; fill: #8a8a8a; letter-spacing: .02em; }
+.pj-zara__w { font-size: 28px; fill: #555; }
+.pj-zara__w--in { font-size: 30px; fill: #333; }
+.pj-zara__win { font-family: var(--f-display) !important; font-size: 44px; font-weight: 900; fill: var(--m-win, var(--green)); }
+.pj-zara__mark { fill: var(--m-mark, var(--yellow)); opacity: .75; }
+.pj-zara figcaption { margin-top: calc(var(--u) * 14); text-align: center; font-weight: 600; font-size: calc(var(--ft) * 15); line-height: 1.35; }
+/* המילים מופיעות בהדרגה: קודם הפנימי, אחר כך החיצוני, ובסוף הנבחרות */
+.js .pj-zara .pj-zara__g > * { opacity: 0; transition: opacity .5s ease; }
+.js .pj-zara.is-visible .pj-zara__g > * { opacity: 1; }
+.js .pj-zara.is-visible .pj-zara__g--out > * { transition-delay: .6s; }
+.js .pj-zara.is-visible .pj-zara__g--win > * { transition-delay: 1.3s; }
+.js .pj-zara .pj-zara__ring { stroke-dasharray: 2600; stroke-dashoffset: 2600; transition: stroke-dashoffset 1.6s cubic-bezier(.6,0,.2,1); }
+.js .pj-zara.is-visible .pj-zara__ring { stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: reduce) { .js .pj-zara .pj-zara__g > *, .js .pj-zara .pj-zara__ring { opacity: 1; stroke-dashoffset: 0; transition: none; } }
+html.a11y-still .pj-zara .pj-zara__g > *, html.a11y-still .pj-zara .pj-zara__ring { opacity: 1 !important; stroke-dashoffset: 0 !important; transition: none !important; }
+@media (min-width: 768px) { .pj-zara figcaption { font-size: calc(var(--ft) * 18); } }
+@media (min-width: 1200px) { .pj-zara { margin-top: calc(var(--u) * 60); } .pj-zara figcaption { font-size: calc(var(--ft) * 24); margin-top: calc(var(--u) * 20); } }

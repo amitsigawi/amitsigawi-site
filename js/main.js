@@ -311,3 +311,12 @@
 document.addEventListener("play", function (e) {
   document.querySelectorAll("video").forEach(function (v) { if (v !== e.target && !v.muted && !v.paused) v.pause(); });
 }, true);
+
+// נגישות: מי שביקש פחות תנועה (במערכת או בתפריט הנגישות) – אנימציית הלוגו בקאבר נעצרת על התמונה הסופית
+(function () {
+  var still = function () { return document.documentElement.classList.contains("a11y-still") || (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches); };
+  var stop = function () { document.querySelectorAll(".pj-cover video").forEach(function (v) { if (still()) { v.pause(); try { v.currentTime = v.duration || 0; } catch (e) {} } }); };
+  document.querySelectorAll(".pj-cover video").forEach(function (v) { v.addEventListener("loadedmetadata", stop); });
+  stop();
+  new MutationObserver(stop).observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+})();

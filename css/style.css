@@ -1064,3 +1064,11 @@ html.a11y-still .footer__skate { translate: 70vw 0; }
 .reel__name { margin-top: calc(var(--u) * 12); text-align: center; color: var(--white); font-weight: 600; font-size: calc(var(--ft) * 15); }
 @media (min-width: 768px) { .reel__name { font-size: calc(var(--ft) * 17); } }
 @media (min-width: 1200px) { .reel__name { margin-top: calc(var(--u) * 18); font-size: calc(var(--ft) * 24); } }
+
+/* כפתור "בואו נעבוד יחד" אחרי הסרטון ואחרי ההמלצות – ממורכז, מעל הקישוטים */
+.cta-row { position: relative; z-index: 8; display: flex; justify-content: center; margin-top: calc(var(--u) * 30); }
+.cta-row .btn { margin: 0; }
+@media (min-width: 768px) { .cta-row { margin-top: calc(var(--u) * 50); } }
+@media (min-width: 1200px) { .cta-row { margin-top: calc(var(--u) * 80); } }
+/* 6 פרויקטים (2 שורות) – בלי גובה מינימלי של 3 שורות */
+@media (min-width: 1200px) { .projects { min-height: 0; } }

@@ -1,0 +1,8 @@
+/* עריכות לעמוד index.html – נוצר אוטומטית ע"י editor.html. לא לערוך ידנית.
+EDITS:{"nrphv":{"desktop":{"fontSize":109},"mobile":{"fontSize":56}}} :EDITS */
+@media (max-width: 767.98px) {
+  [data-e="nrphv"] { font-size: calc(var(--ft) * 56) !important }
+}
+@media (min-width: 1200px) {
+  [data-e="nrphv"] { font-size: calc(var(--ft) * 109) !important }
+}
