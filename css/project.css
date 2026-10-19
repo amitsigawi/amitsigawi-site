@@ -893,3 +893,66 @@ html.a11y-still .pj-map path { stroke-dashoffset: 0 !important; }
 html.a11y-still .pj-zara .pj-zara__g > *, html.a11y-still .pj-zara .pj-zara__ring { opacity: 1 !important; stroke-dashoffset: 0 !important; transition: none !important; }
 @media (min-width: 768px) { .pj-zara figcaption { font-size: calc(var(--ft) * 18); } }
 @media (min-width: 1200px) { .pj-zara { margin-top: calc(var(--u) * 60); } .pj-zara figcaption { font-size: calc(var(--ft) * 24); margin-top: calc(var(--u) * 20); } }
+
+/* =========================================================
+   נעמי גוטמן + רכיבים חדשים לתבנית
+   ========================================================= */
+.pj--naomi { --brand-bg: #42575e; --brand-fg: #f5b3a4; }
+.pj--naomi .pj-reveal__word--soft .is-accent { color: #f5b3a4; }
+
+/* Reveal של כמה מילים (במקום אותיות) */
+.pj-reveal__word--words { gap: .25em; flex-wrap: wrap; }
+
+/* מסלול ההורה: 4 תחנות עם חצים */
+.pj-path { list-style: none; margin: calc(var(--u) * 30) 0 0; padding: 0; display: grid; gap: calc(var(--u) * 26); counter-reset: none; }
+.pj-path li {
+  position: relative; display: grid; justify-items: center; text-align: center; gap: calc(var(--u) * 4);
+  padding: calc(var(--u) * 18) calc(var(--u) * 14);
+  background: #fff; box-shadow: 0 calc(var(--u) * 6) calc(var(--u) * 18) rgba(0,0,0,.1);
+}
+.pj-path li:nth-child(odd) { rotate: -1deg; }
+.pj-path li:nth-child(even) { rotate: 1deg; }
+.pj-path b { font-family: var(--f-display); font-weight: 900; font-size: calc(var(--ft) * 28); line-height: 1; color: var(--green); }
+.pj-path small { font-size: calc(var(--ft) * 14); }
+.pj-path__n {
+  width: calc(var(--u) * 34); height: calc(var(--u) * 34); border-radius: 50%;
+  display: grid; place-items: center; background: var(--yellow); font-weight: 700; font-size: calc(var(--ft) * 16);
+}
+/* חץ בין התחנות – במובייל למטה */
+.pj-path li:not(:last-child)::after {
+  content: "↓"; position: absolute; left: 50%; bottom: calc(var(--u) * -26); translate: -50% 0;
+  color: var(--green); font-weight: 700; font-size: calc(var(--ft) * 20); line-height: 1;
+}
+.pj-note-small--center { text-align: center; }
+
+/* לפני / מה נבנה */
+.pj-compare { margin-top: calc(var(--u) * 34); display: grid; gap: calc(var(--u) * 18); justify-items: stretch; align-items: center; }
+.pj-compare .pj-ba__arrow { justify-self: center; }
+.pj-compare .pj-note:first-child { background: rgba(50,50,50,.05); box-shadow: none; }
+
+/* placeholder בתוך מסגרת ההוכחה */
+.pj-proof__frame.pj-ph { min-height: calc(var(--u) * 260); rotate: 1.5deg; }
+
+/* פסקה גדולה בתוך סקשן */
+.pj-section > .pj-big { margin-top: calc(var(--u) * 30) !important; text-align: center; }
+
+@media (min-width: 768px) {
+  .pj-path { grid-template-columns: repeat(4, 1fr); gap: calc(var(--u) * 34); }
+  .pj-path li:not(:last-child)::after { content: "←"; left: auto; right: auto; bottom: auto; top: 50%; translate: 0 -50%; inset-inline-end: calc(var(--u) * -25); }
+  .pj-path b { font-size: calc(var(--ft) * 30); }
+  .pj-path small { font-size: calc(var(--ft) * 15); }
+  .pj-compare { grid-template-columns: 1fr auto 1fr; }
+  .pj-compare .pj-ba__arrow { rotate: 0deg; }
+}
+@media (min-width: 1200px) {
+  .pj-path { margin-top: calc(var(--u) * 70); gap: calc(var(--u) * 60); }
+  .pj-path li { padding: calc(var(--u) * 34) calc(var(--u) * 24); gap: calc(var(--u) * 8); }
+  .pj-path li:not(:last-child)::after { inset-inline-end: calc(var(--u) * -42); font-size: calc(var(--ft) * 30); }
+  .pj-notes--3 .pj-note h3 { font-size: calc(var(--ft) * 38); }
+  .pj-path b { font-size: calc(var(--ft) * 48); }
+  .pj-path small { font-size: calc(var(--ft) * 22); }
+  .pj-path__n { width: calc(var(--u) * 52); height: calc(var(--u) * 52); font-size: calc(var(--ft) * 24); }
+  .pj-compare { margin-top: calc(var(--u) * 70); gap: calc(var(--u) * 50); }
+  .pj-proof__frame.pj-ph { min-height: calc(var(--u) * 460); }
+  .pj-section > .pj-big { margin-top: calc(var(--u) * 60) !important; }
+}

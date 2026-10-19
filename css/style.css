@@ -1016,10 +1016,12 @@ html.a11y-still .footer__skate { translate: 70vw 0; }
   .reels__track { scroll-behavior: auto; }
 }
 
-/* פרויקטים במובייל: שני טורים, קומפקטי */
+/* פרויקטים במובייל: טור אחד, כרטיסים גדולים מצד לצד (עם הפאדינג של הסקשן) */
 @media (max-width: 767px) {
-  .grid { grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 16) calc(var(--u) * 12); }
-  .card__label { height: auto; min-height: calc(var(--u) * 44); padding: calc(var(--u) * 6) calc(var(--u) * 6); font-size: calc(var(--ft) * 13); line-height: 1.2; text-align: center; }
+  .grid { grid-template-columns: 1fr; gap: calc(var(--u) * 22); }
+  .card__label { height: auto; min-height: calc(var(--u) * 54); padding: calc(var(--u) * 10) calc(var(--u) * 12); font-size: calc(var(--ft) * 17); line-height: 1.2; text-align: center; }
+  /* הסרטון של התהליך – ברוחב מלא */
+  .video { width: 100%; }
 }
 /* =========================================================
    אינסטגרם בגודל כרטיסי הפרויקטים + כפתור מעקב, פוטר בשתי שורות

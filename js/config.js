@@ -5,6 +5,7 @@ window.LEAD_ENDPOINT = "https://script.google.com/macros/s/AKfycbxAyfI7a9bDcyg_s
 // קישורים לעמודי הפרויקטים המלאים (לפי ה-data-project של כל כרטיס).
 // כרטיס בלי קישור לא יהיה לחיץ.
 window.PROJECT_LINKS = {
+  "naomi-gutman": "projects/naomi-gutman.html",
   "zman-yaar": "projects/zman-yaar.html",
   "rikmat": "projects/rikmat.html",
   "maavar-lakavim": "projects/maavar-lakavim.html",

@@ -42,23 +42,48 @@
 .a11y__close { background: none; border: 0; font-size: calc(var(--a) * 20); cursor: pointer; padding: calc(var(--a) * 4) calc(var(--a) * 8); transition: transform .3s; }
 .a11y__close:hover { transform: rotate(90deg); }
 .a11y__row { display: flex; justify-content: space-between; align-items: center; margin-bottom: calc(var(--a) * 12); font-weight: 600; }
-.a11y__stepper { display: flex; align-items: center; gap: calc(var(--a) * 8); }
-.a11y__stepper button {
-  width: calc(var(--a) * 40); height: calc(var(--a) * 40); border: 0; border-radius: 50%; cursor: pointer;
-  background: var(--yellow); font-size: calc(var(--a) * 22); font-weight: 700;
-  transition: transform .3s cubic-bezier(.3,1.6,.5,1);
-}
-.a11y__stepper button:hover { transform: rotate(-10deg) scale(1.1); }
-.a11y__level { min-width: calc(var(--a) * 48); text-align: center; font-weight: 700; }
 .a11y__grid { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--a) * 10) calc(var(--a) * 8); }
 
-/* כל אפשרות = פיסת נייר קרועה קצת, מוטה לסירוגין */
+/* כל אפשרות = פיסת נייר קרועה קצת, מוטה לסירוגין – אייקון + שם + רמות */
 .a11y__opt {
-  min-height: calc(var(--a) * 48); padding: calc(var(--a) * 10) calc(var(--a) * 8); border: 0; cursor: pointer; text-align: center;
+  min-height: calc(var(--a) * 92); padding: calc(var(--a) * 12) calc(var(--a) * 8) calc(var(--a) * 10); border: 0; cursor: pointer; text-align: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: calc(var(--a) * 6);
   background: rgba(50,50,50,.07);
   clip-path: polygon(2% 6%, 18% 0, 41% 5%, 63% 1%, 86% 6%, 100% 2%, 98% 48%, 100% 94%, 79% 100%, 55% 95%, 31% 100%, 9% 95%, 0 100%, 2% 52%);
   transition: transform .3s cubic-bezier(.3,1.6,.5,1), background-color .2s;
 }
+.a11y__icon { width: calc(var(--a) * 28); height: calc(var(--a) * 28); flex: none; direction: ltr; overflow: visible; }
+.a11y__label { font-weight: 600; font-size: calc(var(--a) * 14); line-height: 1.15; }
+.a11y__sub { font-size: calc(var(--a) * 12); min-height: 1em; opacity: .8; }
+.a11y__sub:empty { display: none; }
+.a11y__dots { display: flex; gap: calc(var(--a) * 4); }
+.a11y__dot { width: calc(var(--a) * 14); height: calc(var(--a) * 4); border-radius: calc(var(--a) * 2); background: currentColor; opacity: .25; }
+.a11y__dot.is-on { opacity: 1; }
+
+/* מתג "יישומון גדול" */
+.a11y__switch {
+  position: relative; flex: none; width: calc(var(--a) * 46); height: calc(var(--a) * 26); padding: 0; border: 0; border-radius: calc(var(--a) * 13);
+  background: rgba(50,50,50,.25); cursor: pointer; transition: background-color .2s;
+}
+.a11y__switch span {
+  position: absolute; top: calc(var(--a) * 3); right: calc(var(--a) * 3);
+  width: calc(var(--a) * 20); height: calc(var(--a) * 20); border-radius: 50%; background: #fff;
+  box-shadow: 0 calc(var(--a) * 1) calc(var(--a) * 3) rgba(0,0,0,.3); transition: right .2s;
+}
+.a11y__switch[aria-checked="true"] { background: var(--green-dark); }
+.a11y__switch[aria-checked="true"] span { right: calc(var(--a) * 23); }
+html.a11y-bigwidget .a11y__panel { zoom: 1.2; }
+html.a11y-bigwidget .a11y__toggle { zoom: 1.25; }
+
+/* בועת "תיאורים" */
+.a11y__tip {
+  position: fixed; z-index: 1002; max-width: min(80vw, calc(var(--a) * 320));
+  padding: calc(var(--a) * 8) calc(var(--a) * 12); border-radius: calc(var(--a) * 6);
+  background: var(--ink); color: #fff; font-family: var(--f-body); font-size: calc(var(--a) * 15); line-height: 1.35;
+  direction: rtl; text-align: right; pointer-events: none;
+  box-shadow: 0 calc(var(--a) * 4) calc(var(--a) * 12) rgba(0,0,0,.25);
+}
+.a11y__tip[hidden] { display: none; }
 .a11y__opt:nth-child(odd)  { rotate: -1deg; }
 .a11y__opt:nth-child(even) { rotate: 1.2deg; }
 .a11y__opt:hover { transform: scale(1.04) rotate(-1.5deg); background: rgba(14,224,174,.22); }
@@ -74,15 +99,38 @@
 .a11y__panel :focus-visible, .a11y__toggle:focus-visible { outline: calc(var(--a) * 3) solid var(--green); outline-offset: calc(var(--a) * 2); }
 
 /* ===== מצבי נגישות ===== */
-html.a11y-contrast .page { filter: contrast(1.45); }
-html.a11y-gray .page { filter: grayscale(1); }
-html.a11y-contrast.a11y-gray .page { filter: contrast(1.45) grayscale(1); }
-html.a11y-contrast .page::before, html.a11y-contrast .page::after { display: none; }
+/* ניגודיות + רוויה: פילטר אחד שמורכב ב-JS (--a11y-filter) */
+html.a11y-filtered .page, html.a11y-filtered .site-header { filter: var(--a11y-filter); }
+html.a11y-contrast-1 .page::before, html.a11y-contrast-1 .page::after,
+html.a11y-contrast-2 .page::before, html.a11y-contrast-2 .page::after { display: none; }
+/* במצב כהה התמונות והסרטונים חוזרים לצבעים האמיתיים */
+html.a11y-invert .page img, html.a11y-invert .page video, html.a11y-invert .page iframe,
+html.a11y-invert .site-header img { filter: invert(1) hue-rotate(180deg); }
+
+/* ריווח טקסט – אותיות ומילים */
+html.a11y-spacing-1 .page * { letter-spacing: .05em !important; word-spacing: .12em !important; }
+html.a11y-spacing-2 .page * { letter-spacing: .1em !important; word-spacing: .25em !important; }
+html.a11y-spacing-3 .page * { letter-spacing: .15em !important; word-spacing: .4em !important; }
+
+/* גובה שורה */
+html.a11y-lineh-1 .page :is(p, li, dd, dt, h1, h2, h3, figcaption, label, a, span) { line-height: 1.6 !important; }
+html.a11y-lineh-2 .page :is(p, li, dd, dt, h1, h2, h3, figcaption, label, a, span) { line-height: 1.9 !important; }
+html.a11y-lineh-3 .page :is(p, li, dd, dt, h1, h2, h3, figcaption, label, a, span) { line-height: 2.2 !important; }
+
+/* יישור טקסט */
+html.a11y-align-1 .page :is(p, li, dd, dt, h1, h2, h3, figcaption) { text-align: right !important; }
+html.a11y-align-2 .page :is(p, li, dd, dt, h1, h2, h3, figcaption) { text-align: center !important; }
+html.a11y-align-3 .page :is(p, li, dd, dt, h1, h2, h3, figcaption) { text-align: left !important; }
+
+/* הסתרת תמונות (המקום נשמר, כדי שהעמוד לא יקפוץ) */
+html.a11y-noimg .page img, html.a11y-noimg .page video, html.a11y-noimg .page picture { visibility: hidden !important; }
+html.a11y-noimg .page .texture, html.a11y-noimg .page .about__bg { background-image: none !important; }
 
 html.a11y-links a { text-decoration: underline !important; text-underline-offset: .15em; }
 html.a11y-links .page a:not(.btn) { background: #ffff00 !important; color: #000 !important; }
 
-html.a11y-font body, html.a11y-font .page * { font-family: Arial, Helvetica, sans-serif !important; letter-spacing: .02em; }
+/* תמיכה בדיסלקציה: גופן פשוט וקריא, ריווח קל ובלי טקסט מוטה */
+html.a11y-font body, html.a11y-font .page * { font-family: Arial, Helvetica, sans-serif !important; letter-spacing: .03em; word-spacing: .08em; font-style: normal !important; }
 
 html.a11y-still *, html.a11y-still *::before, html.a11y-still *::after { animation: none !important; transition: none !important; }
 html.a11y-still .reveal { opacity: 1 !important; transform: none !important; }
