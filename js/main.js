@@ -15,7 +15,8 @@
     } else if (last.parentNode !== el) {
       // המילה האחרונה עטופה (למשל <strong>) – מחברים לרווח שלפניה
       var prev = last.parentNode.previousSibling;
-      if (prev && prev.nodeType === 3 && / $/.test(prev.nodeValue)) prev.nodeValue = prev.nodeValue.replace(/ $/, " ");
+      // רק אם לפני הרווח יש מילה אמיתית (לא רווח/שבירת שורה של הקוד)
+      if (prev && prev.nodeType === 3 && /\S $/.test(prev.nodeValue)) prev.nodeValue = prev.nodeValue.replace(/ $/, " ");
     }
   });
 

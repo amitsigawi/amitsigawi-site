@@ -12,11 +12,11 @@
   <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
   <link rel="preload" href="../fonts/Danidin-CondensedBlack.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/Polin-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/style.css?v=25">
-  <link rel="stylesheet" href="../css/project.css?v=25">
-  <link rel="stylesheet" href="../css/a11y.css?v=25">
+  <link rel="stylesheet" href="../css/style.css?v=26">
+  <link rel="stylesheet" href="../css/project.css?v=26">
+  <link rel="stylesheet" href="../css/a11y.css?v=26">
   <script>document.documentElement.classList.add("js");</script>
-  <script src="../js/a11y.js?v=25"></script>
+  <script src="../js/a11y.js?v=26"></script>
 </head>
 <body class="pj-page">
 <a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
@@ -113,7 +113,6 @@
         <li class="pj-insight" data-reveal><span class="pj-insight__num">2</span><p>צוותים רפואיים <br>שמפנים משפחות</p></li>
         <li class="pj-insight" data-reveal><span class="pj-insight__num">♥</span><p>מסר הליבה: <br>רוגע וביטחון</p></li>
       </ul>
-      <p class="pj-note-small"><strong>היעד העסקי הראשוני:</strong> להגיע בהמשך לכ-5 לקוחות בחודש. זה יעד שהוגדר לתחילת הפעילות, ולא תוצאה שכבר נמדדה.</p>
     </section>
 
     <!-- ===== משפט גדול ===== -->
@@ -139,7 +138,44 @@
         <img src="../assets/projects/naomi-gutman/strategy-doc.jpg" alt="עמודים מתוך המסמך האסטרטגי של נעמי גוטמן: ערכי ליבה, מערכת מסרים, טבלת מתחרים ומיצוב" loading="lazy" width="1400" height="788">
         <figcaption>מתוך המסמך האסטרטגי: ערכים, מסרים, מתחרים ומיצוב</figcaption>
       </figure>
-    </section>
+      <!-- מפת המקום הפנוי – לפי טבלת המתחרים במסמך האסטרטגי -->
+      <figure class="pj-map pj-map--naomi" data-reveal>
+        <svg class="pj-map__svg" viewBox="0 0 1000 640" role="img" aria-labelledby="pj-map-title pj-map-desc">
+          <title id="pj-map-title">מפת המקום הפנוי: איפה נעמי גוטמן יושבת ביחס למתחרים</title>
+          <desc id="pj-map-desc">ציר אופקי מ"רחב – כל שלבי הפגות והלידה" ל"ממוקד – הבית שאחרי הפגייה", ציר אנכי מ"רגשי וקהילתי" ל"מקצועי ומעשי". אצבעות זהב: מגע ככלי לריפוי, ניסיון מקצועי בתחום המגע והפגים. ארגון להב: קהילה גדולה, מידע וזכויות לכל שלבי הפגות. יעל ברזילי ליבנה: ליווי רגשי ומכיל סביב ההריון ואחרי הלידה. נעמי גוטמן: אחות פגייה בפועל, ליווי מקצועי ואישי בבית אחרי השחרור.</desc>
+          <defs>
+            <filter id="pj-pencil" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="n"/>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+          </defs>
+          <g class="pj-map__lines">
+            <path d="M0 70H1000M0 120H1000M0 170H1000M0 220H1000M0 270H1000M0 320H1000M0 370H1000M0 420H1000M0 470H1000M0 520H1000M0 570H1000M0 620H1000"/>
+          </g>
+          <g class="pj-map__pencil" filter="url(#pj-pencil)">
+            <path d="M500 590C499 450 502 260 500 70M488 92 500 66 513 93M488 568 500 594 513 567"/>
+            <path d="M60 340C300 343 700 337 940 340M916 328 942 340 917 353M84 328 58 340 83 353"/>
+            <ellipse cx="700" cy="150" rx="22" ry="19"/><ellipse cx="698" cy="148" rx="25" ry="21" transform="rotate(-8 698 148)"/>
+            <ellipse cx="760" cy="470" rx="19" ry="17"/><ellipse cx="762" cy="468" rx="22" ry="19" transform="rotate(10 762 468)"/>
+            <ellipse cx="400" cy="500" rx="19" ry="17"/><ellipse cx="398" cy="499" rx="22" ry="19" transform="rotate(-6 398 499)"/>
+          </g>
+          <path class="pj-map__marker" d="M168 168c40-34 158-36 196-6 30 24 6 66-48 74-70 10-182 6-170-36 3-12 10-22 22-32z"/>
+          <path class="pj-map__circle" filter="url(#pj-pencil)" d="M150 198c-6-44 92-66 174-56 70 8 98 46 66 74-34 30-168 34-216 10-30-15-34-38-6-58 20-14 60-22 100-24"/>
+          <path class="pj-map__arrow" filter="url(#pj-pencil)" d="M440 238c-8-14-20-24-34-28M414 202l-12 6 8 12"/>
+          <g class="pj-map__text">
+            <text x="500" y="44" text-anchor="middle" class="pj-map__axis">מקצועי ומעשי</text>
+            <text x="500" y="626" text-anchor="middle" class="pj-map__axis">רגשי וקהילתי</text>
+            <text x="935" y="304" text-anchor="end" class="pj-map__axis" transform="rotate(-2 935 304)">רחב – כל שלבי הפגות</text>
+            <text x="64" y="304" text-anchor="start" class="pj-map__axis" transform="rotate(2 64 304)">ממוקד – הבית שאחרי</text>
+            <text x="700" y="198" text-anchor="middle" class="pj-map__name" transform="rotate(-2 700 198)">אצבעות זהב</text>
+            <text x="760" y="518" text-anchor="middle" class="pj-map__name" transform="rotate(2 760 518)">ארגון להב</text>
+            <text x="400" y="548" text-anchor="middle" class="pj-map__name" transform="rotate(-1 400 548)">יעל ברזילי ליבנה</text>
+            <text x="266" y="206" text-anchor="middle" class="pj-map__win">נעמי גוטמן</text>
+            <text x="478" y="276" text-anchor="end" class="pj-map__note" transform="rotate(-3 478 276)">אחות פגייה + ליווי אישי בבית</text>
+          </g>
+        </svg>
+        <figcaption>מפת המקום הפנוי: אף אחד לא מלווה מקצועית ואישית את הרגע שבו חוזרים הביתה</figcaption>
+      </figure>    </section>
 
     <!-- ===== ה-DNA: Reveal ===== -->
     <section class="pj-reveal" aria-labelledby="pj-dna">
@@ -153,6 +189,36 @@
       </div>
     </section>
 
+    <!-- ===== שיטת הזרה ===== -->
+    <section class="pj-section" aria-labelledby="pj-zara-title">
+      <div class="pj-cols">
+        <div class="pj-cols__head">
+          <p class="pj-kicker">שיטת הזרה</p>
+          <h2 class="pj-h2" id="pj-zara-title">להתרחק מהמובן מאליו</h2>
+        </div>
+        <div class="pj-cols__body" data-reveal>
+          <p>לפני הסקיצות אני כותבת שני מעגלים. במעגל הפנימי – כל מה שעולה מיד כשמדברים על העסק. במעגל החיצוני – מילים שקשורות, אבל לא בצורה שחושבים עליה ישר.</p>
+          <p>משם מגיעים הרעיונות שלא נראים כמו כל השאר בתחום.</p>
+        </div>
+      </div>
+      <figure class="pj-zara pj-map--naomi" data-reveal>
+        <svg class="pj-zara__svg" viewBox="0 0 1000 720" role="img" aria-labelledby="pj-zara-t pj-zara-d">
+          <title id="pj-zara-t">שיטת הזרה – נעמי גוטמן</title>
+          <desc id="pj-zara-d">במעגל הפנימי: פגייה, פג, מוניטור, אינקובטור, אחות, בית חולים, תינוק. במעגל החיצוני: תדר, גל, קן, נשימה, עוגן, בית. המילים שנבחרו לסמל: חיבוק, משפחה.</desc>
+          <defs><filter id="pj-pencil-z" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter></defs>
+          <g filter="url(#pj-pencil-z)">
+            <ellipse class="pj-zara__ring" cx="500" cy="360" rx="478" ry="342"/><ellipse class="pj-zara__ring" cx="503" cy="358" rx="472" ry="346" transform="rotate(-1.5 503 358)"/>
+            <ellipse class="pj-zara__ring pj-zara__ring--in" cx="500" cy="360" rx="196" ry="166"/><ellipse class="pj-zara__ring" cx="497" cy="362" rx="190" ry="170" transform="rotate(2 497 362)"/>
+          </g>
+          <text class="pj-zara__lbl" x="500" y="48" text-anchor="middle">מה שמתחבר אחרת</text>
+          <text class="pj-zara__lbl" x="500" y="222" text-anchor="middle">מה שעולה מיד</text>
+          <g class="pj-zara__g pj-zara__g--in"><text class="pj-zara__w pj-zara__w--in" x="500" y="360" text-anchor="middle" dominant-baseline="middle">פגייה</text><text class="pj-zara__w pj-zara__w--in" x="500" y="264" text-anchor="middle" dominant-baseline="middle">פג</text><text class="pj-zara__w pj-zara__w--in" x="602.2" y="312" text-anchor="middle" dominant-baseline="middle">מוניטור</text><text class="pj-zara__w pj-zara__w--in" x="602.2" y="408" text-anchor="middle" dominant-baseline="middle">אינקובטור</text><text class="pj-zara__w pj-zara__w--in" x="500" y="456" text-anchor="middle" dominant-baseline="middle">אחות</text><text class="pj-zara__w pj-zara__w--in" x="397.8" y="408" text-anchor="middle" dominant-baseline="middle">בית חולים</text><text class="pj-zara__w pj-zara__w--in" x="397.8" y="312" text-anchor="middle" dominant-baseline="middle">תינוק</text></g>
+          <g class="pj-zara__g pj-zara__g--out"><text class="pj-zara__w" x="808.4" y="257.6" text-anchor="middle" dominant-baseline="middle" transform="rotate(2 808.4 257.6)">תדר</text><text class="pj-zara__w" x="810.6" y="458.1" text-anchor="middle" dominant-baseline="middle" transform="rotate(-2 810.6 458.1)">גל</text><text class="pj-zara__w" x="374.5" y="602.9" text-anchor="middle" dominant-baseline="middle" transform="rotate(-3 374.5 602.9)">קן</text><text class="pj-zara__w" x="191.6" y="462.4" text-anchor="middle" dominant-baseline="middle" transform="rotate(2 191.6 462.4)">נשימה</text><text class="pj-zara__w" x="189.4" y="261.9" text-anchor="middle" dominant-baseline="middle" transform="rotate(-2 189.4 261.9)">עוגן</text><text class="pj-zara__w" x="369.1" y="118.8" text-anchor="middle" dominant-baseline="middle" transform="rotate(3 369.1 118.8)">בית</text></g>
+          <g class="pj-zara__g pj-zara__g--win"><ellipse class="pj-zara__mark" cx="625.5" cy="117.1" rx="92" ry="34" transform="rotate(-4 625.5 117.1)"/><text class="pj-zara__win" x="625.5" y="117.1" text-anchor="middle" dominant-baseline="middle">חיבוק</text><ellipse class="pj-zara__mark" cx="630.9" cy="601.2" rx="102" ry="34" transform="rotate(-4 630.9 601.2)"/><text class="pj-zara__win" x="630.9" y="601.2" text-anchor="middle" dominant-baseline="middle">משפחה</text></g>
+        </svg>
+        <figcaption>החיבוק – מהמעגל החיצוני – הפך לסמל: אם שמחזיקה את התינוק שלה. במקום עוד מוניטור או אינקובטור.</figcaption>
+      </figure>
+    </section>
     <!-- ===== 05 הכיוונים היצירתיים והאתגר ===== -->
     <section class="pj-section" aria-labelledby="pj-directions">
       <div class="pj-cols">
@@ -168,10 +234,17 @@
         </div>
       </div>
 
-      <!-- לוחות המיקוד – להחליף ב-<figure class="pj-figure pj-board ..."><img ...></figure> כמו ברֹקמת -->
-      <div class="pj-duo">
-        <div class="pj-ph" data-reveal><span>לוח מיקוד 1 – תדר / גל מוניטור</span></div>
-        <div class="pj-ph" data-reveal><span>לוח מיקוד 2 – משפחה שלמה בדרכה</span></div>
+      <!-- לוחות המיקוד – כשיש תמונות: מחליפים את ה-div.pj-ph ב-<img src="..." alt="..."> -->
+      <div class="pj-boards">
+        <figure class="pj-figure pj-board pj-board--muted" data-reveal>
+          <div class="pj-ph"><span>לוח מיקוד 1 – תדר / גל מוניטור</span></div>
+          <figcaption>לוח מיקוד 1 – תדר משותף</figcaption>
+        </figure>
+        <figure class="pj-figure pj-board pj-board--pick" data-reveal>
+          <span class="pj-board__tag">הכיוון שנבחר</span>
+          <div class="pj-ph"><span>לוח מיקוד 2 – משפחה שלמה בדרכה</span></div>
+          <figcaption>לוח מיקוד 2 – משפחה, לא מושלמת אבל שלמה</figcaption>
+        </figure>
       </div>
 
       <div class="pj-steps">
@@ -284,7 +357,7 @@
           <h2 class="pj-h2" id="pj-business">ההישג הראשון: מוכנות לצאת לדרך</h2>
         </div>
         <div class="pj-cols__body" data-reveal>
-          <p>העסק של נעמי נמצא עדיין לפני ההשקה או בתחילתה, ולכן אין בשלב זה נתונים על פניות חדשות, לקוחות שהגיעו בעקבות האתר או עמידה ביעד העסקי.</p>
+          <p>העסק של נעמי נמצא עדיין לפני ההשקה או בתחילתה, ולכן אין בשלב זה נתונים על פניות חדשות או לקוחות שהגיעו בעקבות האתר.</p>
           <p>עם זאת, הפרויקט יצר שינוי משמעותי בנקודת הפתיחה שלה: <strong>היא יכולה להתחיל להציג את העסק באופן עקבי ומקצועי, בלי לבנות את כל התשתית מאפס.</strong></p>
           <p>השלב הבא יהיה לבחון איך התשתית הזאת תומכת בפניות, בהפניות מקצועיות ובהתפתחות העסק לאורך זמן.</p>
         </div>
@@ -404,7 +477,7 @@
 
 </div>
 
-<script src="../js/config.js?v=25"></script>
-<script src="../js/main.js?v=25"></script>
+<script src="../js/config.js?v=26"></script>
+<script src="../js/main.js?v=26"></script>
 </body>
 </html>

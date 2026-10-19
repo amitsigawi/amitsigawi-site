@@ -956,3 +956,4 @@ html.a11y-still .pj-zara .pj-zara__g > *, html.a11y-still .pj-zara .pj-zara__rin
   .pj-proof__frame.pj-ph { min-height: calc(var(--u) * 460); }
   .pj-section > .pj-big { margin-top: calc(var(--u) * 60) !important; }
 }
+.pj-map--naomi  { --m-mark: #f5b3a4; --m-pen: #42575e; --m-win: #bc5f4a; }

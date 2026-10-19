@@ -100,12 +100,16 @@ html.a11y-bigwidget .a11y__toggle { zoom: 1.25; }
 
 /* ===== מצבי נגישות ===== */
 /* ניגודיות + רוויה: פילטר אחד שמורכב ב-JS (--a11y-filter) */
-html.a11y-filtered .page, html.a11y-filtered .site-header { filter: var(--a11y-filter); }
+/* הפילטר על כל המסמך – כך הרקע, ההדר וכל הסקשנים משתנים יחד (בלי אזורים שנשארים בצבע המקורי) */
+html.a11y-filtered { filter: var(--a11y-filter); background: #fff; }
 html.a11y-contrast-1 .page::before, html.a11y-contrast-1 .page::after,
 html.a11y-contrast-2 .page::before, html.a11y-contrast-2 .page::after { display: none; }
-/* במצב כהה התמונות והסרטונים חוזרים לצבעים האמיתיים */
-html.a11y-invert .page img, html.a11y-invert .page video, html.a11y-invert .page iframe,
-html.a11y-invert .site-header img { filter: invert(1) hue-rotate(180deg); }
+/* במצב כהה: תמונות, סרטונים ותפריט הנגישות עצמו חוזרים לצבעים האמיתיים */
+html.a11y-invert img, html.a11y-invert video, html.a11y-invert iframe, html.a11y-invert picture,
+html.a11y-invert .a11y__panel, html.a11y-invert .a11y__toggle, html.a11y-invert .a11y__tip { filter: invert(1) hue-rotate(180deg); }
+html.a11y-invert .a11y__panel img, html.a11y-invert .a11y__panel svg { filter: none; }
+/* תמונות רקע (טקסטורות) גם חוזרות לצבע האמיתי */
+html.a11y-invert .texture, html.a11y-invert .about__bg { filter: invert(1) hue-rotate(180deg); }
 
 /* ריווח טקסט – אותיות ומילים */
 html.a11y-spacing-1 .page * { letter-spacing: .05em !important; word-spacing: .12em !important; }

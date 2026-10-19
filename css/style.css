@@ -1074,3 +1074,16 @@ html.a11y-still .footer__skate { translate: 70vw 0; }
 @media (min-width: 1200px) { .cta-row { margin-top: calc(var(--u) * 80); } }
 /* 6 פרויקטים (2 שורות) – בלי גובה מינימלי של 3 שורות */
 @media (min-width: 1200px) { .projects { min-height: 0; } }
+
+/* =========================================================
+   הירו – תיקונים
+   ========================================================= */
+/* הנקודות בפינה העליונה נמוגות לרקע, בלי קצה ישר (היה "פס כהה" מעל התמונה) */
+.hero__dots-r {
+  -webkit-mask-image: radial-gradient(ellipse 100% 100% at 100% 0, #000 40%, transparent 78%);
+          mask-image: radial-gradient(ellipse 100% 100% at 100% 0, #000 40%, transparent 78%);
+}
+/* לפטופ: הכותרת והתמונה ממורכזות (הקומפוזיציה נטתה ימינה) */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .hero__content, .hero__photo, .hero__star { translate: calc(var(--u) * -80) 0; }
+}
