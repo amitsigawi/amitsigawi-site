@@ -104,12 +104,30 @@ html.a11y-bigwidget .a11y__toggle { zoom: 1.25; }
 html.a11y-filtered { filter: var(--a11y-filter); background: #fff; }
 html.a11y-contrast-1 .page::before, html.a11y-contrast-1 .page::after,
 html.a11y-contrast-2 .page::before, html.a11y-contrast-2 .page::after { display: none; }
-/* במצב כהה: תמונות, סרטונים ותפריט הנגישות עצמו חוזרים לצבעים האמיתיים */
-html.a11y-invert img, html.a11y-invert video, html.a11y-invert iframe, html.a11y-invert picture,
-html.a11y-invert .a11y__panel, html.a11y-invert .a11y__toggle, html.a11y-invert .a11y__tip { filter: invert(1) hue-rotate(180deg); }
-html.a11y-invert .a11y__panel img, html.a11y-invert .a11y__panel svg { filter: none; }
-/* תמונות רקע (טקסטורות) גם חוזרות לצבע האמיתי */
-html.a11y-invert .texture, html.a11y-invert .about__bg { filter: invert(1) hue-rotate(180deg); }
+/* ===== מצב כהה (ניגודיות – רמה 2) =====
+   רקע כהה אחיד, טקסט בהיר, בלי מברשות/טקסטורות דקורטיביות. תמונות וסרטונים נשארים בצבעים האמיתיים. */
+html.a11y-dark, html.a11y-dark body, html.a11y-dark .page { background: #121212 !important; }
+html.a11y-dark .page::before, html.a11y-dark .page::after,
+html.a11y-dark .deco, html.a11y-dark .texture, html.a11y-dark .about__bg,
+html.a11y-dark .pj-cover::after, html.a11y-dark .form-wrap__corner { display: none !important; }
+html.a11y-dark :is(.page, .site-header) *:not(img, video, iframe, picture, svg, svg *, .pj-map, .pj-map *, .pj-zara, .pj-zara *, .pj-swatch, .pj-peek__dots li, .reel__frame *) {
+  background-color: transparent !important; background-image: none !important;
+  color: #f2f2f2 !important; border-color: #f2f2f2 !important; box-shadow: none !important; text-shadow: none !important;
+}
+/* מסגרות שהיו "דף נייר" (מסכות) – מקבלות רקע כהה מעט בהיר יותר וקו מתאר */
+html.a11y-dark.a11y-dark body :is(.nav, .insta__sheet, .pj-note, .pj-path li, .pj-insight, .card__link, .pj-peek__tag, .pj-ph) {
+  background-color: #1e1e1e !important; outline: 2px solid #f2f2f2; outline-offset: -2px;
+}
+html.a11y-dark .nav::before { display: none !important; }
+html.a11y-dark.a11y-dark body :is(.btn, .lead-form__submit, .reels__btn) { background-color: #000 !important; outline: 2px solid #ffd54a; color: #ffd54a !important; }
+html.a11y-dark.a11y-dark body .page a:not(.btn):not(.card__link) { color: #ffd54a !important; }
+html.a11y-dark.a11y-dark body :is(input, textarea) { background-color: #000 !important; color: #fff !important; outline: 2px solid #f2f2f2; }
+html.a11y-dark :is(input, textarea)::placeholder { color: #cfcfcf !important; }
+html.a11y-dark.a11y-dark body .footer__icon { background-color: #f2f2f2 !important; color: #121212 !important; }
+html.a11y-dark.a11y-dark body .footer__icon * { color: #121212 !important; }
+html.a11y-dark.a11y-dark body .pj-swatch { color: #fff !important; }
+html.a11y-dark .site-header .nav__logo img, html.a11y-dark .footer__logo img { filter: brightness(0) invert(1); }
+html.a11y-dark .sk-deck, html.a11y-dark .sk-wheel circle { fill: #f2f2f2; stroke: #f2f2f2; }
 
 /* ריווח טקסט – אותיות ומילים */
 html.a11y-spacing-1 .page * { letter-spacing: .05em !important; word-spacing: .12em !important; }
@@ -145,3 +163,6 @@ html.a11y-still { scroll-behavior: auto; }
 html.a11y-cursor, html.a11y-cursor * {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M6 3l30 18-13 3 8 16-6 3-8-16-11 9z' fill='%23000' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E") 6 3, auto !important;
 }
+
+/* ההדר במצב כהה: רקע מלא כדי שהתוכן לא ייראה מתחתיו */
+html.a11y-dark.a11y-dark body .site-header .nav { background-color: #1e1e1e !important; }

@@ -56,7 +56,6 @@
     if (state.sat === 1) f.push("saturate(.4)");
     if (state.sat === 2) f.push("saturate(2)");
     if (state.sat === 3) f.push("grayscale(1)");
-    if (state.contrast === 2) f.push("invert(1) hue-rotate(180deg)");
     root.style.setProperty("--a11y-filter", f.length ? f.join(" ") : "none");
 
     OPTIONS.forEach(function (o) {
@@ -65,7 +64,7 @@
       else for (var i = 1; i <= o[2]; i++) root.classList.toggle("a11y-" + k + "-" + i, lv === i);
     });
     root.classList.toggle("a11y-filtered", f.length > 0);
-    root.classList.toggle("a11y-invert", state.contrast === 2);
+    root.classList.toggle("a11y-dark", state.contrast === 2);
     root.classList.toggle("a11y-bigwidget", !!state.big);
 
     try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}

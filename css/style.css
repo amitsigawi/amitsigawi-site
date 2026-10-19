@@ -1085,5 +1085,13 @@ html.a11y-still .footer__skate { translate: 70vw 0; }
 }
 /* לפטופ: הכותרת והתמונה ממורכזות (הקומפוזיציה נטתה ימינה) */
 @media (min-width: 1200px) and (max-width: 1599px) {
-  .hero__content, .hero__photo, .hero__star { translate: calc(var(--u) * -80) 0; }
+  .hero__content, .hero__photo, .hero__star { translate: calc(var(--u) * -120) 0; }
+}
+
+/* רקע ההירו: תמונת טקסטורה אחת שמכסה את כל הרוחב – בלי חזרה (שיצרה "תפר" בצד ימין) */
+.hero__bg.texture { background-size: cover; background-position: center top; background-repeat: no-repeat; }
+/* גם הנקודות בצד שמאל נמוגות לרקע, בלי מלבן אפור */
+.hero__dots-l {
+  -webkit-mask-image: radial-gradient(ellipse 100% 100% at 0 50%, #000 35%, transparent 75%);
+          mask-image: radial-gradient(ellipse 100% 100% at 0 50%, #000 35%, transparent 75%);
 }
