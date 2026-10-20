@@ -1095,3 +1095,36 @@ html.a11y-still .footer__skate { translate: 70vw 0; }
   -webkit-mask-image: radial-gradient(ellipse 100% 100% at 0 50%, #000 35%, transparent 75%);
           mask-image: radial-gradient(ellipse 100% 100% at 0 50%, #000 35%, transparent 75%);
 }
+/* =========================================================
+   סבב 4 – סרטונים גדולים עם כפתור Play, פס המלצות, תוצאה בכרטיס
+   ========================================================= */
+/* כפתור Play גדול על כל סרטון – שיהיה ברור שזה סרטון */
+.vwrap { position: relative; width: 100%; height: 100%; }
+.vwrap video { display: block; }
+.vplay { position: absolute; inset: 0; margin: auto; z-index: 3; width: calc(var(--u) * 74); height: calc(var(--u) * 74); border: 0; border-radius: 50%; background: rgba(255,255,255,.93); box-shadow: 0 calc(var(--u) * 6) calc(var(--u) * 20) rgba(0,0,0,.3); cursor: pointer; display: grid; place-items: center; transition: transform .3s cubic-bezier(.3,1.6,.5,1), opacity .25s; }
+.vplay::after { content: ""; border-style: solid; border-width: calc(var(--u) * 13) 0 calc(var(--u) * 13) calc(var(--u) * 21); border-color: transparent transparent transparent var(--green); margin-left: calc(var(--u) * 6); }
+.vplay:hover, .vplay:focus-visible { transform: scale(1.1) rotate(-6deg); }
+.vwrap.is-playing .vplay { opacity: 0; pointer-events: none; }
+@media (min-width: 1200px) { .vplay { width: calc(var(--u) * 120); height: calc(var(--u) * 120); } .vplay::after { border-width: calc(var(--u) * 21) 0 calc(var(--u) * 21) calc(var(--u) * 34); margin-left: calc(var(--u) * 10); } }
+
+/* סרטוני ההמלצות בדף הבית – גדולים יותר במחשב ובלפטופ */
+@media (min-width: 768px) { .reel { flex-basis: calc(var(--u) * 290); } }
+@media (min-width: 1200px) { .reel { flex-basis: calc(var(--u) * 440); } .reels__track { gap: calc(var(--u) * 56); } }
+
+/* מה הפרויקט פתר / השיג – מתחת לכל כרטיס */
+.card__result { margin-top: calc(var(--u) * 8); text-align: center; font-weight: 600; font-size: calc(var(--ft) * 14); line-height: 1.25; }
+@media (min-width: 768px) { .card__result { font-size: calc(var(--ft) * 16); } }
+@media (min-width: 1200px) { .card__result { margin-top: calc(var(--u) * 14); font-size: calc(var(--ft) * 22); } }
+
+/* פס המלצות שזז בין שורות הפרויקטים */
+.tstrip { grid-column: 1 / -1; overflow: hidden; margin: calc(var(--u) * 6) calc(var(--u) * -20); padding: calc(var(--u) * 14) 0; list-style: none; }
+.tstrip__track { display: flex; align-items: center; gap: calc(var(--u) * 18); width: max-content; animation: tstrip 70s linear infinite; }
+.tstrip:hover .tstrip__track, .tstrip:focus-within .tstrip__track { animation-play-state: paused; }
+.tstrip img { display: block; height: calc(var(--u) * 70); width: auto; max-width: none; background: #fff; padding: calc(var(--u) * 4); border-radius: calc(var(--u) * 8); box-shadow: 0 calc(var(--u) * 6) calc(var(--u) * 16) rgba(0,0,0,.12); rotate: -1.5deg; }
+.tstrip img:nth-child(even) { rotate: 1.5deg; }
+.tstrip img.is-tall { height: calc(var(--u) * 110); }
+@keyframes tstrip { from { transform: translateX(0); } to { transform: translateX(50%); } }
+@media (min-width: 768px) { .tstrip { margin-inline: calc(var(--u) * -40); } .tstrip img { height: calc(var(--u) * 80); } .tstrip img.is-tall { height: calc(var(--u) * 130); } }
+@media (min-width: 1200px) { .tstrip { margin: calc(var(--u) * 20) 0; padding: calc(var(--u) * 24) 0; } .tstrip__track { gap: calc(var(--u) * 30); } .tstrip img { height: calc(var(--u) * 110); } .tstrip img.is-tall { height: calc(var(--u) * 190); } }
+@media (prefers-reduced-motion: reduce) { .tstrip { overflow-x: auto; } .tstrip__track { animation: none; } }
+html.a11y-still .tstrip { overflow-x: auto; } html.a11y-still .tstrip__track { animation: none !important; }

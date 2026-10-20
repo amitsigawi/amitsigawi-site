@@ -321,3 +321,35 @@ document.addEventListener("play", function (e) {
   stop();
   new MutationObserver(stop).observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
 })();
+
+// כפתור Play גדול על כל סרטון עם פקדים – שיהיה ברור שזה סרטון
+(function () {
+  document.querySelectorAll("video[controls]").forEach(function (v) {
+    if (v.autoplay || v.closest(".vwrap")) return;
+    var w = document.createElement("div"); w.className = "vwrap";
+    v.parentNode.insertBefore(w, v); w.appendChild(v);
+    var b = document.createElement("button"); b.type = "button"; b.className = "vplay";
+    b.setAttribute("aria-label", "הפעלת הסרטון" + (v.getAttribute("aria-label") ? ": " + v.getAttribute("aria-label") : ""));
+    w.appendChild(b);
+    b.addEventListener("click", function () { v.play(); v.focus(); });
+    v.addEventListener("play", function () { w.classList.add("is-playing"); });
+    v.addEventListener("pause", function () { if (!v.seeking) w.classList.remove("is-playing"); });
+    v.addEventListener("ended", function () { w.classList.remove("is-playing"); });
+  });
+})();
+
+// פרויקטים נוספים: 3 פרויקטים אקראיים (בלי העמוד הנוכחי) בסוף כל עמוד פרויקט
+(function () {
+  var box = document.querySelector(".pj-more"); var list = window.PROJECTS || [];
+  if (!box || !list.length) return;
+  var here = location.pathname.split("/").pop();
+  var pool = list.filter(function (p) { return p.page !== here; });
+  for (var i = pool.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = pool[i]; pool[i] = pool[j]; pool[j] = t; }
+  var ul = box.querySelector(".pj-more__grid");
+  pool.slice(0, 3).forEach(function (p) {
+    var li = document.createElement("li");
+    li.innerHTML = '<a class="pj-more__card" href="' + p.page + '"><img src="../assets/projects/' + p.img + '" alt="" loading="lazy" width="854" height="654">' +
+      '<span class="pj-more__type">' + p.type + '</span><span class="pj-more__name">' + p.name + '</span><span class="pj-more__res">' + p.result + '</span></a>';
+    ul.appendChild(li);
+  });
+})();

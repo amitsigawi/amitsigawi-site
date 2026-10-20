@@ -957,3 +957,69 @@ html.a11y-still .pj-zara .pj-zara__g > *, html.a11y-still .pj-zara .pj-zara__rin
   .pj-section > .pj-big { margin-top: calc(var(--u) * 60) !important; }
 }
 .pj-map--naomi  { --m-mark: #f5b3a4; --m-pen: #42575e; --m-win: #bc5f4a; }
+
+/* =========================================================
+   סבב 4 – קאברים שלמים, מלבנים שווים, המלצות גדולות, פרויקטים נוספים
+   ========================================================= */
+/* קאבר עם אנימציית לוגו: כל הפריים נראה (בלי חיתוך), ובמובייל מתחת לתפריט */
+.pj-cover--logo .pj-cover__media { object-fit: contain; mix-blend-mode: var(--cover-blend, multiply); }
+@media (max-width: 767.98px) { .pj-cover--logo { padding-top: calc(var(--u) * 70); } }
+
+/* קאבר תמונה שלמה: התמונה עצמה במרכז, ומאחוריה אותה תמונה מטושטשת */
+.pj-cover--fit .pj-cover__media { position: relative; z-index: 1; object-fit: contain; animation: none; }
+.pj-cover__blur { position: absolute; inset: -6%; width: 112%; height: 112%; object-fit: cover; filter: blur(28px) saturate(1.1); opacity: .85; }
+
+/* הצצה לתוצאה: כל המלבנים באותו גודל בדיוק */
+.pj-peek--grid { grid-template-columns: 1fr 1fr !important; align-items: stretch; }
+.pj-peek--grid > * { grid-column: auto !important; aspect-ratio: 16 / 10 !important; height: auto !important; min-height: 0; margin: 0; overflow: hidden; }
+.pj-peek--grid img { width: 100%; height: 100% !important; object-fit: cover !important; }
+.pj-peek--grid .pj-peek__tag { justify-content: center; }
+@media (max-width: 767.98px) { .pj-peek--grid { grid-template-columns: 1fr !important; } }
+
+/* וידאו המלצה בעמוד פרויקט – גדול יותר */
+@media (min-width: 1200px) { .pj-video { max-width: calc(var(--u) * 600); } }
+
+/* ההמלצות בסוף עמוד הפרויקט – גדולות יותר במחשב ובלפטופ */
+@media (min-width: 1200px) {
+  .pj-proof { grid-template-columns: .85fr 1.45fr; gap: calc(var(--u) * 80); }
+  .pj-proof__phones { gap: calc(var(--u) * 50); }
+  .pj-testi { padding: calc(var(--u) * 48) calc(var(--u) * 54); }
+  .pj-testi p { font-size: calc(var(--ft) * 25); }
+  .pj-testi cite { font-size: calc(var(--ft) * 20); }
+}
+
+/* פרויקטים נוספים – 3 כרטיסים אקראיים בסוף כל עמוד */
+.pj-more { margin-top: calc(var(--u) * 60); text-align: center; position: relative; z-index: 7; }
+.pj-more__title { font-family: var(--f-display); font-weight: 900; font-size: calc(var(--ft) * 34); line-height: 1; color: var(--ink); }
+.pj-more__grid { list-style: none; margin: calc(var(--u) * 24) 0 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: calc(var(--u) * 22); }
+.pj-more__card { display: block; background: #fff; padding: calc(var(--u) * 10) calc(var(--u) * 10) calc(var(--u) * 14); box-shadow: 0 calc(var(--u) * 10) calc(var(--u) * 24) rgba(0,0,0,.12); color: var(--ink); text-decoration: none; rotate: -1.2deg; transition: rotate .4s cubic-bezier(.3,1.6,.5,1), translate .4s cubic-bezier(.3,1.6,.5,1); }
+.pj-more__grid li:nth-child(2) .pj-more__card { rotate: 1.4deg; }
+.pj-more__grid li:nth-child(3) .pj-more__card { rotate: -.6deg; }
+.pj-more__card:hover, .pj-more__card:focus-visible { rotate: 0deg; translate: 0 calc(var(--u) * -6); }
+.pj-more__card img { display: block; width: 100%; aspect-ratio: 854 / 654; object-fit: cover; }
+.pj-more__type { display: block; margin-top: calc(var(--u) * 10); font-size: calc(var(--ft) * 13); color: rgba(50,50,50,.7); }
+.pj-more__name { display: block; font-family: var(--f-display); font-weight: 900; font-size: calc(var(--ft) * 26); line-height: 1; color: var(--green); }
+.pj-more__res { display: block; margin-top: calc(var(--u) * 6); font-size: calc(var(--ft) * 14); font-weight: 600; }
+.pj-more__all { display: inline-block; margin-top: calc(var(--u) * 24); font-weight: 600; text-decoration: underline; text-underline-offset: .2em; color: var(--ink); }
+@media (min-width: 768px) { .pj-more__grid { grid-template-columns: repeat(3, 1fr); gap: calc(var(--u) * 26); } .pj-more__title { font-size: calc(var(--ft) * 44); } }
+@media (min-width: 1200px) {
+  .pj-more { margin-top: calc(var(--u) * 110); }
+  .pj-more__title { font-size: calc(var(--ft) * 76); }
+  .pj-more__grid { margin-top: calc(var(--u) * 46); gap: calc(var(--u) * 40); }
+  .pj-more__card { padding: calc(var(--u) * 16) calc(var(--u) * 16) calc(var(--u) * 22); }
+  .pj-more__type { font-size: calc(var(--ft) * 18); margin-top: calc(var(--u) * 16); }
+  .pj-more__name { font-size: calc(var(--ft) * 40); }
+  .pj-more__res { font-size: calc(var(--ft) * 20); }
+  .pj-more__all { font-size: calc(var(--ft) * 22); margin-top: calc(var(--u) * 40); }
+}
+
+/* לפני/אחרי ברקמת: גם ה"אחרי" זוג – פלאייר + טלפון */
+.pj-ba__pair--after { align-items: center; }
+.pj-ba__pair--after .pj-cutout { width: 100%; height: auto; rotate: -2deg; }
+/* קיר המלצות: שני טורים של מכתבים וצילומי מסך */
+.pj-testis__grid { margin-top: calc(var(--u) * 30); columns: 1; column-gap: calc(var(--u) * 24); }
+.pj-testis__grid > * { break-inside: avoid; margin: 0 0 calc(var(--u) * 24); }
+.pj-testis__grid .pj-testi { margin-top: calc(var(--u) * 24); }
+.pj-testi-shot img { display: block; width: 100%; height: auto; border-radius: calc(var(--u) * 12); box-shadow: 0 calc(var(--u) * 10) calc(var(--u) * 24) rgba(0,0,0,.14); rotate: 1.2deg; }
+@media (min-width: 768px) { .pj-testis__grid { columns: 2; } }
+@media (min-width: 1200px) { .pj-testis__grid { margin-top: calc(var(--u) * 60); column-gap: calc(var(--u) * 50); } .pj-testis__grid > * { margin-bottom: calc(var(--u) * 50); } .pj-testis__grid .pj-testi p { font-size: calc(var(--ft) * 22); } }

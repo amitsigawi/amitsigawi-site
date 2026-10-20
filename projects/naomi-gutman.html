@@ -14,11 +14,11 @@
   <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
   <link rel="preload" href="../fonts/Danidin-CondensedBlack.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/Polin-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/style.css?v=28">
-  <link rel="stylesheet" href="../css/project.css?v=28">
-  <link rel="stylesheet" href="../css/a11y.css?v=28">
+  <link rel="stylesheet" href="../css/style.css?v=29">
+  <link rel="stylesheet" href="../css/project.css?v=29">
+  <link rel="stylesheet" href="../css/a11y.css?v=29">
   <script>document.documentElement.classList.add("js");</script>
-  <script src="../js/a11y.js?v=28"></script>
+  <script src="../js/a11y.js?v=29"></script>
 </head>
 <body class="pj-page">
 <a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
@@ -48,7 +48,8 @@
 <div class="page">
 
   <!-- ===== קאבר ===== -->
-  <section class="pj-cover" aria-label="נעמי גוטמן – תמונת פתיחה">
+  <section class="pj-cover pj-cover--fit" aria-label="נעמי גוטמן – תמונת פתיחה">
+    <img class="pj-cover__blur" src="../assets/projects/naomi-gutman/cover.jpg" alt="" aria-hidden="true">
     <img class="pj-cover__media" src="../assets/projects/naomi-gutman/cover.jpg" alt="הלוגו של נעמי גוטמן – ייעוץ והדרכה להורי פגים – מודפס על נייר" width="1600" height="900" fetchpriority="high">
     <a class="pj-scroll" href="#main">
       <span>לסיפור המלא</span>
@@ -80,16 +81,19 @@
     </section>
 
     <!-- ===== הצצה לתוצאה ===== -->
-    <section class="pj-peek" aria-label="הצצה לתוצאה">
-      <figure class="pj-peek__logo" data-reveal>
-        <img src="../assets/projects/naomi-gutman/brand-photo.jpg" alt="אבא ואמא מחבקים תינוק שזה עתה נולד – מתוך שפת הצילום של המותג" loading="lazy" width="720" height="900">
-      </figure>
+    <section class="pj-peek pj-peek--grid" aria-label="הצצה לתוצאה">
       <div class="pj-peek__tag" data-reveal>
         <p class="pj-peek__tag-text">רוגע <br>וביטחון</p>
         <ul class="pj-peek__dots" aria-hidden="true"><li style="--c:#42575e"></li><li style="--c:#bc5f4a"></li><li style="--c:#52a7a5"></li><li style="--c:#f5b3a4"></li></ul>
       </div>
-      <figure class="pj-peek__wide" data-reveal>
+      <figure class="pj-peek__half" data-reveal>
+        <img src="../assets/projects/naomi-gutman/logo-mock.jpg" alt="הלוגו של נעמי גוטמן – ייעוץ והדרכה להורי פגים – מודפס על נייר" loading="lazy" width="1600" height="1067">
+      </figure>
+      <figure class="pj-peek__half" data-reveal>
         <img src="../assets/projects/naomi-gutman/phone-flyer.jpg" alt="יד מחזיקה טלפון עם הפלאייר של נעמי גוטמן בוואטסאפ: מה עושים כשהפג משתחרר הביתה?" loading="lazy" width="1600" height="900">
+      </figure>
+      <figure class="pj-peek__half" data-reveal>
+        <img src="../assets/projects/naomi-gutman/nicu-flyers.jpg" alt="מעמד שקוף עם הפלאיירים של נעמי גוטמן בכניסה לפגייה" loading="lazy" width="1600" height="900">
       </figure>
     </section>
 
@@ -250,8 +254,8 @@
       </div>
 
       <div class="pj-steps">
-        <div class="pj-ph" data-reveal><span>הסקיצות ללוגו – כולל הכיוונים שלא נבחרו</span></div>
-        <div class="pj-ph" data-reveal><span>תמונת ההשראה: אם ותינוק</span></div>
+        <figure class="pj-figure pj-figure--paper" data-reveal><img src="../assets/projects/naomi-gutman/sketches.jpg" alt="דף מחברת עם סקיצות עיפרון ללוגו: צורות עגולות של אם ותינוק בכמה וריאציות" loading="lazy" width="1400" height="1054"><figcaption>הסקיצות ללוגו</figcaption></figure>
+        <figure class="pj-figure" data-reveal><img src="../assets/projects/naomi-gutman/inspiration.jpg" alt="תמונת ההשראה: אם מחבקת פג קטן בשיטת עור לעור" loading="lazy" width="452" height="678"><figcaption>תמונת ההשראה (מגוגל, מתוך <a href="https://www.ynet.co.il/parents/article/rkMH1ZFO00" target="_blank" rel="noopener">כתבה ב-ynet</a>)</figcaption></figure>
         <figure class="pj-figure" data-reveal><img src="../assets/projects/naomi-gutman/logo-icon.jpg" alt="הסמל הסופי של נעמי גוטמן: צורות רכות של אם שמחבקת תינוק" loading="lazy" width="720" height="900"><figcaption>הלוגו הסופי</figcaption></figure>
       </div>
       <p class="pj-big" data-reveal>זו הייתה נקודת המפנה: מסמל שמייצג את עולם הפגייה, לסמל שמייצג את התחושה שנעמי רוצה להעניק.</p>
@@ -323,12 +327,6 @@
         <figure class="pj-figure pj-figure--paper" data-reveal><img src="../assets/projects/naomi-gutman/flyer.jpg" alt="הפלאייר של נעמי גוטמן: מה עושים כשהפג משתחרר הביתה? – המקום להורים, לפגים ולכל מה שביניהם" loading="lazy" width="1000" height="1362"><figcaption>הפלאייר</figcaption></figure>
         <figure class="pj-figure pj-figure--span2" data-reveal><img src="../assets/projects/naomi-gutman/nicu-flyers.jpg" alt="מעמד שקוף עם הפלאיירים של נעמי גוטמן בכניסה לפגייה" loading="lazy" width="1600" height="900"><figcaption>במקום שבו הצורך מתעורר – בכניסה לפגייה</figcaption></figure>
       </div>
-
-      <!-- וידאו גלילה של האתר + הדגמת מערכת הניהול – להחליף ב-<figure class="pj-video"><video ...></video></figure> -->
-      <div class="pj-duo">
-        <div class="pj-ph pj-ph--tall" data-reveal><span>וידאו גלילה של האתר: אזורי התוכן, ההמלצות ויצירת הקשר</span></div>
-        <div class="pj-ph pj-ph--tall" data-reveal><span>וידאו הדגמה של מערכת הניהול (עם נתוני דמה בלבד)</span></div>
-      </div>
       <p class="pj-center-head"><a class="pj-link" href="https://ngpreemie.co.il/" target="_blank" rel="noopener">לאתר של נעמי גוטמן ←</a></p>
     </section>
 
@@ -342,11 +340,10 @@
       </div>
       <div class="pj-gallery">
         <figure class="pj-gallery__item pj-gallery__item--full" data-reveal><img src="../assets/projects/naomi-gutman/mock-flyers.jpg" alt="הפלאיירים של נעמי גוטמן על משטח בהיר, לצד מדבקה עגולה עם הלוגו וכרטיס בפאטרן של המותג" loading="lazy" width="2000" height="1250"></figure>
-        <figure class="pj-gallery__item pj-gallery__item--full" data-reveal><img src="../assets/projects/naomi-gutman/mock-cards.jpg" alt="כרטיס ביקור עם הלוגו האופקי, גב הכרטיס בפאטרן, מדבקה עגולה ואייקון המותג על רקע אפור-כחול כהה" loading="lazy" width="2000" height="1250"></figure>
-        <figure class="pj-gallery__item pj-gallery__item--43" data-reveal><img src="../assets/projects/naomi-gutman/mock-paper.jpg" alt="דף עם הלוגו האנכי לצד דף בפאטרן המותג, על רקע אפרסק" loading="lazy" width="2000" height="1250"></figure>
-        <figure class="pj-gallery__item pj-gallery__item--43" data-reveal><img src="../assets/projects/naomi-gutman/photo-style.jpg" alt="שפת הצילום של המותג: הורים ותינוקות ברגעים רכים בבית" loading="lazy" width="981" height="1311"></figure>
-        <div class="pj-gallery__item pj-gallery__item--full pj-ph" data-reveal><span>מוקאפ של האתר</span></div>
-      </div>    </section>
+        <figure class="pj-gallery__item pj-gallery__item--full" data-reveal><img src="../assets/projects/naomi-gutman/m-cards.jpg" alt="כרטיס ביקור וכרטיס A5 עם הלוגו של נעמי גוטמן על שמיכת פשתן, לצד כובע תינוק סרוג וחיתול טטרה" loading="lazy" width="1264" height="848"></figure>
+        <figure class="pj-gallery__item pj-gallery__item--full" data-reveal><img src="../assets/projects/naomi-gutman/m-mug.jpg" alt="ספל לבן עם הלוגו של נעמי גוטמן על שידה בחדר תינוק מואר, ליד ערימת שמיכות רכות" loading="lazy" width="1264" height="848"></figure>
+      </div>
+    </section>
 
     <!-- ===== 09 התוצאה העסקית ===== -->
     <section class="pj-section" aria-labelledby="pj-business">
@@ -372,18 +369,6 @@
           <ul class="pj-list"><li>זהות מותגית ושפה ברורה</li><li>אתר</li><li>פלאייר לפגיות</li><li>מערכת לניהול העסק</li></ul>
         </article>
       </div>
-    </section>
-
-    <!-- ===== 10 הוכחות וסגירה ===== -->
-    <section class="pj-proof" aria-labelledby="pj-proof">
-      <div class="pj-proof__text" data-reveal>
-        <p class="pj-kicker">מה נעמי אמרה</p>
-        <h2 class="pj-proof__line" id="pj-proof">העבודה נגמרה. הביטחון להתחיל - רק נבנה.</h2>
-        <p>אחד הרגעים המשמעותיים עבורי בפרויקט היה התגובה של נעמי לתוצאה. לאורך הדרך היא נתנה בי אמון וחופש מקצועי להוביל את התהליך. כשהצגתי לה את העבודה, היא תיארה את עצמה כ-<strong dir="ltr">"Speechless"</strong> ואמרה שהתוצאה מעבר לכל מה שציפתה לו.</p>
-        <p>הפרויקט התחיל בצורך במיתוג, והתרחב לבניית חוויה שלמה - מהמסר הראשון שהורה פוגש ועד הכלים שבהם נעמי תנהל את העסק.</p>
-      </div>
-      <!-- צילום מסך של ההודעה של נעמי (באישורה, עם הסתרת פרטים) -->
-      <div class="pj-proof__frame pj-ph" data-reveal><span>צילום מסך של הפידבק של נעמי</span></div>
     </section>
 
     <!-- ===== יצירת קשר ===== -->
@@ -425,9 +410,11 @@
           <p class="lead-form__status" role="status" aria-live="polite"></p>
         </form>
       </div>
-      <nav class="pj-next" aria-label="ניווט בין פרויקטים">
-        <a href="../index.html#projects">→ לכל הפרויקטים</a>
-      </nav>
+      <div class="pj-more">
+        <h2 class="pj-more__title">פרויקטים שאולי יעניינו אותך</h2>
+        <ul class="pj-more__grid"></ul>
+        <a class="pj-more__all" href="../index.html#projects">לכל הפרויקטים ←</a>
+      </div>
     </section>
 
   </main>
@@ -476,7 +463,7 @@
 
 </div>
 
-<script src="../js/config.js?v=28"></script>
-<script src="../js/main.js?v=28"></script>
+<script src="../js/config.js?v=29"></script>
+<script src="../js/main.js?v=29"></script>
 </body>
 </html>
