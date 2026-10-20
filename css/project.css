@@ -1050,3 +1050,13 @@ html.a11y-still .pj-zara .pj-zara__g > *, html.a11y-still .pj-zara .pj-zara__rin
 
 .pj-more__card img { height: auto; }
 
+
+/* מוקאפים של האתר והמערכת אצל נעמי: כיתוב מתחת לכל תמונה */
+.pj-gallery--sys { margin-top: calc(var(--u) * 30); }
+.pj-gallery--sys figcaption { margin-top: calc(var(--u) * 8); text-align: center; font-weight: 600; font-size: calc(var(--ft) * 14); }
+.pj-gallery--sys .pj-gallery__item { overflow: visible; }
+@media (min-width: 1200px) { .pj-gallery--sys { margin-top: calc(var(--u) * 60); gap: calc(var(--u) * 30); } .pj-gallery--sys figcaption { font-size: calc(var(--ft) * 20); margin-top: calc(var(--u) * 14); } }
+
+
+@media (min-width: 768px) { .pj-gallery--sys { grid-template-columns: 1fr 1fr; } }
+

@@ -1128,3 +1128,8 @@ html.a11y-still .footer__skate { translate: 70vw 0; }
 @media (min-width: 1200px) { .tstrip { margin: calc(var(--u) * 20) 0; padding: calc(var(--u) * 24) 0; } .tstrip__track { gap: calc(var(--u) * 30); } .tstrip img { height: calc(var(--u) * 110); } .tstrip img.is-tall { height: calc(var(--u) * 190); } }
 @media (prefers-reduced-motion: reduce) { .tstrip { overflow-x: auto; } .tstrip__track { animation: none; } }
 html.a11y-still .tstrip { overflow-x: auto; } html.a11y-still .tstrip__track { animation: none !important; }
+
+/* ציטוטים על התהליך בתוך פס ההמלצות */
+.tstrip__q { flex: 0 0 auto; max-width: calc(var(--u) * 300); background: #fff; padding: calc(var(--u) * 10) calc(var(--u) * 14); border-radius: calc(var(--u) * 8); box-shadow: 0 calc(var(--u) * 6) calc(var(--u) * 16) rgba(0,0,0,.12); font-weight: 600; font-size: calc(var(--ft) * 14); line-height: 1.3; white-space: normal; rotate: 1deg; }
+@media (min-width: 1200px) { .tstrip__q { max-width: calc(var(--u) * 460); font-size: calc(var(--ft) * 20); padding: calc(var(--u) * 16) calc(var(--u) * 22); } }
+
