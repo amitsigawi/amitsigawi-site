@@ -1023,3 +1023,30 @@ html.a11y-still .pj-zara .pj-zara__g > *, html.a11y-still .pj-zara .pj-zara__rin
 .pj-testi-shot img { display: block; width: 100%; height: auto; border-radius: calc(var(--u) * 12); box-shadow: 0 calc(var(--u) * 10) calc(var(--u) * 24) rgba(0,0,0,.14); rotate: 1.2deg; }
 @media (min-width: 768px) { .pj-testis__grid { columns: 2; } }
 @media (min-width: 1200px) { .pj-testis__grid { margin-top: calc(var(--u) * 60); column-gap: calc(var(--u) * 50); } .pj-testis__grid > * { margin-bottom: calc(var(--u) * 50); } .pj-testis__grid .pj-testi p { font-size: calc(var(--ft) * 22); } }
+
+/* =========================================================
+   סבב 5 – תיקונים קטנים
+   ========================================================= */
+/* זמן יער: האנימציה ממלאת את כל הקאבר (בלי פסים בצדדים) */
+.pj-cover--fill .pj-cover__media { object-fit: cover; object-position: center 50%; }
+/* במובייל: בלי "לסיפור המלא" על קאבר מונפש – שלא יעלה על הלוגו */
+@media (max-width: 767.98px) { .pj-cover--logo .pj-scroll { display: none; } }
+
+/* תמונת ההשראה – לא ענקית במובייל */
+@media (max-width: 767.98px) { .pj-figure--insp img { max-width: 62%; margin-inline: auto; display: block; } }
+
+/* פרויקטים נוספים – בגודל של הכרטיסים בדף הבית; במובייל פרויקט אחד */
+.pj-more__grid { max-width: calc(var(--u) * 360); margin-inline: auto; }
+.pj-more__grid li:nth-child(n+2) { display: none; }
+@media (min-width: 768px) { .pj-more__grid { max-width: calc(var(--u) * 820); } .pj-more__grid li:nth-child(n+2) { display: block; } }
+@media (min-width: 1200px) {
+  .pj-more__grid { max-width: calc(var(--u) * 1000); gap: calc(var(--u) * 30); }
+  .pj-more__title { font-size: calc(var(--ft) * 54); }
+  .pj-more__card { padding: calc(var(--u) * 10) calc(var(--u) * 10) calc(var(--u) * 16); }
+  .pj-more__type { font-size: calc(var(--ft) * 15); margin-top: calc(var(--u) * 10); }
+  .pj-more__name { font-size: calc(var(--ft) * 30); }
+  .pj-more__res { font-size: calc(var(--ft) * 16); }
+}
+
+.pj-more__card img { height: auto; }
+
